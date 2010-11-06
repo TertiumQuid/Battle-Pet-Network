@@ -1,0 +1,53 @@
+<% content_for :page_title do %><h2>Welcome to <%=AppConfig.name%></h2><% end %>
+
+<div class="sidebox slim right">
+  <div class="box slim">	
+    <h4>World Activity</h4>
+    <% if @world_activity.blank? %>
+      <p class="em">No recent activity...</p>
+    <% else %>
+      <ul width="100%" id="world-activity" class="activity-stream">
+		<% @world_activity.each do |a| %>
+		  <li class="activity"><%= a.activity_data[:description]%></li>
+		<% end %>
+	  </ul>
+    <% end %>
+  </div>
+</div>
+
+<% unless registered? %>
+<div class="box">
+  <h3>Get a Pet and Start Playing</h3>
+</div>
+<% end %>
+
+<div class="box">
+  <h3>Pet Tracks</h3>	
+  <% if @pet_activity.blank? %>	
+    <p class="em">No recent activity...</p>
+  <% else %>
+    <ul id="pet-activity" class="activity-stream">
+	  <% @pet_activity.each do |a| %>
+	    <li class="activity"><%= a.activity_data[:description]%></li>
+	  <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<div class="box">
+  <h3>Forum Posts</h3>
+  <% if @forum_posts.blank? %>
+    <p class="em">No recent posts...</p>
+  <% else %>
+    <ul id="forum-posts" class="activity-stream">
+	  <% @forum_posts.each do |p| %>
+	    <li class="activity">
+	        in <strong><%= facebook_link_to p.forum_topic.title, facebook_forum_forum_topic_path(:forum_id => p.forum_topic.forum_id, :id => p.forum_topic.id, :anchor => dom_id(p)) %></strong>
+			<br />
+	        <%= time_ago_in_words(p.created_at) %> ago 
+	        by <strong><%= p.user.username %></strong>
+		</li>
+	  <% end %>
+    </ul>
+  <% end %>
+</div>

@@ -1,0 +1,79 @@
+<% content_for :page_title do %><h2>Wild Humans</h2><% end %>
+
+<div class="sidebox slim right">
+  <div class="box slim">
+    <h4>Human Taming</h4>
+    <p class="em">Humans are mistrusting creatures who must be found and domesticated before they can be kenneled 
+	and put to good use. Taming humans is a two step process:</p>
+	<p><strong>First</strong>, the pet must search for and find a wild human among the wastes. Some humans are more cunning 
+	than others or else nearly extinct, while others can be found with relative ease.</p>
+	<p><strong>Second</strong>, the pet must win the affections of the human, tricking it into submission and service.</p>
+	<p class="em note-bene"><strong>NOTE:</strong> Humans are prone to infighting, and keeping too many kenneled together 
+	may result in the creatures attempting to destroy each other.</p>
+	
+	<% if has_pet? %>
+	  <div id="tame-human">
+		  <div>
+			<span class='strong right'><%= (current_user_pet.affection + current_user_pet.total_affection) %>%</span>
+			<label>Odds of Success:</label>
+		  </div>
+		  <div>
+			<span class='strong right'><%= current_user_pet.affection %></span>
+			<label>Pet's Affection:</label>
+		  </div>
+		  <div>
+			<label>Charms</label>
+		    <p class="em">Your pet can acquire various charms to help please and control wild humans.</p>
+			<% if current_user_pet.belongings.type_is('Charm').count > 0 %>
+			  <ul id='charms'>
+			  <% current_user_pet.belongings.type_is('Charm').each do |c| %>
+			    <li>
+			      <div class="left"><%= avatar_image(c.item'small') %></div>
+			      <div>
+				    <label><%= c.item.name %></label><br />
+				    <label>+<%= c.item.power %> Bonus</label>
+				  </div>
+			    </li>
+			  <% end %>
+			  </ul>
+			<% else %>
+			  <p class="em">Your pet currently has no charms.</p>
+			<% end %>
+		  </div>
+		  <div>
+			<span class='strong right'><%= @occupation.cost %></span>
+			<label>Endurance Cost:</label>
+		  </div>
+		  <% if @occupation.pet_can?(current_user_pet) %>
+			<p>
+			  <span class="occupation-button">
+			  <%= facebook_link_to "Try to Find and Tame a Human", attempt_facebook_occupation_path(@occupation), :method=>:put %>
+			  </span>
+			</p>
+		  <% end %>		
+	  </div>
+	<% end %>
+  </div>
+</div>
+
+<div class="box">
+  <p class="em"><strong>The Human Slave Trade:</strong> After the fall, humans devolved even further from their barbaric state. Totally mindless, they're now used by pets for a variety of menial tasks to improve a pet's overall welfare and strength. In fact, a healthy human slave trade has emerged among the pets, making them valuable especially considering they're now an endangered species!</p>
+</div>
+
+<div class="box">
+  <h3>A Field Guide to Wild Humans</h3>
+  <% @humans.each do |human| %>
+  <table class="human dotbox">
+	<tr><th colspan="3"><%= facebook_link_to human.name, facebook_human_path(human) %></th></tr>
+	<tr>
+	  <td rowspan="4"><%= avatar_image(human,'medium') %></td>
+	  <td>Ability: <strong><%= human.human_type %></strong></td>
+	  <td rowspan="4" class="em"><%= human.description %></td>
+	</tr>
+	<tr><td>Rarity: <strong><%= human.difficulty %></strong></td></tr>
+	<tr><td>Power: <strong><%= human.power %></strong></td></tr>
+	<tr><td>Required Level: <strong><%= human.required_rank %></strong></td></tr>
+  </table>
+  <% end %>
+  <%= will_paginate @humans %>
+</div>

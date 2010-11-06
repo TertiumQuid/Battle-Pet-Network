@@ -1,0 +1,10 @@
+rat_hunt_hunter:
+  hunt: rat_hunt
+  pet: siamese
+  strategy: siamese_strategy
+  
+omega_rat_hunt_hunter:
+  hunt: omega_rat_hunt
+  pet: persian
+  strategy: persian_strategy
+          

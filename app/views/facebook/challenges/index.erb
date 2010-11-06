@@ -1,0 +1,75 @@
+<% content_for :page_title do %><h2>Challenge Records</h2><% end %>
+
+<div class="sidebox slim right">
+  <div class="box slim">
+    <h4>Unanswered Challenges</h4>
+    <% if @issued.blank? %>
+	  <p class="em">You have issued no challenges that have gone unanswered at the moment.</p>
+	<% else %>
+	  <ul id='issued-challenges' class='challenges'>
+	  <% @issued.each do |challenge| %>
+	    <li>
+	      <div>
+		    <% if challenge.open? %>
+			  <span><%= "You issued an open challenge #{time_ago_in_words(challenge.created_at)} ago" %></span>
+		    <% else %>
+		      <%= avatar_image(challenge.defender,'tiny') %>
+			  <span><%= "You challenged #{challenge.defender.name} #{time_ago_in_words(challenge.created_at)} ago" %></span>
+			  <br />
+		    <% end %>
+	        <div><%= facebook_link_to "Cancel Challenge", cancel_facebook_challenge_path(challenge), :method => :put %></div>
+		  </div>
+        </li>
+	  <% end %>	
+	  </ul>
+    <% end %>
+  </div>
+
+  <%= render_open_challenges_box(@open) if !@open.blank? && has_pet? %>
+</div>
+
+<% unless @challenges.blank? %>
+<div class="box">
+  <h3>You've Been Challenged to Battle! Now You Must Respond.</h3>
+
+  <% cell_table(@challenges) do |c,idx| %>
+  <td>
+    <table class="challenge">
+	  <tbody>
+		<tr>
+		  <td rowspan="4"><%= avatar_image(c.attacker,'medium') %></td>
+		  <th><%= facebook_link_to c.attacker.name, facebook_pet_path(c.attacker)%></th>
+		</tr>
+		<tr>
+		  <td><label>Level <%= c.attacker.level_rank_count %><%= c.attacker.breed.name %></label></td>
+		  <td><label>Record: <% c.attacker.battle_record %></label></td>
+		  <td>
+			<%= facebook_link_to "Decline", refuse_facebook_challenge_path(c), :class => 'right button small gray' %></span>
+			<%= facebook_link_to "Accept", edit_facebook_challenge_path(c), :class => 'left button small green' %></span>
+		  </td>
+		</tr>
+	  </tbody>	
+	</table>
+  </td>	
+  <% end %>
+</div>
+<% end %>
+
+<div class="box">
+  <h3>Challenge History</h3>
+  <% unless @resolved.blank? %>
+	<ul class="records challenges">
+	  <% @resolved.each do |challenge| %>
+		<li class="record">
+		  <%= avatar_image(challenge_opposing_pet_from(challenge,current_user_pet)) %>
+		  <div class="<%="avatar-#{challenge_opposing_pet_from(challenge,current_user_pet).slug}-small" %>"></div>
+		  <span><%= challenge_outcome_description_for(challenge,current_user_pet) %></span>
+		</li>
+	  <% end %>
+	</ul>	
+  <% else %>
+    <p class="em">You haven't yet been challenged nor dared to challenge another pet. You'll have to step forth and
+	 test your might if you want to forge a place in the world and claim its rewards.</p>
+	<p><%= facebook_link_to "Find Pets to Challenge", facebook_pets_path %></p>
+  <% end %>
+</div>

@@ -1,0 +1,34 @@
+<div id="header">
+  <h1><a>Battle Pet</a></h1>
+
+  <% if has_pet? %>	
+    <%= avatar_image(current_user_pet,'large') %>
+    <div id="header-profile">
+      <h5><%= "Level #{current_user_pet.level_rank_count} #{current_user_pet.breed.name}" %></h5>
+      <h2><%= current_user_pet.name %></h2>
+	  <div>
+		<div id="header-stats">
+		  <label>Health: <%= "#{current_user_pet.current_health}/#{current_user_pet.total_health}" %></label>
+		  <span class="graph">
+			<span style="width:<%= 100*(current_user_pet.current_health/current_user_pet.total_health) %>px;"></span>
+		  </span>
+		  <br />
+		  <label>Endurance: <%= "#{current_user_pet.current_endurance}/#{current_user_pet.total_endurance}" %></label>
+		  <span class="graph">
+			<span style="width:<%= 100*(current_user_pet.current_endurance/current_user_pet.total_endurance) %>px;"></span>
+		  </span>
+		</div>
+      </div>
+      <h4>
+	    <label><%= "Kibble: #{current_user_pet.kibble}" %></label> 
+		<%= facebook_link_to 'Buy Kibble', premium_facebook_items_path %>
+	  </h4>
+	  <br />
+      <ul>
+		<li><%= facebook_link_to 'Profile', profile_facebook_pet_path %></li>
+		<li><%= facebook_link_to 'Combat', combat_facebook_pet_path %></li>
+		<li><%= facebook_link_to 'Items', facebook_belongings_path %></li>
+	  </ul>
+    </div>
+  <% end %>
+</div>

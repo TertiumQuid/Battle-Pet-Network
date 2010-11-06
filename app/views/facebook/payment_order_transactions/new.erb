@@ -1,0 +1,38 @@
+<% content_for :page_title do %><h2><%= flash[:notice]%></h2><% end %>
+
+<div class="sidebox slim right">	
+  <div class="box slim">
+	<p class="em">Now that you've finished you may want to visit:</p>
+	<ul>
+	  <li><%= facebook_link_to "The item market...", facebook_items_path %></li>
+	  <li><%= facebook_link_to "Some pet shops...", facebook_shops_path %></li>
+	  <li><%= facebook_link_to "Your belongings...", facebook_belongings_path %></li>
+	  <% if has_shop? %>
+	    <li><%= facebook_link_to "Your shop...", edit_facebook_shop_path %></li>
+	  <% else %>
+	    <li><%= facebook_link_to "Opening a shop...", new_facebook_shop_path %></li>
+	  <% end %>
+	</ul>
+  </div>
+</div>
+
+<div class="box">
+<% if @po.errors.empty? %>
+  <h3>Purchased Completed:</h3>
+  <table class="purchase">
+    <tbody>
+	  <tr>
+	    <td>
+		  <div class='item-#{@po.item.slug.downcase.gsub(/\s/,'-')}-mid left'></div>
+		</td>
+		<td>
+		  <%= @po.item.description%>	
+		</td>
+	  <tr>
+	</tbody>
+  </table>
+<% else %>
+  <h4>Payment Results</h4>
+  <p><%= @po.errors.full_messages %></p>
+<% end %>
+</div>

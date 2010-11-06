@@ -1,0 +1,24 @@
+hordes_1:
+  ranking: hordes
+  rankable_type: Pack
+  rankable_id: <%= Fixtures.identify :alpha %>
+  
+franchises_1:
+  ranking: franchises
+  rankable_type: Shop
+  rankable_id: <%= Fixtures.identify :first %>
+
+strongest_1:
+  ranking: strongest
+  rankable_type: Pet
+  rankable_id: <%= Fixtures.identify :burmese %>
+
+strongest_2:
+  ranking: strongest
+  rankable_type: Pet
+  rankable_id: <%= Fixtures.identify :persian %>  
+
+strongest_3:
+  ranking: strongest
+  rankable_type: Pet
+  rankable_id: <%= Fixtures.identify :siamese %>

@@ -1,0 +1,66 @@
+<% content_for :page_title do %><h2>Item Market</h2><% end %>
+
+<div class="sidebox slim right">
+  <%= render_kibble_box %>
+</div>
+
+<div class="box">
+  <p class="em">Humans left behind a world of junk, and for years industrious pets have been scavenging and putting the 
+	most useful relics to use. Here in the Items Market, you'll find all sorts of things to make your pet more powerful, 
+	stylish, or skillful.</p>
+  <p class="em">As items are found for trade, the Market will gradually restock available inventory. Even after the fall 
+	life still follows the laws of supply and demand, and from the Markets other pets purchase and resell the lost 
+	treasures of the human world.</p>
+  <p class="em">Different types of items confer different benefits. Market stores trade in a specific item type only.</p>
+
+  <table id="market">
+	<tr>
+	<td>
+	<%= item_store_table 'Food', "Pets must eat to survive. Food items can only be used once, and restore an amount 
+	your a pet's endurance and all of their health when consumed. Pets will naturally weaken without food, and even if 
+	your pet is unharmed they will remain strong when regularly fed." %>
+	</td>
+	<td>
+	<%= item_store_table 'Toy', "Pets that train and play become more agile, deadlier warriors. Toys can only be used
+	once, after which they are too damaged to be of interest. After your pet plays with a toy, they immediately gain an 
+	amount of experience from serious frisking." %>
+	</td>
+	<td>
+	<%= item_store_table 'Sensor', "Sensors can be individually equipped to your pet, but only one may be used at any 
+	given time. When active, the sensor increases your pet's awareness of their surroundings, providing various experience 
+	bonuses, such as after winning a battle." %>
+	</td>
+	</tr>
+	<tr>
+	<td>
+	<%= item_store_table 'Mantle', "A mantle is worn by a pet to toughen their body, protecting them from wounds 
+	and increasing their maximum total health. Only one mantle may be worn at any time." %>
+	</td>
+	<td>
+	<%= item_store_table 'Collar', "A pet wearing a collar fights protected against the enemy's most dangerous attacks. 
+	When wearing a collar your pet gains additional protection when they defend in battle. Only one collar may be worn at 
+	any time.</p>" %>
+	</td>
+	<td>
+	<%= item_store_table 'Weapon', "Weapons make your pet considerably more dangerous in battle, increasing the total 
+	amount of damage they deliver when attacking in battle. Only one weapon may be used at any time." %>
+	</td>
+	</tr>
+	<tr>
+	<td>
+	<%= item_store_table 'Standard', "Standards are great beacons of assembly, and allow the owner to found and lead a 
+	pack of their fellow pets. Your pet must yield the standard to the pack, but a pack's standard can be upgraded in the 
+	future with more powerful standards." %>
+	</td>
+	<td>
+	<%= item_store_table 'Charm', "Wild humans remain mysteriously attracted to decorative trinkets and costumes. While 
+	your pet wears one or more charms they receive a bonus to attract, tame, and rule their domesticated and enslaved 
+	humans." %>
+	</td>
+	<td>
+	<%= item_store_table 'Ornament', "Ornaments are for pets to collect and show off, providing some style and beauty 
+	to your pet's world, but in rare cases they may produce other unusual or secret effects." %>
+	</td>
+	</tr>	
+  </table>
+</div>

@@ -1,0 +1,28 @@
+<% if pet.biography.blank? && show_hook %>	
+<div class="box slim biography">
+  <h4>Write Biography</h4>
+  <p class="em">Your pet's history are personality are a mystery. Record their biography and earn Kibble stat bonuses for 
+  their life's journeys.</p>
+  <p><%= facebook_link_to "Record Pet Biography", new_facebook_biography_path, :class => 'button orange' %></p>
+</div>
+<% elsif pet.biography %>
+<div class="box slim biography">
+  <h4>Biography</h4>
+  <p class="em"><%= pet.biography.description %></p>
+  <div><span>Temperament:</span> <strong><%= pet.biography.temperament %></strong></div>
+  <div><span>Lifestyle:</span> <strong><%= pet.biography.lifestyle %></strong></div>
+  <div><span>Circadian:</span> <strong><%= pet.biography.circadian %></strong></div>
+  <div><span>Gender:</span> <strong><%= pet.biography.gender %></strong></div>
+  <div><span>Favorite Color:</span> <strong><%= pet.biography.favorite_color %></strong></div>
+  <div><span>Favorite Food:</span> <strong><%= pet.biography.favorite_food %></strong></div>
+  <div><span>Favorite Pastime:</span> <strong><%= pet.biography.favorite_pastime %></strong></div>
+  <div><span>Favorite Season:</span> <strong><%= pet.biography.favorite_season %></strong></div>
+  <div><span>Favorite Composer:</span> <strong><%= pet.biography.favorite_composer %></strong></div>
+  <div><span>Favorite Philosopher:</span> <strong><%= pet.biography.favorite_philosopher %></strong></div>
+  <div><span>Pedigree:</span> <strong><%= pet.biography.pedigree %></strong></div>
+  <div><span>Voice:</span> <strong><%= pet.biography.voice %></strong></div>
+  <div><span>Zodiac:</span> <strong><%= pet.biography.zodiac %></strong></div>
+  <div><span>Siblings:</span> <strong><%= pet.biography.siblings %></strong></div>
+  <div><span>Birthday:</span> <strong><%= pet.biography.birthday.strftime("%B %d") %></strong></div>
+</div>
+<% end %>

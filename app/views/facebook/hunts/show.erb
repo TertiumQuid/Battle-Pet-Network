@@ -1,0 +1,66 @@
+<% content_for :page_title do %><h2>Sentient Hunt</h2><% end %>
+
+<div class="sidebox slim right">
+  <%= render_hunts_box @hunts %>
+</div>
+
+<div class="box">
+  <table class="hunt-profile">
+	<tr>
+	  <th>
+	    <%= "#{time_ago_in_words(@hunt.hunt.updated_at)} ago" %> <label><%= @hunt.pet.name %></label> hunted a 
+		<label><%= @hunt.hunt.sentient.name %></label>
+	  </th>
+	</tr>
+	<tr>
+	  <td>	
+	  	<%= current_user_pet.name %> 
+		<%= @hunt.outcome == "won" ? "won" : "lost" %>
+		the hunt
+	  </td>
+	  <td>
+	  	<%= @hunt.hunt.sentient.name %> 
+		<% if (@hunt.outcome == "won") %>
+	  	  was defeated
+		<% elsif (@hunt.outcome == "lost") %>
+		  was victorious
+		<% else %>
+		  escaped
+		<% end %>
+	  </td>
+	</tr>
+	<tr>
+	  <td><%= avatar_image(current_user_pet,'large') %></td>	
+	  <td><%= avatar_image(@hunt.hunt.sentient, 'large') %></td>
+	</tr>
+	<tr><th colspan="2" class="em">Here's what happened</th></tr>
+	<tr>
+	  <td colspan="2">
+		<ul class="logs">
+		  <% unless @hunt.hunt.logs[:gear].blank? %>
+		    <% @hunt.hunt.logs[:gear].each do |log| %>	
+		      <li class="log"><%= log %></li>
+		    <% end %>
+		  <% end %>
+		  <% @hunt.hunt.logs[:status][:entered].each do |status| %>
+		    <li class="log"><%= status %></li>
+		  <% end %>
+		  <% @hunt.hunt.logs[:rounds].each do |log| %>	
+		    <li class="log">
+			  <%= facebook_image_tag "actions/tiny/#{log[:attacker_action]}.png" %>
+			  <%= facebook_image_tag "actions/tiny/#{log[:defender_action]}.png" %> 
+			  <%= log[:description] %>
+			</li>
+		  <% end %>
+		  <li class="log strong"><%= @hunt.hunt.logs[:outcome] %></li>
+		  <% @hunt.hunt.logs[:attacker_awards].each_pair do |key,log| %>
+		    <li class="log award"><%= log %></li>
+		  <% end %>
+		  <% @hunt.hunt.logs[:status][:ended].each do |status| %>
+		    <li class="log"><%= status %></li>
+		  <% end %>		
+		</ul>
+	  </td>
+    </tr>
+  </table>
+</div>

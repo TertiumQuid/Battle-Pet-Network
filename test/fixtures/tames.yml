@@ -1,0 +1,19 @@
+siamese_sarah:
+  pet: siamese
+  human: sarah
+  status: kenneled    
+
+siamese_lestor:
+  pet: siamese
+  human: lestor
+  status: kenneled    
+
+siamese_ichabod:
+  pet: siamese
+  human: ichabod
+  status: enslaved
+
+persian_oscar:
+  pet: persian
+  human: oscar
+  status: enslaved

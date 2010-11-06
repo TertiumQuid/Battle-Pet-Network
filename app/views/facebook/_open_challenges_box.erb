@@ -1,0 +1,28 @@
+<div class="box slim">
+  <h4>Open Challenges</h4>
+  <% if challenges.blank? %>
+	  <p class="em">The caterwaul of boasts and oaths is surprisingly still. No pets are issuing open challenges.</p>
+	<% else %>
+	  <ul id='open-challenges' class='challenges'>
+	  <% challenges.each do |challenge| %>
+	    <li>
+		  <%= avatar_image(challenge.attacker,'tiny', {:class => 'left'}) %>
+		  <div>
+			<span><%= "#{challenge.attacker.name} called for battle #{time_ago_in_words(challenge.created_at)} ago" %></span>
+			<br />
+			<span><%= "Level #{challenge.attacker.level_rank_count} #{challenge.attacker.breed.name}" %></span>
+			<br />
+			<div>
+			  <%= facebook_link_to "Accept Challenge", 
+								   edit_facebook_challenge_path(challenge), 
+								   :class=>'button gray small' %>
+			</div>
+		  </div>
+		</li>
+	  <% end %>	
+	  </ul>
+  <% end %>
+  <% if has_pet? %>
+	 <p><%= facebook_link_to "Issue Open Challenge", open_facebook_challenges_path, :class => 'button green' %></p>
+  <% end %>
+</div>

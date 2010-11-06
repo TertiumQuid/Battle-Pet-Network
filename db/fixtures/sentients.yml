@@ -1,0 +1,108 @@
+plague_of_flies:
+  sentient_type: threat
+  name: Plague of Flies   
+  description: Summoned from corpse bellies, offal heaps, and the rotten leagues of ruined suburbia, this buzzing black cloud hosts countless thousands of wicked horseflies deadly in their endless numbers and appetite for the filth and blood.  
+  health: 35
+  endurance: 125
+  power: 1
+  intelligence: 1
+  fortitude: 1
+  kibble: 12
+  population: 25
+  repopulation_rate: 15
+  population_cap: 25
+  required_rank: 1 
+
+vampire_bat:
+  sentient_type: threat
+  name: Vampire Bat
+  description: Notoriously vexing to hunt, the vampire bat is an irritable bloodthirsty race of night stalkers whose cowardice is their bravery, fearlessly swooping down under the cover of darkness with a rictus of precision fangs. These bats' gnawing hunger makes them almost too easy to lure to battle.
+  health: 15
+  endurance: 50
+  power: 1
+  intelligence: 3
+  fortitude: 2
+  kibble: 3
+  population: 50
+  repopulation_rate: 25
+  population_cap: 50
+  required_rank: 1
+  
+quad_crab:
+  sentient_type: threat
+  name: Quad Crab
+  description: Originally a mean and humble stone crab, the quad crab was so-named after the species evolved with four arms, each brandishing a mighty claw. An urban creature, the quad crab can be found in the oily saltwater lakes and rivers which have flooded into the cities.
+  health: 30
+  endurance: 100
+  power: 4
+  intelligence: 3
+  fortitude: 2
+  kibble: 20
+  population: 15
+  repopulation_rate: 10
+  population_cap: 15
+  required_rank: 1
+
+dark_vole:
+  sentient_type: threat    
+  name: Dark Vole
+  description: After years of wrestling pets for the trinkets and baubles left by the human empire, the dark vole has evolved into the ultimate
+               stealth advisary. Pitch black and nearly physiologically invisible to animal night vision, these troublesome pits 
+               of shadow strike and steal in the darkness like the sniveling cowards they are.
+  health: 20
+  endurance: 60
+  power: 3
+  intelligence: 3
+  fortitude: 2
+  kibble: 5
+  population: 50
+  repopulation_rate: 10
+  population_cap: 50
+  required_rank: 1
+
+leper_rat:
+  sentient_type: threat    
+  name: Leper Rat
+  description: These loathesome creatures thrive in the rotting disease they carry, spreading plauge through the shadows 
+               in their withering course of death.
+  health: 10
+  endurance: 30
+  power: 1
+  intelligence: 1
+  fortitude: 1
+  kibble: 1
+  population: 100
+  repopulation_rate: 10
+  population_cap: 100
+  required_rank: 1
+
+omega_rat:
+  sentient_type: threat
+  name: Omega Rat
+  description: Basked in a radioactive aura these monsters have emerged as a highly adaptive response to the hazards
+               of the toxic post-war landscape.
+  health: 25
+  endurance: 75
+  power: 2
+  intelligence: 3
+  fortitude: 5
+  kibble: 20
+  population: 25
+  repopulation_rate: 5
+  population_cap: 25
+  required_rank: 2
+
+gila_monstrosity:
+  sentient_type: threat
+  name: Gila Monstrosity
+  description: Lumbering, impassive, and ever hungry with a mouth full of disease and nature's perfect teeth.
+  health: 40
+  endurance: 100
+  power: 3
+  intelligence: 3
+  fortitude: 4
+  kibble: 50
+  population: 10
+  repopulation_rate: 2
+  population_cap: 10  
+  required_rank: 3

@@ -1,0 +1,23 @@
+<% content_for :page_title do %><h2>The Sentient Threat</h2><% end %>
+
+<div class="box full">
+<p class="em">
+  <em>The world remains a dangerous battleground, inhabited by noble pets as well as populations of vicious predators, 
+  mindless animals, mutants, feral humans, and worse. These beasts are known as 'sentients' and must be hunted down and 
+  destroyed by vigilant pets like yours.</em>
+</p>
+</div>
+
+<div class="sidebox slim right">
+  <%= render_hunts_box @hunts unless !has_pet? || @hunts.blank? %>
+</div>
+
+<div class="box">
+  <h3>Active Sentients</h3>
+  <% @sentients.each do |sentient| %>
+	  <% sentient_badge(sentient) do %>		
+	    <%= "<span class='right hunt-button'>#{link_to_hunt(sentient)}</span>" if has_pet? %>
+	  <% end %>
+  <% end %>
+  <%= will_paginate @sentients %>
+</div>

@@ -1,0 +1,43 @@
+<% content_for :page_title do %><h2>Market Store</h2><% end %>
+
+<div class="sidebox slim right">
+  <%= render_kibble_box %>
+
+  <div class="box slim">	
+    <h4>Specialist Pet Shops</h4>
+    <% if @shops.blank? %>
+      <p class="empty em">Hmm. None of the <%= facebook_link_to 'other pet shops', facebook_shops_path %> are specializing in 
+	  these items.</p>
+    <% else %>
+      <table id="shops">
+	    <% @shops.each do |shop| %>
+	      <tr><td><%= facebook_link_to shop.name, facebook_shop_path(shop) %></td><td>(<%= shop.inventories_count %>)</td></tr>
+	    <% end %>
+	  </table>
+	<% end %>
+  </div>
+</div>
+
+<div class="box">
+  <h3 id="<%= params[:id].downcase %>-store-title"><%= params[:id] %> Store</h3>
+	
+  <% cell_table(@items,2) do |i,idx| %>
+    <td>
+	  <% item_badge(i, :description => true) do %>	
+		<% if has_pet? %>
+		  <% if current_user_pet.kibble >= i.cost && i.stock > 0 %>
+		    <%= facebook_link_to "Buy for #{i.cost}K",
+								 purchase_facebook_item_path(i.id), 
+								:method => :post, 
+								:class => 'button green small' %>
+		  <% elsif i.stock == 0 %>
+		    <label>Cost: <%= i.cost %>K <span class="em empty">Out of Stock</span></label>
+		  <% elsif current_user_pet.kibble < i.cost %>
+		    <label>Cost: <%= i.cost %>K <span class="em empty">Too Expensive</span></label>
+		  <% end %>
+		<% end %>
+	  <% end %>	
+	</td>
+  <% end %>
+  <p class="center"><%= will_paginate @items %></p>
+</div>

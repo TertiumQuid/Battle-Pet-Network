@@ -1,0 +1,134 @@
+plague_of_flies_strategy_scratch:
+  action: scratch
+  strategy: plague_of_flies_strategy
+  rank: 1
+  
+plague_of_flies_strategy_flank: 
+  action: flank
+  strategy: plague_of_flies_strategy
+  rank: 2
+  
+plague_of_flies_strategy_dodge: 
+  action: dodge
+  strategy: plague_of_flies_strategy
+  rank: 4
+  
+plague_of_flies_strategy_leap: 
+  action: leap
+  strategy: plague_of_flies_strategy
+  rank: 6
+
+quad_crab_strategy_flank: 
+  action: flank
+  strategy: quad_crab_strategy
+  rank: 2
+  
+quad_crab_strategy_dodge: 
+  action: dodge
+  strategy: quad_crab_strategy
+  rank: 2
+  
+quad_crab_strategy_slash: 
+  action: slash
+  strategy: quad_crab_strategy
+  rank: 4
+  
+quad_crab_strategy_claw: 
+  action: claw
+  strategy: quad_crab_strategy
+  rank: 6
+
+vampire_bat_strategy_scratch: 
+  action: bite
+  strategy: vampire_bat_strategy
+  rank: 4
+  
+vampire_bat_strategy_scratch: 
+  action: scratch
+  strategy: vampire_bat_strategy
+  rank: 3
+
+leper_rat_strategy_scratch: 
+  action: scratch
+  strategy: leper_rat_strategy
+  rank: 5
+  
+leper_rat_strategy_slash: 
+  action: slash
+  strategy: leper_rat_strategy
+  rank: 3
+  
+leper_rat_strategy_bite: 
+  action: bite
+  strategy: leper_rat_strategy
+  rank: 2
+  
+omega_rat_strategy_bite: 
+  action: bite
+  strategy: omega_rat_strategy
+  rank: 4
+
+omega_rat_strategy_claw: 
+  action: claw
+  strategy: omega_rat_strategy
+  rank: 3
+
+omega_rat_strategy_flank: 
+  action: flank
+  strategy: omega_rat_strategy
+  rank: 2  
+
+omega_rat_strategy_scratch: 
+  action: scratch
+  strategy: omega_rat_strategy
+  rank: 2
+
+omega_rat_strategy_leap: 
+  action: leap
+  strategy: omega_rat_strategy
+  rank: 1
+  
+gila_monstrosity_strategy_bite: 
+  action: bite
+  strategy: gila_monstrosity_strategy
+  rank: 6  
+
+gila_monstrosity_strategy_claw: 
+  action: claw
+  strategy: gila_monstrosity_strategy
+  rank: 3
+
+gila_monstrosity_strategy_slash: 
+  action: slash
+  strategy: gila_monstrosity_strategy
+  rank: 2
+
+dark_vole_strategy_claw: 
+    action: claw
+    strategy: dark_vole_strategy
+    rank: 4
+
+dark_vole_strategy_scratch: 
+    action: scratch
+    strategy: dark_vole_strategy
+    rank: 3
+
+dark_vole_strategy_leap: 
+    action: leap
+    strategy: dark_vole_strategy
+    rank: 3
+
+dark_vole_strategy_dodge: 
+    action: dodge
+    strategy: dark_vole_strategy
+    rank: 3
+
+dark_vole_strategy_flank: 
+    action: flank
+    strategy: dark_vole_strategy
+    rank: 1
+
+dark_vole_strategy_bite: 
+    action: bite
+    strategy: dark_vole_strategy
+    rank: 2

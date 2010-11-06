@@ -1,0 +1,51 @@
+<% content_for :page_title do %><h2>Pet Shops</h2><% end %>
+
+<div class="sidebox slim right">
+  <% if has_pet? && current_user_pet.shop_id.blank? %>	
+    <div class="box slim open-shop">
+      <h4>Opening a Shop</h4>
+	  <p class="em">
+		You can <%= facebook_link_to 'open your own shop', new_facebook_shop_path %> by paying <%= AppConfig.shops.opening_fee %> 
+		kibble and stocking it with inventory from your belongings.
+	  </p>
+	</div>
+  <% end %>
+	
+  <%= render_kibble_box %>
+</div>
+
+<div class="box">
+  <p class="em">Entrepreneurial pets and those tired of shedding blood for Kibble have taken their belongings and 
+	opened a personal item shop. Because of unreliable trade routes the market vendors are slow to restock, leaving room 
+	for other pets to supply the demand at variable prices. If you're lucky, you'll find all sorts of things to make 
+	your pet more powerful, stylish, or skillful.</p>
+	
+  <div class="search">
+	<% form_tag(facebook_nested_url(facebook_shops_path), :method => "get") do %>
+  	  <label>Search by item name:</label>
+	  <%= text_field_tag(:search) %>
+	  <%= submit_tag("Search") %>
+	<% end %>	
+  </div>
+	
+  <div class="filters">
+  	<% @shop_filter_types.each do |filter| %>
+      <% filter_qs = params[:filters].include?(filter) ? @filters.delete(filter) : @filters.add(filter) %>
+      <%= facebook_link_to filter, facebook_shops_path, :filters => filter_qs, :search => params[:search], :class => 'button small orange' %>
+    <% end %>
+  </div>
+
+  <table id="shops" width="100%">
+	<tr><th>Shop</th><th>Shopkeeper</th><th>Specialty</th><th>Last Restock</th><th>Inventory</th></tr>
+	<% @shops.each do |shop| %>
+	  <tr>
+		<td><label class="shop"><%= facebook_link_to shop.name, facebook_shop_path(shop) %></label></td>
+		<td><label class="shopkeeper"><%= facebook_link_to shop.pet.name, facebook_pet_path(shop.pet) %></label></td>
+		<td><%= shop.specialty %></td>
+		<td><%= shop.last_restock %></td>
+		<td><%= shop.inventories_count %></td>
+	  </tr>	
+	<% end %>
+  </table>	
+  <p class="center"><%= will_paginate @shops %></p>
+</div>

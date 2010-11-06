@@ -1,0 +1,100 @@
+<% content_for :page_title do %><h2>Challenge to Battle</h2><% end %>
+
+<div class="box full">
+
+<% form_for @challenge, :url => facebook_nested_url(facebook_pet_challenges_path(@pet)), :html => { :method => :post} do |f| %>	
+<table class="comparison-table">
+  <tbody>
+  <tr>
+	<th width="45%" colspan="3" class="tright"><h3><%= @challenge.attacker.name %></h3></th>
+	<td width="10%" class="tcenter">challenges</td>
+	<th width="45%" colspan="3"><h3><%= @challenge.defender.name %></h3></th>
+  </tr>
+  <tr>
+    <td rowspan="7" class="tright"><%= avatar_image(@challenge.attacker,'large') %></td>
+    <td colspan="2" class="tright"><%= @challenge.attacker.breed.name %></td>
+	<td class="tcenter">Breed</td>
+    <td colspan="2"><%= @challenge.defender.breed.name %></td>
+    <td rowspan="7"><%= avatar_image(@challenge.defender,'large') %></td>
+  </tr>	
+  <tr>
+	<td class="tright"><div class="right"><%= percentage_bar([@challenge.attacker.health,@challenge.defender.health]) %></div></td>
+	<td class="tright"><%= @challenge.attacker.health %></td>
+	<td class="tcenter">Health</td>
+	<td><%= @challenge.defender.health %></td>
+	<td><%= percentage_bar([@challenge.attacker.health,@challenge.defender.health], :reverse => true) %></td>
+  </tr>
+  <tr>
+	<td class="tright"><div class="right"><%= percentage_bar([@challenge.attacker.endurance,@challenge.defender.endurance]) %></div></td>
+	<td class="tright"><%= @challenge.attacker.endurance %></td>
+	<td class="tcenter">Endurance</td>
+	<td><%= @challenge.defender.endurance %></td>
+	<td><%= percentage_bar([@challenge.attacker.endurance,@challenge.defender.endurance], :reverse => true) %></td>
+  </tr>	
+  <tr>
+	<td class="tright"><div class="right"><%= percentage_bar([@challenge.attacker.power,@challenge.defender.power]) %></div></td>
+	<td class="tright"><%= @challenge.attacker.power %></td>
+	<td class="tcenter">Power</td>
+	<td><%= @challenge.defender.power %></td>
+	<td><%= percentage_bar([@challenge.attacker.power,@challenge.defender.power], :reverse => true) %></td>
+  </tr>
+  <tr>
+	<td class="tright"><div class="right"><%= percentage_bar([@challenge.attacker.fortitude,@challenge.defender.fortitude]) %></div></td>
+	<td class="tright"><%= @challenge.attacker.fortitude %></td>
+	<td class="tcenter">Fortitude</td>
+	<td><%= @challenge.defender.fortitude %></td>
+	<td><%= percentage_bar([@challenge.attacker.fortitude,@challenge.defender.fortitude], :reverse => true) %></td>
+  </tr>
+  <tr>
+	<td class="tright"><div class="right"><%= percentage_bar([@challenge.attacker.intelligence,@challenge.defender.intelligence]) %></div></td>
+	<td class="tright"><%= @challenge.attacker.intelligence %></td>
+	<td class="tcenter">Intelligence</td>
+	<td><%= @challenge.defender.intelligence %></td>
+	<td><%= percentage_bar([@challenge.attacker.intelligence,@challenge.defender.intelligence], :reverse => true) %></td>
+  </tr>
+  <tr>
+	<td class="tright"><div class="right"><%= percentage_bar([@challenge.attacker.level_rank_count,@challenge.defender.level_rank_count]) %></div></td>
+	<td class="tright"><%= @challenge.attacker.level_rank_count %></td>
+	<td class="tcenter">Level</td>
+	<td><%= @challenge.defender.level_rank_count %></td>
+	<td><%= percentage_bar([@challenge.attacker.level_rank_count,@challenge.defender.level_rank_count], :reverse => true) %></td>
+  </tr>
+  <tr>	
+    <td>
+	  <% cell_table(@challenge.attacker.belongings.battle_ready) do |b,idx| %>
+	  <td class='battle-gear'>
+		<%= avatar_image(b.item,'tiny') %>
+		<label><%= b.item.name %></label> <label class="em"><%= b.item.power %></label>
+	  </td>
+	  <% end %>
+    </td>
+	<td colspan="2"class="tright"><%= @challenge.attacker.name %> likes to:<br /><%= @challenge.attacker.favorite_actions %></td>
+	<td class="tcenter">Favorite Actions</td>
+	<td colspan="2"><%= @challenge.defender.name %> likes to:<br /><%= @challenge.defender.favorite_actions %></td>
+    <td>
+	  <% cell_table(@challenge.defender.belongings.battle_ready) do |b,idx| %>
+	  <td class='battle-gear'>
+		<%= avatar_image(b.item,'tiny') %>
+		<label><%= b.item.name %></label> <label class="em"><%= b.item.power %></label>
+	  </td>
+	  <% end %>
+    </td>
+  </tr>
+  <tr>
+	<td colspan="3">	
+	  <div>Your Pet's Battle Strategy</div>
+	  <%= render_strategy_picker(f) %>
+	</td>
+    <th class="tcenter">Combat</th>
+    <td colspan="3">
+	  <div>Defender's Strategy</div>
+	  <p class="em">
+	    The defender will choose a strategy after they accept your challenge. Try to anticipate their actions
+	    as and then act stronger!
+	  </p>
+    </td>
+  </tr>
+  <tr><td colspan="3">&nbsp;</td><td><%= submit_tag "Challenge" %></td><td colspan="3">&nbsp;</td></tr>	
+</tbody>
+</table>
+<% end %>

@@ -1,0 +1,50 @@
+siamese_burmese_issued:
+  attacker: siamese
+  defender: burmese
+  attacker_strategy: siamese_strategy
+  challenge_type: 1v1    
+  
+siamese_persian_issued:
+  attacker: siamese
+  defender: persian
+  attacker_strategy: siamese_strategy
+  challenge_type: 1v1  
+
+persian_burmese_issued:
+  attacker: persian
+  defender: burmese
+  attacker_strategy: persian_strategy
+  challenge_type: 1v1
+
+persian_burmese_resolved:
+  attacker: persian
+  defender: burmese
+  attacker_strategy: persian_strategy
+  defender_strategy: burmese_strategy
+  challenge_type: 1v1
+  status: resolved
+  created_at: <%= (Time.now - 1.day).strftime("%Y-%m-%d %H:%M:00") %>
+
+siamese_burmese_resolved:
+  attacker: siamese
+  defender: persian
+  attacker_strategy: siamese_strategy
+  defender_strategy: persian_strategy
+  challenge_type: 1v1
+  status: resolved
+  created_at: <%= (Time.now - 1.day).strftime("%Y-%m-%d %H:%M:00") %>
+  
+siamese_burmese_old:
+  attacker: siamese
+  defender: persian
+  attacker_strategy: siamese_strategy
+  defender_strategy: persian_strategy
+  challenge_type: 1v1
+  status: resolved  
+  created_at: <%= (Time.now - 3.days).strftime("%Y-%m-%d %H:%M:00") %>
+  
+burmese_open:
+  attacker: burmese   
+  attacker_strategy: burmese_strategy  
+  challenge_type: 1v0
+  status: issued 

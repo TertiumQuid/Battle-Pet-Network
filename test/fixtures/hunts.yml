@@ -1,0 +1,29 @@
+rat_hunt:
+  sentient: leper_rat
+  created_at: <%= Time.now - 1.hour %>
+  updated_at: 2009-8-4 13:30:00
+  
+omega_rat_hunt:
+  sentient: omega_rat
+  status: ended
+  created_at: 2009-8-4 12:00:00
+  updated_at: 2009-8-4 13:30:00
+  logs: |
+      --- 
+      :defender_awards: 
+        :experience: []
+
+      :rounds: 
+      - r1
+      - r2
+      - r3
+      :status:
+        :entered:
+        - persian entered with x and y
+        :ended:
+        - persian ended with x and y
+      :outcome: hunter defeated hunted
+      :attacker_awards: 
+        :experience: 
+        - +3 exp undercut
+        - +20 kibble for hunting  

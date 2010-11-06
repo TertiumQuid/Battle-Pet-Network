@@ -1,0 +1,41 @@
+<fb:editor-custom>
+<%= form.hidden_field :breed_id, {:value => (@breed ? @breed.id : ''), :id => 'pet_breed_id'} %>
+<div class='breed-picker'>
+<% cell_table(@breeds) do |b,idx| %>
+  <td onclick="return breedSelected(<%="#{idx},'#{b.slug}'"%>);" class="radio-cell" id="breed-<%=idx%>">
+	<%= facebook_image_tag "pets/cats/small/#{b.slug}.png" %>
+	<br />
+    <span><%= b.name %></span>
+  </td>	
+<% end %>
+<script>
+<!--
+var breeds = [];
+
+<% @breeds.each do |b| %>
+breeds.push(<%=b.to_json(:include => [:favorite_action])%>);
+<% end %>
+
+function breedSelected(idx,avatar) { 
+  var breed = breeds[idx].breed;
+
+  document.getElementById('pet_breed_id').setValue(breed.id);
+  document.getElementById('breed-details-name').setTextValue(breed.name); 	
+  document.getElementById('breed-details-intelligence').setTextValue(breed.intelligence);
+  document.getElementById('breed-details-fortitude').setTextValue(breed.fortitude);
+  document.getElementById('breed-details-health').setTextValue(breed.health);
+  document.getElementById('breed-details-endurance').setTextValue(breed.endurance);
+  document.getElementById('breed-details-power').setTextValue(breed.power);
+  document.getElementById('breed-details-affection').setTextValue(breed.affection);
+  document.getElementById('breed-details-description').setTextValue(breed.description);
+  document.getElementById('breed-details-favorite-action-name').setTextValue(breed.favorite_action.name);
+  var src = '<%= "#{request.protocol}/#{request.host_with_port}" %>/images/pets/cats/medium/' + breed.name + '.png';
+  src = src.toLowerCase().replace(" ", "-");
+  document.getElementById('breed-details-image').setSrc(src);
+	
+  return false;
+} 
+//-->
+</script>
+</div>
+</fb:editor-custom>

@@ -1,0 +1,60 @@
+<% content_for :page_title do %><h2>Pack Profile</h2><% end %>
+
+<div class="sidebox slim right">
+  <div class="box slim">
+    <h4>Pack Spoils</h4>
+    <% if @pack.spoils.blank? %>
+      <p class="em">This pack has no spoils or treasure of any worth.</em></p>
+    <% else %>
+      <div id="spoils">
+      <% @pack.spoils.each do |spoil| %>
+	    <div class="<%="item-#{spoil.item.slug}-small" %> left"></div>
+	    <div><h5><%= spoil.item.name %></h5></div>
+	    <div>Type: <%= spoil.item.item_type %></div>
+	    <div>Power:<%= spoil.item.power %></div>
+	    <%= "<div>#{spoil.acquired}</div>" unless spoil.acquired.blank? %>
+      <% end %>
+      <div>
+    <% end %>
+  </div>
+</div>
+
+<div class="box pack">
+  <h3><%= @pack.name %></h3>
+  <p class="em">Founded <%= time_ago_in_words(@pack.created_at) %> ago</p>
+  <table>
+	<tr>
+	  <td rowspan="3"><div class="<%="item-#{@pack.standard.slug}-small" %> left"></div></td>
+	  <td><label>Standard:</label></td>
+	  <td colspan="2"><%= @pack.standard.name %></td>
+	</tr>
+	<tr>
+	  <td><label>Member Bonus:</label></td>
+	  <td><%= @pack.membership_bonus %></td>
+	  <td><%= facebook_link_to 'Request Membership', new_facebook_message_path(:pet_id => @pack.leader_id, :message_type => 'membership') if has_pet? && !has_pack? %></td>
+	</tr>
+	<tr>
+	  <td><label>Member Battle Record:</label></td>
+	  <td><%= @pack.battle_record %></td>
+	  <td><% if can_user_pet_be_member(@pack) %><span id="challenge-button" class="button">Challenge to Battle</span><% end %></td>
+	</tr>
+  </table>
+</div>
+
+<div class="box pack-members">
+  <h4>Pack Members</h4>
+  <% cell_table(@pack.pack_members) do |m,idx| %>
+    <td class="pack-member">
+	  <table>	
+		<tr>
+		  <td rowspan="5"><%= avatar_image(m.pet) %></td>
+		  <td><span class="strong"><%= facebook_link_to m.pet.name, facebook_pet_path(m.pet) %></span></td>
+		</tr>
+		<tr><td>Health:</td><td><%= m.pet.fortitude %></td></tr>
+		<tr><td>Endurance:</td><td><%= m.pet.endurance %></td></tr>
+		<tr><td>Record:</td><td><%= m.pet.battle_record %></td></tr>
+		<tr><td colspan="2">%= m.position %></td></tr>
+	  </table>
+	</td>
+  <% end %>
+</div>

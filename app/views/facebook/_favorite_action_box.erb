@@ -1,0 +1,28 @@
+<div class="box slim">	
+  <h4>Favorite Actions</h4>
+  <p class="em">Every breed and every pet has a favorite action that characterizes their combat style. Using these actions in 
+	battle will confer bonus experience for 'fighting in style'. Greedily relying only on these actions, however, will make 
+	your pet predictable.
+  </p>
+  <table>
+    <tbody>
+	<tr>
+	  <td><label>Favorite <%= pet.breed.name %> Action:</label></td>
+	  <td><%= pet.breed.favorite_action.name %></td>
+	</tr>
+	<tr>
+	  <td>Pet's Favorite Action:</td>
+	  <td>
+	  <% if pet.favorite_action_id.blank? %>
+	    <% form_for :pet, pet, :url => "/#{facebook_app_path}/pets/home/pet", :html => { :method => :put} do |f| %>
+		  <%= f.collection_select(:favorite_action_id, pet.actions, :id, :name, {:include_blank => true}) %>
+		  <%= f.submit 'Save' %> 
+		<% end %>
+	  <% else %>
+	    <%= pet.favorite_action.name %>
+	  <% end %>
+	  </td>
+	</tr>
+    </tbody>	
+  </table>
+</div>

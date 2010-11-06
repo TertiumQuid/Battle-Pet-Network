@@ -1,0 +1,44 @@
+one:
+    username: one
+    email: one@example.com
+    gender: male
+    facebook_id: "1234"
+    facebook_session_key: 45675cdbb42a1fb18ede
+    persistence_token: <%= Authlogic::Random.friendly_token %>
+    last_login_at: <%= (Time.now - 1.day).strftime("%Y-%m-%d %H:%M:00") %>
+    
+two:
+    username: two
+    pet: siamese
+    email: two@example.com
+    gender: male
+    facebook_id: "2021"
+    persistence_token: <%= Authlogic::Random.friendly_token %>    
+    last_login_at: <%= (Time.now - 1.day).strftime("%Y-%m-%d %H:%M:00") %>
+    
+three:
+    username: three
+    pet: persian
+    email: three@example.com
+    gender: male
+    facebook_id: "4943"
+    persistence_token: <%= Authlogic::Random.friendly_token %> 
+    last_login_at: <%= (Time.now - 2.days).strftime("%Y-%m-%d %H:%M:00") %>
+    
+four:
+    username: four
+    pet: burmese
+    email: four@example.com
+    gender: male
+    facebook_id: "8821"
+    persistence_token: <%= Authlogic::Random.friendly_token %>
+    last_login_at: <%= (Time.now - 7.days).strftime("%Y-%m-%d %H:%M:00") %>
+    
+five:
+    username: five
+    pet: russian_blue
+    email: five@example.com
+    gender: female
+    facebook_id: "9559"
+    persistence_token: <%= Authlogic::Random.friendly_token %>
+    last_login_at: <%= (Time.now - 8.days).strftime("%Y-%m-%d %H:%M:00") %>

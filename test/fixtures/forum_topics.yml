@@ -1,0 +1,23 @@
+discussion_rules:
+  forum: discussion
+  user: one
+  title: Rules
+  last_post: discussion_rules_1
+  forum_posts_count: 1
+  views_count: 1
+  locked: true
+  sticky: true
+  created_at: <%= (Time.now).strftime("%Y-%m-%d %H:%M:00") %>
+  updated_at: <%= (Time.now).strftime("%Y-%m-%d %H:%M:00") %>
+  
+development_rules:
+  forum: development
+  user: one
+  title: Rules
+  last_post: development_rules_1
+  forum_posts_count: 1
+  views_count: 1
+  locked: true
+  sticky: true
+  created_at: <%= (Time.now).strftime("%Y-%m-%d %H:%M:00") %>
+  updated_at: <%= (Time.now).strftime("%Y-%m-%d %H:%M:00") %>

@@ -1,0 +1,38 @@
+<fb:fbml version="1.1">
+  <%= facebook_stylesheet_link_tag "facebook" %>
+  <link rel="stylesheet" type="text/css" media="screen" href="http://battlepet.net/stylesheets/facebook.css?v=1.196" />
+  <%= facebook_javascript_tag "facebooker" %>
+
+  <div id="contents">
+    <%= render(:partial => '/facebook/dashboard_header') %>
+
+	<p id="beta">
+	  <strong>DEVELOPMENT WARNING:</strong> The Battle Pet Network is currently under furious development and, in the mad 
+	  rush to version 1.0, the Facebook UI will undergo frequent changes, user data may be reset, and the game's stability 
+	  will be at an all-time low. Enjoy!
+	</p>
+	<%= display_facebook_flash %>
+	
+	<div id="nav">
+	  <div id="hooks">
+        <div class="right">
+		  <%= fb_add_profile_tab %>
+	      <%= fb_bookmark_button %>
+  	      <%= fb_fan_button %>
+        </div>	
+      </div>
+
+	  <div id="tabs">
+		<%= render_tabs %>
+	  </div>
+	</div>
+	
+	<div id="body">
+	  <div id="title"><%= yield :page_title %></div>
+	  <%= render_petless_callout if !has_pet? %>
+      <%= yield %>
+    </div>
+
+	<%= render :partial => '/facebook/footer' %>
+  </div>
+</fb:fbml>

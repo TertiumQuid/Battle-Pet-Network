@@ -1,0 +1,32 @@
+<% content_for :page_title do %>
+  <h2><%= facebook_link_to 'Forums', facebook_forums_path %> : <%= @forum.name %></h2>
+<% end %>
+
+<div class="box full">
+  <table cellpadding="3" cellspacing="0" class="topics">
+    <tr>
+      <th colspan="2">Topic</th>
+	  <th width="1%">Posts</th>
+	  <th width="1%">Views</th>
+	  <th>Last Post</th>
+	</tr>
+	<% @topics.each do |topic| %>
+	<tr class="topic">
+	  <td width="25"><%= topic_icon(topic.last_post) %></td>
+	  <td>
+		<%= facebook_link_to topic.title, facebook_forum_forum_topic_path(@forum,topic) %>
+	  </td>
+	  <td><%= topic.forum_posts_count %></td>
+	  <td><%= topic.views_count %></td>
+	  <td>
+      <% if topic.last_post %>	
+        <strong><%= facebook_link_to "#{time_ago_in_words(topic.last_post.created_at)} ago", facebook_forum_forum_topic_path(:forum_id => @forum.id, :id => topic.id, :anchor => dom_id(topic.last_post.id)) %></strong> 
+        by <strong><%= topic.last_post.user.username %></strong>
+      <% end %>
+	  </td>
+	</tr>
+	<% end %>
+	<tr><td colspan="5" align="center"><%= will_paginate @topics %></td></tr>
+	<tr><td colspan="4">&nbsp;</td><td class="right"><%= facebook_link_to 'New topic', new_facebook_forum_forum_topic_path(@forum) if registered? %></td></tr>
+  </table>
+</div>

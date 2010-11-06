@@ -1,0 +1,21 @@
+discussion_rules_1:
+  forum_topic: discussion_rules
+  user: one
+  created_at: <%= (Time.now).strftime("%Y-%m-%d %H:%M:00") %>
+  updated_at: <%= (Time.now).strftime("%Y-%m-%d %H:%M:00") %>
+  body: |
+      Discussion Forum Rules
+      ----------------------
+      
+      Play nice!
+  
+development_rules_1:
+  forum_topic: development_rules
+  user: one
+  created_at: <%= (Time.now).strftime("%Y-%m-%d %H:%M:00") %>
+  updated_at: <%= (Time.now).strftime("%Y-%m-%d %H:%M:00") %>
+  body: |
+      Development Forum Rules
+      ----------------------
+  
+      Play nice!

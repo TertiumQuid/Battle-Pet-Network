@@ -1,0 +1,648 @@
+bait_string:
+  name: Bait String
+  description: This threadbare length of string makes an excellent human lure. A pet need but to swat the bait suggestively to catch a human's eye, and then they're drawn almost magically by an urge to play with the other end.
+  item_type: Charm
+  power: 1
+  required_rank: 1
+  cost: 130
+  rarity: 20
+  stock: 30
+  stock_cap: 30
+  restock_rate: 10
+
+dandelion_posy:
+  name: Dandelion Posy
+  description: A golden sunburst of soft, sweet-smelling flowers. Usually devoured with excessive nibbling, these golden apparatifs are harder to locate on the barren hills and city flats than in better days.
+  item_type: Food
+  power: 5
+  required_rank: 1
+  cost: 3
+  rarity: 20
+  stock: 50
+  stock_cap: 50
+  restock_rate: 10
+
+tinamou_egg:
+  name: Tinamou Egg
+  description: Lustrous and shiny, the delicious tinamou egg is found in nests through the southern bird kingdoms. The colorful markings given to the eggs make them as satisfying to possess and behold as to devour.
+  item_type: Food
+  power: 10
+  required_rank: 1
+  cost: 10
+  rarity: 35
+  stock: 50
+  stock_cap: 50
+  restock_rate: 10
+  
+cormorant_egg:
+  name: Cormorant Egg
+  description: Roughshod and rocky and sheathed in ooze, the eggs of the cormorant can be extracted from cliffside nests, watercaves, and lagoons. Like their dumpy parents, these unplesant looking specimens are in fact quite wholesome to consume.
+  item_type: Food
+  power: 15
+  required_rank: 1
+  cost: 20
+  rarity: 50
+  stock: 50
+  stock_cap: 50
+  restock_rate: 10
+
+soft_beetle:
+  name: Soft Beetle
+  description: An unfortunate victim of change, the soft beetle's carapace has transformed from a protective shell into a chewy, flavorful snack. These poor insects can be readily found throughout urban ruins.
+  item_type: Food
+  power: 5
+  required_rank: 1
+  cost: 2
+  rarity: 1
+  stock: 200
+  stock_cap: 200
+  restock_rate: 25
+  
+carrion_giblets:
+  name: Carrion Giblets
+  description: A delictable heap of visceral organs, steaming hot and surgically emptied from the guts of an unfortunate fowl. These can be found ready-made, but taste best when prepared fresh.
+  item_type: Food
+  power: 15
+  required_rank: 2
+  cost: 10
+  rarity: 10
+  stock: 100
+  stock_cap: 100
+  restock_rate: 25
+        
+cat_grass:
+  name: Cat Grass
+  description: Coarse, oaty cereal grass rich with antioxidants and vitamins. Can be found anywhere in the creaveses of the urban landscape.
+  item_type: Food
+  power: 10
+  required_rank: 1
+  cost: 5
+  rarity: 3
+  stock: 75
+  stock_cap: 75
+  restock_rate: 10
+
+scrambled_lizard:
+  name: Scrambled Lizard
+  description: Crushed, clawed, gutted, diced, splattered, exploded, smashed - there are many ways to find scrambled lizard as these abundant little morsels are dashed by a dangerous world.
+  item_type: Food
+  power: 5
+  required_rank: 1
+  cost: 3
+  rarity: 20
+  stock: 50
+  stock_cap: 50
+  restock_rate: 10
+  
+mega_grub:
+  name: Mega Grub
+  description: A lumbering bloated grub with great burrowing mandables and seventy seven thousand legs. When extracted from its root grotto and stripped to the meat it becomes a nutritious meal.
+  item_type: Food
+  power: 30
+  required_rank: 1
+  cost: 30
+  rarity: 25
+  stock: 50
+  stock_cap: 50
+  restock_rate: 5
+  
+dairy_milk:
+  name: Dairy Milk
+  description: When the dairy cows revoluted, fresh milk become a valuable luxury. A thick bottle of pastorized dairy milk is sure to sate any pet.
+  item_type: Food
+  power: 30
+  required_rank: 1
+  cost: 30
+  rarity: 40
+  stock: 25
+  stock_cap: 25
+  restock_rate: 5  
+ 
+buttermilk_canteen:
+  name: Buttermilk Canteen
+  description: A military grade steel cateen brimming with frothy, rich buttermilk. Embittered over the years, this is the super fuel of the feline system, with ample supply to restore even the weakest soldier.
+  item_type: Food
+  power: 50
+  required_rank: 3
+  cost: 40
+  rarity: 75
+  stock: 20
+  stock_cap: 20
+  restock_rate: 5 
+  
+lost_caviar:
+  name: Lost Caviar
+  description: Top-shelf delicacy of salty black roe, richly preserved by human canning technology. Rarely are taste and nutrition so exquisitely married in one dish!  
+  item_type: Food
+  power: 60
+  required_rank: 2
+  cost: 20
+  rarity: 35
+  stock: 15
+  stock_cap: 15
+  restock_rate: 5 
+  
+chedder_wedge:
+  name: Chedder Wedge
+  description: Hardened by years of war, this chedder is remarkably tough and strong, thick with protein and a radiant coat of wax. 
+  item_type: Food
+  power: 50
+  required_rank: 2
+  cost: 15
+  rarity: 30
+  stock: 15
+  stock_cap: 15
+  restock_rate: 5
+  
+leviathon_salmon:
+  name: Leviathon Salmon
+  description: Evolution's hand has made a monstrosity of the stream salmon, multiplying its size and apendages, creating a hybrid capable of effortless upstream travel and fins that smash through river dams. The leviathon is one of the greatest freshwater meals.
+  item_type: Food
+  power: 70
+  required_rank: 3
+  cost: 25
+  rarity: 40
+  stock: 25
+  stock_cap: 25
+  restock_rate: 5 
+
+mre:
+  name: MRE 
+  description: Meal, Ready-to-Eat - Human field rations once used by their armies and which can generally be scavenged from the ruins of war camps. The contents are stale and questionable (even for humans), but can be picked clean of the choicest tidbits (like cheese).
+  item_type: Food
+  power: 40
+  required_rank: 3
+  cost: 25
+  rarity: 30
+  stock: 25
+  stock_cap: 25
+  restock_rate: 5
+  
+glass_tuna:
+  name: Glass Tuna
+  description: Succulent and rich in nutriants, glass tuna have evolved to a disorienting transulcent state that lets them hide from predators. If they can be spotted and caught, they provide an excellent meal.
+  item_type: Food
+  power: 20
+  required_rank: 1
+  cost: 10
+  rarity: 20
+  stock: 75
+  stock_cap: 75
+  restock_rate: 10
+  
+atomic_truffles:
+  name: Atmoic Truffles
+  description: Plucked from the roots of trees, these fungi are smaller than their historic cousin and infused with draining nuclear runoffs slakening the scorched earth. Chewy and unpleasant, atomic truffles are highly vitalizing puzzles of accidental science.
+  item_type: Food
+  power: 25
+  required_rank: 2
+  cost: 15
+  rarity: 35
+  stock: 50
+  stock_cap: 50
+  restock_rate: 10
+
+visceral_stew:  
+  name: Visceral Stew  
+  description: A pool of warm animal visera bowled into a hearty meal, these stews contain the raw essence of life. They can be found naturally where ever life has chanced to expire on a pitted slab and tepid rainwater transformed it, or else boiled by a pet chef upon an open file, seasoned with salt and natural minerals.
+  item_type: Food
+  power: 30
+  required_rank: 3
+  cost: 50
+  rarity: 130
+  stock: 25
+  stock_cap: 25
+  restock_rate: 10
+
+steak_tartare:  
+  Name: Steak Tartare  
+  description: It takes hours of violent ravaging to make tartare of one's prey, but the results are well worth it. Minced into tender morsels, this steak is a complete powerhouse of taste and fettle.
+  item_type: Food
+  power: 40
+  required_rank: 4
+  cost: 50
+  rarity: 200
+  stock: 25
+  stock_cap: 25
+  restock_rate: 10
+  
+hanger_steak:  
+  name: Hanger Steak  
+  description: Freshly torn from the throat of a hale beast, the hanger steak is a culinary treasure, a supreme meal rich and succulent, dripping with empowering red lifeforce. 
+  item_type: Food
+  power: 50
+  required_rank: 4
+  cost: 75
+  rarity: 200
+  stock: 25
+  stock_cap: 25
+  restock_rate: 10
+  
+swan_goose:  
+  name: Swan Goose
+  description: This heavenly creature hides beneath its angelic feather mantle and noble wings an ample breast of the most succulent meat known in the kingdom of fowl.
+  item_type: Treat
+  power: 60
+  required_rank: 5
+  cost: 75
+  rarity: 300
+  stock: 10
+  stock_cap: 10
+  restock_rate: 5
+
+chocolate_chip_cookie:
+  name: Chocolate Chip Cookie
+  description: Made just for you, and totally uneaten. Nom, nom.
+  item_type: Treat
+  power: 1
+  required_rank: 1
+  cost: 30
+  rarity: 70
+  stock: 50
+  stock_cap: 50
+  restock_rate: 10  
+  
+cheezburger:
+  name: Cheezburger
+  description: Ya, u can haz cheezburger.
+  item_type: Treat
+  power: 2
+  required_rank: 2
+  cost: 35
+  rarity: 85
+  stock: 25
+  stock_cap: 25
+  restock_rate: 5
+  
+salt_lick:
+  name: Salt Lick
+  description: This hoary bronze block of salt sates the strongest yearnings of the tongue.
+  item_type: Treat
+  power: 3
+  required_rank: 2
+  cost: 75
+  rarity: 95
+  stock: 25
+  stock_cap: 25
+  restock_rate: 5
+
+fishliver_oil:
+  name: Fishliver Oil
+  description: Three fingers of stiff, pungent, fishliver oil, lapped up in a shot for a powerful burst of pure marine energy!
+  item_type: Treat
+  power: 3
+  required_rank: 3
+  cost: 75
+  rarity: 150
+  stock: 20
+  stock_cap: 20
+  restock_rate: 5
+
+fiberboard_pillar: 
+  name: Fiberboard Pillar
+  description: A drab and desolate pillar of fiberboard.
+  item_type: Standard
+  power: 2
+  required_rank: 3
+  cost: 800
+  rarity: 300
+  stock: 10
+  stock_cap: 10
+  restock_rate: 3
+    
+sisal_mast:    
+  name: Sisal Mast
+  description: An imposing tower of sisal fibre engirthed with coarse rope, rat tail totems, and "cat's cradle" string webs.
+  item_type: Standard
+  power: 3
+  required_rank: 3
+  cost: 3000
+  rarity: 600
+  stock: 4
+  stock_cap: 4
+  restock_rate: 1  
+  
+hunting_claws:
+  name: Hunting Claws
+  description: Light and swift, these weapons serve the hunter's murderous purpose with the ceremonious efficiency of a slit throat.
+  item_type: Weapon
+  power: 1
+  required_rank: 3
+  cost: 12000
+  rarity: 1000 
+  stock: 5
+  stock_cap: 5
+  restock_rate: 1 
+  
+sabre_claws:
+  name: Sabre Claws
+  description: Long and tampered to an elegant murder-point, sabre claws are the tried and true tools of the practiced killer.
+  item_type: Weapon
+  power: 2
+  required_rank: 4
+  cost: 18000
+  rarity: 1500 
+  stock: 3
+  stock_cap: 3
+  restock_rate: 1 
+  
+ivory_claws:
+  name: Ivory Claws
+  description: Born of one of nature's richest substances, ivory claws give death a rare radiant beauty.
+  item_type: Weapon
+  power: 2
+  required_rank: 5
+  cost: 23000
+  rarity: 0
+  stock: 2
+  stock_cap: 2
+  restock_rate: 1   
+  
+eviserators:
+  name: Eviserators
+  description: Single-edged and hooked, these claws have been engineered by time to excel at slicing open an animal's underbelly with the slightest scratch. There are few means more effective at splaying guts and rendering open wounds.
+  item_type: Weapon
+  power: 3
+  required_rank: 6
+  cost: 25000
+  rarity: 3000
+  stock: 3
+  stock_cap: 3
+  restock_rate: 1  
+    
+catamount_claws:
+  species: cat
+  name: Catamount Claws
+  description: The murder weapon of choice of all serious predators, "overkill" is the operative word of nature's most gruesume meat knifes.
+  item_type: Weapon
+  power: 4
+  required_rank: 7
+  cost: 30000
+  rarity: 4000
+  stock: 3
+  stock_cap: 3
+  restock_rate: 1
+
+telemetry_whiskers:
+  species: cat
+  name: Telemetry Whiskers
+  description: A bundle of stiff high-frequency whiskers attached to the sides of the face, these sensors serve as the feline's foremost information command center, continually recalculating the surrounding space and evaluating reaction plans.
+  item_type: Sensor
+  power: 1
+  required_rank: 2
+  cost: 2500
+  rarity: 600
+  stock: 2
+  stock_cap: 2
+  restock_rate: 1
+
+polestar_whiskers:
+  species: cat
+  name: Polestar Whiskers
+  description: Each whisker tipped by a miniature stellar glow, these remarkable fibers navigate the pet through the darkest shade and illuminate unknowns.
+  item_type: Sensor
+  power: 2
+  required_rank: 3
+  cost: 4000
+  rarity: 700
+  stock: 2
+  stock_cap: 2
+  restock_rate: 1
+  
+silver_whiskers:
+  species: cat
+  name: Silver Whiskers
+  description: These cold, shimmering spindle blades cut through the dark and fog, revealing the subtle secrets of space and tuning into the slightest threat.
+  item_type: Sensor
+  power: 2
+  required_rank: 3
+  cost: 3000
+  rarity: 800
+  stock: 2
+  stock_cap: 2
+  restock_rate: 1
+  
+vibrissa_mask:  
+  species: cat
+  name: Vibrissa Mask  
+  description: Almost invisibly thin, these whiskers sprout from all about the pet's face, hooding the eyes, clamping the chin, and lending the pet an erratic shimmering mask poised to sense the smallest shift in their immediate surroundings.
+  item_type: Sensor
+  power: 3
+  required_rank: 4
+  cost: 10000
+  rarity: 1400
+  stock: 2
+  stock_cap: 2
+  restock_rate: 1
+
+ferrous_whiskers  
+  species: cat
+  name: Ferrous Whiskers
+  description: Fragmented iron filaments thread the core fibers of these unordinary whiskers, giving them not only a stiff weight and metallic glow, but ultimately permeating the pet's senses with a sympathy to electromagnetic fields conferring a deeper understanding of the world around them.
+  item_type: Sensor
+  power: 4
+  required_rank: 6
+  cost: 15000
+  rarity: 1800
+  stock: 2
+  stock_cap: 2
+  restock_rate: 1
+  
+calico_cloak:
+  name: Calico Cloak
+  description: Dabbled urban fatigues, patterned with a dizzying explosion of white tortoiseshell to bwilder the onlooker. The calico is a tough fabic, thick to the cut, and with a regal coloration that belies its humble origins this mantle is the choice of many a weathered traveler.
+  item_type: Mantle
+  power: 1
+  required_rank: 1
+  cost: 4000
+  rarity: 800
+  stock: 2
+  stock_cap: 2
+  restock_rate: 1
+  
+winter_coat:
+  name: Winter Coat
+  description: An armour and a comfort, this cowled mantle heaps long snowy folds of fur upon the pet, far beyond what the even strongest winters would naturally grow. Delicately sewn from the pelts of the slain, its rich arboreal surface blies the bloody origins beneath.
+  item_type: Mantle
+  power: 1
+  required_rank: 1
+  cost: 6000
+  rarity: 900
+  stock: 2
+  stock_cap: 2
+  restock_rate: 1
+    
+spidersilk_shroud:
+  name: Spidersilk Shroud
+  description: Painstakingly woven from the product of one hundred spider craftsmen, the shroud is a stylish answer to the even sharpest tooth and claw. This exquisite attire is favored by assassins and thieves for its weightless quality and innocent appearance.
+  item_type: Mantle
+  power: 1
+  required_rank: 2
+  cost: 10000
+  rarity: 1000
+  stock: 1
+  stock_cap: 1
+  restock_rate: 1  
+  
+studded_leathers:
+  name: Studded Leathers
+  description: Bound together from strips of industrial leather and punctuated by ornamental straps, buckles, and metal spikes, it's unknown what original purpose the humans had for these scraps but when woven together they form a hardened, stalwart mantle to defend a pet.
+  item_type: Mantle
+  power: 2
+  required_rank: 5
+  cost: 20000
+  rarity: 4000
+  stock: 1
+  stock_cap: 1
+  restock_rate: 1  
+  
+imperator_mane:
+  name: Imperator Mane
+  description: An endlessly flowing swath of furs poached from the greatest beasts of prey, the imperator mane is the majestic mantle of a supreme champion, and the pet who wears it is as a blazing sun who outshines all others from the heavens.
+  item_type: Mantle
+  power: 3
+  required_rank: 8
+  cost: 30000
+  rarity: 0
+  stock: 1
+  stock_cap: 1
+  restock_rate: 1  
+
+choke_chain:
+  name: Choke Chain
+  description: A yoke of leather and mail, these collars were once used to discipline pets but are now worn freely as a restyled gothic armor-piece.
+  item_type: Collar
+  power: 1
+  required_rank: 1
+  cost: 2500
+  rarity: 500
+  stock: 5
+  stock_cap: 5
+  restock_rate: 1
+  
+cordura_collar:    
+  name: Cordura Collar
+  item_type: Collar
+  power: 2
+  required_rank: 3
+  cost: 6000
+  rarity: 900
+  stock: 2
+  stock_cap: 2
+  restock_rate: 1
+  
+spiked_yarn_ball:
+  name: Spiked Yarn Ball
+  description: This otherwise ordinary ponderous ball of yarn has been skewered with sharp spikes, confering a deadly edge to the already considerable martial practice of yarn-play.
+  item_type: Toy
+  power: 20
+  required_rank: 1
+  cost: 100
+  rarity: 35
+  stock: 5
+  stock_cap: 5
+  restock_rate: 2
+
+catnip_orb:
+  name: Catnip Orb
+  description: A woven sack stuffed with pungent catnip and sewn tight until its delerious fumes are whafting free. Playing with this intoxicating orb is not only great fun, but trains pets to better cope with the airborn toxins bequeathed by the works of humans.
+  item_type: Toy
+  power: 20
+  required_rank: 1
+  cost: 150
+  rarity: 35
+  stock: 5
+  stock_cap: 5
+  restock_rate: 1
+  
+feather_boa_flail: 
+  name: Feather Boa Flail
+  description: These thrashing curls of feather coils ensnare a pet many times over, putting their best grabbling and contortionist work to test by feats of rabid acrobatics.
+  item_type: Toy
+  power: 35
+  required_rank: 2
+  cost: 400
+  rarity: 50
+  stock: 4
+  stock_cap: 4
+  restock_rate: 1 
+  
+bell_collar: 
+  name: Bell Collar
+  description: A dainy bejeweled necklace with an oversized silver bell, this atrocious charm could only be the product of a warmed human mind, and thus proves quite useful in calling them to a pet's side.
+  item_type: Charm
+  power: 1
+  required_rank: 1
+  cost: 200
+  rarity: 50
+  stock: 5
+  stock_cap: 5
+  restock_rate: 5
+  
+garland_flower: 
+  name: Garland Flower
+  description: A sunburst halo of nature's softest colors, this floral charm seems to blind and dazzle human onlookers when adorned.
+  item_type: Charm
+  power: 1
+  required_rank: 1
+  cost: 200
+  rarity: 50
+  stock: 5
+  stock_cap: 5
+  restock_rate: 3
+  
+ringlet_locks:  
+  name: Ringlet Locks  
+  description: A insufferably precious nest of ribbons, bows, and plaited baubles woven into locks of artificial hair designed to mop a pet's head in the gaudy mock-hairstyle of a human.
+  item_type: Charm
+  power: 1
+  required_rank: 1
+  cost: 200
+  rarity: 50
+  stock: 5
+  stock_cap: 5
+  restock_rate: 3
+
+haute_cravat: 
+  name: Haute Cravat
+  description: The cultivated sophistication of the cravat combined with the innocent dignity of the pet is sure to capture the heart of any human who beholds it upon ones neck.
+  item_type: Charm
+  power: 1
+  required_rank: 1
+  cost: 200
+  rarity: 50
+  stock: 5
+  stock_cap: 5
+  restock_rate: 3  
+  
+jaunty_bootsies:
+  name: Jaunty Bootsies  
+  description: The ultimate in fashion-over-form footwear, these cloying mock-boots sheath a pet's natural weapons, hobble their agility, and loudly announce their slightest movements, but to humans, the jaunty bootsies are a profound charm which they but helplessly grin and follow.
+  item_type: Charm
+  power: 1
+  required_rank: 1
+  cost: 200
+  rarity: 50
+  stock: 5
+  stock_cap: 5
+  restock_rate: 3
+    
+kibble_pack:
+  name: Kibble Pack
+  description: A plastic, heat-sealed package, this item contains 1000 pieces of kibble.
+  item_type: Kibble
+  premium: true
+  power: 1000
+  required_rank: 0
+  cost: 1
+  rarity: 0
+
+kibble_box:
+  name: Kibble Box
+  description: A thick colorful box filled with 5000 kibble, these heavy containers are opened only with difficulty.
+  item_type: Kibble
+  premium: true
+  power: 5000
+  required_rank: 0
+  cost: 2
+  rarity: 0

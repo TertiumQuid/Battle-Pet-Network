@@ -1,0 +1,63 @@
+vincent:
+    name: Vincent
+    human_type: friendly
+    difficulty: 1
+    power: 1
+    cost: 3000
+    required_rank: 1
+    
+sarah:
+    name: Sarah
+    human_type: friendly
+    difficulty: 3
+    power: 2
+    cost: 4500
+    required_rank: 2
+    
+ichabod:
+    name: Ichabod
+    human_type: wise
+    difficulty: 5
+    power: 3
+    cost: 8000
+    required_rank: 3
+    
+oscar:
+    name: Oscar
+    human_type: fatted
+    difficulty: 4
+    power: 2
+    cost: 6000
+    required_rank: 3
+    
+lestor:
+    name: Lestor
+    human_type: collector
+    difficulty: 3
+    power: 1
+    cost: 9000
+    required_rank: 3
+    
+beatrice: 
+    name: Beatrice
+    human_type: collector
+    difficulty: 5
+    power: 2
+    cost: 15000
+    required_rank: 3
+    
+sheldon: 
+    name: Sheldon 
+    human_type: collector
+    difficulty: 8
+    power: 4
+    cost: 20000
+    required_rank: 5
+
+bruno:
+    name: Bruno
+    human_type: burly
+    difficulty: 2
+    power: 1
+    cost: 4000
+    required_rank: 2    

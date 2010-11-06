@@ -1,0 +1,36 @@
+<% content_for :page_title do %>
+  <h2>
+	<%= facebook_link_to 'Forums', facebook_forums_path %> : 
+	<%= facebook_link_to @forum.name, facebook_forum_path(@forum) %> : 
+	New Topic
+  </h2>
+<% end %>
+
+<div class="sidebox slim right">
+  <div class="box slim">
+	<%= render_markdown_instructions %>
+  </div>
+</div>
+
+<div class="box">
+  <% form_for @topic, :url => facebook_nested_url(facebook_forum_forum_topics_path(@forum)) do |f| %>	
+  <table class="topic">
+	<tbody>
+	  <tr>
+	    <td><%= f.label :title %></td>
+	    <td><%= f.text_field :title %></td>
+	  </tr>
+      <% f.fields_for :posts do |pf| %>
+	  <tr>	
+	    <td><%= pf.label :body %></td>
+	    <td><%= pf.text_area(:body, :size => "50x15")%></td>
+	  </tr>
+      <% end %>	
+	  <tr>	
+		<td>&nbsp;</td>
+	    <td><%= f.submit 'Post Topic' %></td>
+	  </tr>
+	</tbody>
+  </table>
+  <% end %>
+</div>

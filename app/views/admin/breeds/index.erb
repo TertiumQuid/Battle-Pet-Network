@@ -1,0 +1,30 @@
+<article class="articlecontent">
+  <h2>Pet Breeds</h2>
+  <p></p>
+  <table>
+	<tbody>
+	  <tr>
+	    <th>Breed</th>
+	    <th>Species</th>
+	    <th>Health</th>
+	    <th>Endurance</th>
+		<th>Fortitude</th>
+		<th>Intelligence</th>
+		<th>Affection</th>
+		<th>Power</th>
+	  </tr>
+	  <% @breeds.each do |b| %>
+	  <tr>
+	    <td><%= link_to b.name, edit_admin_breed_path(b) %><td>
+	    <td><%= b.species.name %></td>
+	    <td><%= b.health %></td>
+	    <td><%= b.endurance %></td>
+		<td><%= b.fortitude %></td>
+		<td><%= b.intelligence %></td>
+		<td><%= b.affection %></td>
+		<td><%= b.power %></td>
+	  </tr>
+	  <% end %>
+	<tbody>
+  </table>
+</article>

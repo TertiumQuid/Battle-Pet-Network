@@ -1,0 +1,26 @@
+<% content_for :page_title do %><h2>View Message</h2><% end %>
+	
+<div class="sidebox slim right">	 
+  <div class="box slim">	
+  </div>
+</div>
+
+<div class="box">	
+  <table class="message">
+	<tbody>	
+	  <tr><th><label>From:</label></th><td><%= @message.sender.name %></td></tr>
+	  <tr><th><label>Subject:</label></th><td><%= @message.subject %></td></tr>
+	  <tr><th><label>Sent:</label></th><td class="em"><%= @message.subject %></td></tr>
+	  <tr>
+		<th><label>Message:</label></th>
+		<td><p><%= RDiscount.new(@message.body).to_html %></p></td>
+	  </tr>
+	  <tr>	
+	    <td colspan="2">
+	      <%= facebook_link_to "Reply", new_facebook_message_path(:reply_to_id => @message.id) if current_user_pet.id != @message.sender.id %>
+	      <%= facebook_link_to "Delete", facebook_message_path(@message) %>
+	    </td>
+	  </tr>
+	</tbody>
+  </table>
+</div>

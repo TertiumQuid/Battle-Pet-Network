@@ -1,0 +1,87 @@
+<% content_for :page_title do %><h2>Battle Records</h2><% end %>
+
+<div class="sidebox slim right">
+  <div class="box slim">	
+    <h4>Want to Fight Again?</h4>
+    <p><%= facebook_link_to "Challenge to a rematch...", new_facebook_pet_challenge_path(@opponent) %></p>
+  </div>
+
+  <% unless @history.blank? %>
+    <div class="box slim">	
+      <h4>A Storied Past</h4>
+      <ul class="battle-records"> 
+	    <% @history.each do |c| %>
+	      <li class="battle"><%= facebook_link_to c.description, facebook_challenge_path(c) %></li>
+	    <% end %>
+	  </ul> 
+    </div>
+  <% end %>
+</div>
+
+<div class="box">
+  <table class="battle-profile">
+	<tr>
+	  <th>
+	    <%= "#{time_ago_in_words(@challenge.battle.created_at)} ago" %> 
+		<%= facebook_link_to @challenge.attacker.name, facebook_pet_path(@challenge.attacker) %> battled 
+		<%= facebook_link_to @challenge.defender.name, facebook_pet_path(@challenge.defender) %>
+	  </th>
+	</tr>
+	<tr>
+	  <td>	
+	  	<%= @challenge.attacker.name %>
+		<% if (@challenge.attacker_id == @challenge.battle.winner_id) %>
+	  	  <label>WON</label>
+		<% elsif (@challenge.defender_id == @challenge.battle.winner_id) %>
+		  <label>LOST</label>
+		<% else %>
+		  <label>drew</label>
+		<% end %>
+	  </td>
+	  <td>
+	  	<%= @challenge.defender.name %>
+		<% if (@challenge.defender_id == @challenge.battle.winner_id) %>
+	  	  <label>WON</label>
+		<% elsif (@challenge.attacker_id == @challenge.battle.winner_id) %>
+		  <label>LOST</label>
+		<% else %>
+		  <label>drew</label>
+		<% end %>
+	  </td>
+	</tr>
+	<tr>
+	  <td><%= avatar_image(@challenge.attacker,'large') %></td>	
+	  <td><%= avatar_image(@challenge.defender,'large') %></td>
+	</tr>
+	<tr><th colspan="2" class="em">Here's what happened</th></tr>
+	<tr>
+	  <td colspan="2">
+		<ul class="logs">
+		  <% @challenge.battle.logs[:status][:entered].each do |status| %>
+		    <li class="log"><%= status %></li>
+		  <% end %>
+		  <% @challenge.battle.logs[:rounds].each do |log| %>	
+		    <li class="log">
+			  <%= facebook_image_tag "actions/tiny/#{log[:attacker_action]}.png" %>
+			  <%= facebook_image_tag "actions/tiny/#{log[:defender_action]}.png" %> 
+			  <%= log[:description] %>
+			</li>
+		  <% end %>
+		  <li class="log strong"><%= @challenge.battle.logs[:outcome] %></li>
+		  <% @challenge.battle.logs[:status][:ended].each do |status| %>
+		    <li class="log"><%= status %></li>
+		  <% end %>
+		  <% @challenge.battle.logs[:attacker_awards].each_pair do |key,log| %>
+		    <%= "<li class='log award'>#{log}</li>" unless log.blank? %>
+		  <% end %>
+		  <% @challenge.battle.logs[:attacker_awards].each_pair do |key,log| %>
+		    <%= "<li class='log award'>#{log}</li>" unless log.blank? %>
+		  <% end %>
+		  <% @challenge.battle.logs[:defender_awards].each_pair do |key,log| %>
+		    <%= "<li class='log award'>#{log}</li>" unless log.blank? %>
+		  <% end %>
+		</ul>
+	  </td>
+    </tr>
+  </table>
+</div>

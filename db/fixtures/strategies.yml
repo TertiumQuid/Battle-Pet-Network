@@ -1,0 +1,41 @@
+plague_of_flies_strategy:
+  combatant_type: Sentient
+  combatant_id: <%= Fixtures.identify :plague_of_flies %>
+  name: POFS
+  status: active
+  
+quad_crab_strategy:
+  combatant_type: Sentient
+  combatant_id: <%= Fixtures.identify :quad_crab %>
+  name: QCS
+  status: active
+  
+vampire_bat_strategy:
+  combatant_type: Sentient
+  combatant_id: <%= Fixtures.identify :vampire_bat %>
+  name: VBS
+  status: active
+
+leper_rat_strategy:
+  combatant_type: Sentient
+  combatant_id: <%= Fixtures.identify :leper_rat %>
+  name: LRS
+  status: active
+  
+dark_vole_strategy:
+  combatant_type: Sentient
+  combatant_id: <%= Fixtures.identify :dark_vole %>
+  name: DVS
+  status: active
+  
+omega_rat_strategy:
+  combatant_type: Sentient
+  combatant_id: <%= Fixtures.identify :omega_rat %>
+  name: ORS
+  status: active  
+  
+gila_monstrosity_strategy:
+  combatant_type: Sentient
+  combatant_id: <%= Fixtures.identify :gila_monstrosity %>
+  name: GMS
+  status: active

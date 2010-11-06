@@ -1,0 +1,22 @@
+<article class="articlecontent">
+  <h2>Pet Levels</h2>
+  <p></p>
+  <table>
+	<tbody>
+	  <tr>
+	    <th>Breed</th>
+	    <th>Rank</th>
+	    <th>Experience</th>
+	    <th>Advancement</th>
+	  </tr>
+	  <% @levels.each do |l| %>
+	  <tr>
+	    <td><%= l.breed.name %><td>
+	    <td><%= link_to l.rank, edit_admin_level_path(l) %></td>
+	    <td><%= l.experience %></td>
+	    <td><%= "+#{l.advancement_amount} #{l.advancement_type}" %></td>
+	  </tr>
+	  <% end %>
+	<tbody>
+  </table>
+</article>

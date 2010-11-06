@@ -1,0 +1,46 @@
+leper_rat:
+  sentient_type: threat    
+  name: Leper Rat
+  description: These loathesome creatures thrive in the rotting disease they carry, spreading plauge through the shadows 
+               in their withering course of death.
+  health: 10
+  endurance: 30
+  power: 1
+  intelligence: 1
+  fortitude: 1
+  kibble: 1
+  population: 100
+  repopulation_rate: 10
+  population_cap: 100
+  required_rank: 1
+
+omega_rat:
+  sentient_type: threat
+  name: Omega Rat
+  description: Basked in a radioactive aura these monsters have emerged as a highly adaptive response to the hazards
+               of the toxic post-war landscape.
+  health: 25
+  endurance: 75
+  power: 2
+  intelligence: 3
+  fortitude: 5
+  kibble: 20
+  population: 25
+  repopulation_rate: 5
+  population_cap: 25
+  required_rank: 2
+
+gila_monstrosity:
+  sentient_type: threat
+  name: Gila Monstrosity
+  description: Lumbering, unperturbable, and ever hungry.
+  health: 40
+  endurance: 100
+  power: 3
+  intelligence: 3
+  fortitude: 4
+  kibble: 50
+  population: 10
+  repopulation_rate: 2
+  population_cap: 10  
+  required_rank: 3

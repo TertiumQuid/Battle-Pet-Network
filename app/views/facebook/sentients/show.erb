@@ -1,0 +1,39 @@
+<% content_for :page_title do %><h2>Sentient Profile</h2><% end %>
+
+<div class="sidebox slim right">
+  <%= render_hunts_box @hunts %>
+</div>
+
+<div class="box">
+  <h3><%= @sentient.name %></h3>
+  <table class="human">
+	<tr>
+	  <td rowspan="5"><%= avatar_image(@sentient,'large') %></td>
+	  <td>Health: <strong><%= @sentient.health %></strong></td>
+	  <td rowspan="5" class="em"><%= @sentient.description %></td>
+	</tr>
+	<tr><td>Endurance: <strong><%= @sentient.endurance %></strong></td></tr>
+	<tr><td>Power: <strong><%= @sentient.power %></strong></td></tr>
+	<tr><td>Fortitude: <strong><%= @sentient.fortitude %></strong></td></tr>
+	<tr><td>Intelligence: <span class="em"><%= @sentient.intelligence %></span></td></tr>
+	<tr>
+	  <td>
+		<p><label>Population:</label> <strong><%=@sentient.population%></strong></p>
+		<%= "<span class='hunt-button'>#{link_to_hunt(@sentient)}</span>" if has_pet? %>
+	  </td>
+	  <td>&nbsp;</td>
+	  <td>
+		<h5><%= @sentient.name %> Tactics</h5>
+		<p class="em">Though dangerous, sentients are tactically predictable.</p>
+		<ul class="tactics">
+		  <% @tactics.each do |t| %>
+		    <li class="tactic">
+			  <span class="strong"><%= t.action.power %></span>
+			  <span><%= t.action.name %></span>
+		      <span class="right"><% t.rank.times do %>*<% end %></span>
+		    </li>
+		  <% end %>
+		</ul>
+	  </td>
+  </table>
+</div>

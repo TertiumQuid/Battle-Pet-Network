@@ -1,0 +1,29 @@
+development:
+  adapter: mysql
+  encoding: utf8
+  reconnect: false
+  database: bpn_development
+  pool: 5
+  username: x999999
+  password: z000000
+  host: localhost
+
+test:
+  adapter: mysql
+  encoding: utf8
+  reconnect: false
+  database: bpn_test
+  pool: 5
+  username: x999999
+  password: z000000
+  host: localhost
+
+production:
+  adapter: mysql
+  encoding: utf8
+  reconnect: false
+  database: bpn_production
+  pool: 5
+  username: x999999
+  password: z000000
+  host: localhost

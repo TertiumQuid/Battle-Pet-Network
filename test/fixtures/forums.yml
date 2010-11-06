@@ -1,0 +1,19 @@
+staff:
+  name: Staff
+  forum_type: staff
+  description: Developers, artists, and staff, post game development discussions here, including art and design review, gameplay and balance, monetization, ToS policies, inspiration, market analysis, et cetera.
+  rank: 1
+  
+discussion:
+  name: Battle Pet Disscussion
+  description: Main discussion forum on how to play, strategy advise, the universe, or any other aspects of the game.
+  rank: 2
+  last_post: discussion_rules_1
+  forum_type: user
+ 
+development:
+  name: Battle Pet Development     
+  description: Announcements for game updates and upcoming changes, suggestions, and feature requests.
+  rank: 3
+  last_post: development_rules_1
+  forum_type: user

@@ -1,0 +1,449 @@
+strongest_1:
+  leaderboard: strongest
+  award_type: kibble
+  prize: 1000
+  rank: 1
+  
+strongest_2:
+  leaderboard: strongest
+  award_type: kibble
+  prize: 700
+  rank: 2
+  
+strongest_3:
+  leaderboard: strongest
+  award_type: kibble
+  prize: 500
+  rank: 3
+  
+strongest_4:
+  leaderboard: strongest
+  award_type: kibble
+  prize: 250
+  rank: 4
+  
+strongest_5:
+  leaderboard: strongest
+  award_type: kibble
+  prize: 200
+  rank: 5
+  
+strongest_6:
+  leaderboard: strongest
+  award_type: kibble
+  prize: 200
+  rank: 6
+  
+strongest_7:
+  leaderboard: strongest
+  award_type: kibble
+  prize: 200
+  rank: 7
+  
+strongest_8:
+  leaderboard: strongest
+  award_type: kibble
+  prize: 200
+  rank: 8
+  
+strongest_9:
+  leaderboard: strongest
+  award_type: kibble
+  prize: 200
+  rank: 9
+
+strongest_10:
+  leaderboard: strongest
+  award_type: kibble
+  prize: 100
+  rank: 10
+
+strongest_11:
+  leaderboard: strongest
+  award_type: kibble
+  prize: 100
+  rank: 11
+
+strongest_12:
+  leaderboard: strongest
+  award_type: kibble
+  prize: 100
+  rank: 12
+
+strongest_13:
+  leaderboard: strongest
+  award_type: kibble
+  prize: 100
+  rank: 13
+
+strongest_14:
+  leaderboard: strongest
+  award_type: kibble
+  prize: 100
+  rank: 14
+
+strongest_15:
+  leaderboard: strongest
+  award_type: kibble
+  prize: 100
+  rank: 15
+
+strongest_16:
+  leaderboard: strongest
+  award_type: kibble
+  prize: 100
+  rank: 16
+
+strongest_17:
+  leaderboard: strongest
+  award_type: kibble
+  prize: 100
+  rank: 17
+
+strongest_18:
+  leaderboard: strongest
+  award_type: kibble
+  prize: 100
+  rank: 18
+
+strongest_19:
+  leaderboard: strongest
+  award_type: kibble
+  prize: 100
+  rank: 19
+  
+strongest_20:
+  leaderboard: strongest
+  award_type: kibble
+  prize: 100
+  rank: 20
+  
+relentless_1:
+  leaderboard: relentless
+  award_type: kibble
+  prize: 900
+  rank: 1
+  
+relentless_2:
+  leaderboard: relentless
+  award_type: kibble
+  prize: 500
+  rank: 2
+  
+relentless_3:
+  leaderboard: relentless
+  award_type: kibble
+  prize: 300
+  rank: 3
+  
+relentless_4:
+  leaderboard: relentless
+  award_type: kibble
+  prize: 200
+  rank: 4
+  
+relentless_5:
+  leaderboard: relentless
+  award_type: kibble
+  prize: 100
+  rank: 5
+  
+relentless_6:
+  leaderboard: relentless
+  award_type: kibble
+  prize: 100
+  rank: 6
+  
+relentless_7:
+  leaderboard: relentless
+  award_type: kibble
+  prize: 100
+  rank: 7
+  
+relentless_8:
+  leaderboard: relentless
+  award_type: kibble
+  prize: 100
+  rank: 8
+  
+relentless_9:
+  leaderboard: relentless
+  award_type: kibble
+  prize: 100
+  rank: 9
+  
+relentless_10:
+  leaderboard: relentless
+  award_type: kibble
+  prize: 100
+  rank: 10
+  
+franchises_1:
+  leaderboard: franchises
+  award_type: kibble
+  prize: 2000
+  rank: 1
+  
+franchises_2:
+  leaderboard: franchises
+  award_type: kibble
+  prize: 1000
+  rank: 2
+  
+franchises_3:
+  leaderboard: franchises
+  award_type: kibble
+  prize: 500
+  rank: 3
+  
+franchises_4:
+  leaderboard: franchises
+  award_type: kibble
+  prize: 250
+  rank: 4
+  
+franchises_5:
+  leaderboard: franchises
+  award_type: kibble
+  prize: 100
+  rank: 5
+  
+manlords_1:
+  leaderboard: manlords
+  award_type: kibble
+  prize: 1000
+  rank: 1
+  
+manlords_2:
+  leaderboard: manlords
+  award_type: kibble
+  prize: 800
+  rank: 2
+  
+manlords_3:
+  leaderboard: manlords
+  award_type: kibble
+  prize: 500
+  rank: 3
+  
+manlords_4:
+  leaderboard: manlords
+  award_type: kibble
+  prize: 250
+  rank: 4
+  
+manlords_5:
+  leaderboard: manlords
+  award_type: kibble
+  prize: 100
+  rank: 5
+  
+manlords_6:
+  leaderboard: manlords
+  award_type: kibble
+  prize: 100
+  rank: 6
+  
+manlords_7:
+  leaderboard: manlords
+  award_type: kibble
+  prize: 100
+  rank: 7
+  
+manlords_8:
+  leaderboard: manlords
+  award_type: kibble
+  prize: 100
+  rank: 8
+  
+manlords_9:
+  leaderboard: manlords
+  award_type: kibble
+  prize: 100
+  rank: 9
+  
+manlords_10:
+  leaderboard: manlords
+  award_type: kibble
+  prize: 100
+  rank: 10
+  
+forerunners_1:
+  leaderboard: forerunners
+  award_type: kibble
+  prize: 500
+  rank: 1
+  
+forerunners_2:
+  leaderboard: forerunners
+  award_type: kibble
+  prize: 300
+  rank: 2
+  
+forerunners_3:
+  leaderboard: forerunners
+  award_type: kibble
+  prize: 200
+  rank: 3
+  
+forerunners_4:
+  leaderboard: forerunners
+  award_type: kibble
+  prize: 100
+  rank: 4
+  
+forerunners_5:
+  leaderboard: forerunners
+  award_type: kibble
+  prize: 50
+  rank: 5
+  
+forerunners_6:
+  leaderboard: forerunners
+  award_type: kibble
+  prize: 50
+  rank: 6
+  
+forerunners_7:
+  leaderboard: forerunners
+  award_type: kibble
+  prize: 50
+  rank: 7
+  
+forerunners_8:
+  leaderboard: forerunners
+  award_type: kibble
+  prize: 50
+  rank: 8
+  
+forerunners_9:
+  leaderboard: forerunners
+  award_type: kibble
+  prize: 50
+  rank: 9
+  
+forerunners_10:
+  leaderboard: forerunners
+  award_type: kibble
+  prize: 50
+  rank: 10
+  
+hordes_1:
+  leaderboard: hordes
+  award_type: kibble
+  prize: 3000
+  rank: 1
+  
+hordes_2:
+  leaderboard: hordes
+  award_type: kibble
+  prize: 2000
+  rank: 2
+  
+hordes_3:
+  leaderboard: hordes
+  award_type: kibble
+  prize: 1000
+  rank: 3
+  
+hordes_4:
+  leaderboard: hordes
+  award_type: kibble
+  prize: 500
+  rank: 4
+  
+hordes_5:
+  leaderboard: hordes
+  award_type: kibble
+  prize: 300
+  rank: 5
+  
+ambassadors_1:
+  leaderboard: ambassadors
+  award_type: kibble
+  prize: 700
+  rank: 1
+  
+ambassadors_2:
+  leaderboard: ambassadors
+  award_type: kibble
+  prize: 500
+  rank: 2
+  
+ambassadors_3:
+  leaderboard: ambassadors
+  award_type: kibble
+  prize: 300
+  rank: 3
+  
+ambassadors_4:
+  leaderboard: ambassadors
+  award_type: kibble
+  prize: 200
+  rank: 4
+  
+ambassadors_5:
+  leaderboard: ambassadors
+  award_type: kibble
+  prize: 100
+  rank: 5
+  
+ambassadors_6:
+  leaderboard: ambassadors
+  award_type: kibble
+  prize: 100
+  rank: 6 
+  
+ambassadors_7:
+  leaderboard: ambassadors
+  award_type: kibble
+  prize: 100
+  rank: 7
+  
+ambassadors_8:
+  leaderboard: ambassadors
+  award_type: kibble
+  prize: 100
+  rank: 8
+  
+ambassadors_9:
+  leaderboard: ambassadors
+  award_type: kibble
+  prize: 100
+  rank: 9
+  
+ambassadors_10:
+  leaderboard: ambassadors
+  award_type: kibble
+  prize: 100
+  rank: 10
+  
+ambassadors_11:
+  leaderboard: ambassadors
+  award_type: kibble
+  prize: 50
+  rank: 11
+  
+ambassadors_12:
+  leaderboard: ambassadors
+  award_type: kibble
+  prize: 50
+  rank: 12
+  
+ambassadors_13:
+  leaderboard: ambassadors
+  award_type: kibble
+  prize: 50
+  rank: 13
+  
+ambassadors_14:
+  leaderboard: ambassadors
+  award_type: kibble
+  prize: 50
+  rank: 14
+  
+ambassadors_15:
+  leaderboard: ambassadors
+  award_type: kibble
+  prize: 50
+  rank: 15

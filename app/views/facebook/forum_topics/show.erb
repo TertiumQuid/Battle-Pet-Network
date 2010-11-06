@@ -1,0 +1,59 @@
+<% content_for :page_title do %>
+  <h2>
+	<%= facebook_link_to 'Forums', facebook_forums_path %> : 
+	<%= facebook_link_to @forum.name, facebook_forum_path(@forum) %> : 
+	<%= @topic.title %>
+  </h2>
+<% end %>
+
+<div class="box full">
+  <table class="topic" width="100%">
+  <% @posts.each do |p| %>	
+    <tr class="post">
+	  <td>
+		<p>
+		  <div class="strong"><%= p.user.username %></div>
+		  <span class="em"><%= "joined #{time_ago_in_words(p.user.created_at)} ago" %></span>
+		</p>
+		<p>
+		  <% if p.user.pet %>	
+		    <div class="left"><%= avatar_image(p.user.pet,'small') %></div>
+		    <div><%= facebook_link_to p.user.pet.name, facebook_pet_path(p.user.pet) %></div>
+		    <div><%= "Level #{p.user.pet.level_rank_count} #{p.user.pet.breed.name}" %></div>
+		    <div><%= p.user.pet.battle_record %></div>
+		  <% end %>
+		</p>
+	  </td>
+	  <td>
+		<p><%= RDiscount.new(p.body).to_html %></p>
+		<hr />
+		<% if p.can_edit?(current_user) %>
+		  <p class="right"><%= facebook_link_to 'Edit Post', edit_facebook_forum_forum_topic_forum_post_path(@forum,@topic,p) %></p>
+		<% end %>
+		<p class="em"><%= "#{time_ago_in_words(p.created_at)} ago on #{(Time.now).strftime("%Y-%m-%d %H:%M")}" %></p>
+	  </td>
+    </tr>
+  <% end %>
+  </table>
+  <p class="center"><%= will_paginate @posts %></p>
+</div>
+
+<% unless @topic.locked? || !registered? %>
+<div class="box full">
+  <% form_for @post, :url => facebook_nested_url(facebook_forum_forum_topic_forum_posts_path(@forum,@topic)) do |f| %>
+  <table class="message" width="100%" cellpadding="3">
+	<tbody>
+	  <tr>	
+	    <td><%= f.label :body, 'Post Reply' %></td>
+	    <td><%= f.text_area(:body, :size => "45x10")%></td>
+	    <td rowspan="2"><%= render_markdown_instructions %></td>
+	  </tr>
+	  <tr>	
+		<td>&nbsp;</td>
+	    <td><%= f.submit 'Save' %></td>
+	  </tr>
+	</tbody>
+  </table>
+  <% end %>	
+</div>
+<% end %>

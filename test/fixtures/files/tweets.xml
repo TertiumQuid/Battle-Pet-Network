@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<statuses type="array">
+<status>
+at top level in <created_at>Mon Jun 07 13 at line 15
+  <id>15628250388</id>
+  <text>Indie Game Devs on Facebook - Reasoned market analysis on the challenges and changes of casual gaming circa 2010 -http://tinyurl.com/2ewg2bn</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <favorited>false</favorited>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <user>
+    <id>108645104</id>
+    <name>Battle Pet Network</name>
+    <screen_name>battlepet</screen_name>
+    <location>A world where pets rule</location>
+    <description>The Battle Pet Network is a virtual pet combat game on Facebook and the iPhone</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/789070933/bctwittericon_normal.jpg</profile_image_url>
+    <url>http://apps.facebook.com/battlecat</url>
+    <protected>false</protected>
+    <followers_count>31</followers_count>
+    <profile_background_color>9ae4e8</profile_background_color>
+    <profile_text_color>000000</profile_text_color>
+    <profile_link_color>0000ff</profile_link_color>
+    <profile_sidebar_fill_color>e0ff92</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>87bc44</profile_sidebar_border_color>
+    <friends_count>131</friends_count>
+at top level in <created_at>Tue Jan 26 16 at line 13
+    <favourites_count>0</favourites_count>
+    <utc_offset>-36000</utc_offset>
+    <time_zone>Hawaii</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1276197224/images/themes/theme1/bg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <notifications></notifications>
+    <geo_enabled>false</geo_enabled>
+    <verified>false</verified>
+    <following></following>
+    <statuses_count>65</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+  </user>
+  <geo />
+  <coordinates />
+  <place />
+  <contributors />
+</status>
+<status>
+</statuses>

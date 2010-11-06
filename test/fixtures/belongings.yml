@@ -1,0 +1,35 @@
+two_grass:
+  pet: siamese
+  item: cat_grass    
+  source: purchased    
+  status: holding
+
+three_grass:
+  pet: persian
+  item: cat_grass    
+  source: purchased    
+  status: active    
+  
+three_cordura_collar:
+  pet: persian
+  item: cordura_collar    
+  source: purchased   
+  status: holding
+  
+three_standard:
+  pet: persian
+  item: fiberboard_pillar
+  source: purchased    
+  status: active  
+  
+two_catamount_claws:
+  pet: siamese
+  item: catamount_claws    
+  source: purchased
+  status: active
+  
+four_grass:
+  pet: burmese  
+  item: cat_grass
+  source: purchased
+  status: holding

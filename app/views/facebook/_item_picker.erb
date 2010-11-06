@@ -1,0 +1,43 @@
+<fb:editor-custom>
+<table id='item-picker'>
+<tr>
+<td>
+<ul class="items">
+<% items.each_with_index do |item,idx| %>
+  <li onclick="return itemSelected(<%="#{idx},'#{item.slug}'"%>);">
+	<%= radio_button_tag(attribute, item.id) %> <%= item.name %>
+  </li>
+<% end %>
+</ul>
+</td>
+<td>
+  <div id="item-details-image" class="<%="item-none-mid"%> left"></div>
+  <div>
+	<p><label>Power:</label> <span id="item-details-power"></span></p>
+	<p><label>Rarity:</label> <span id="item-details-rarity"></span></p>
+	<p class="em"><span id="item-details-description"></span></p>
+  </div>
+</td>
+</tr>
+</table>
+<script>
+<!--
+var items = [];
+
+<% items.each do |i| %>
+items.push(<%=i.to_json%>);
+<% end %>
+
+function itemSelected(idx,slug) { 
+  var item = items[idx].item;
+
+  document.getElementById('breed-details-power').setTextValue(breed.power); 	
+  document.getElementById('breed-details-rarity').setTextValue(breed.rarity);
+	
+  var avatar = "item-"+slug+"-mid";
+  document.getElementById('item-details-image').setClassName(avatar + ' left' );
+  return false;
+} 
+//-->
+</script>
+</fb:editor-custom>

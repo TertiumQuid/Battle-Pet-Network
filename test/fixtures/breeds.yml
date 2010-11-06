@@ -1,0 +1,71 @@
+siamese:
+    name: Siamese
+    species: cat
+    health: 15
+    endurance: 75
+    fortitude: 4
+    intelligence: 8
+    affection: 2
+    power: 1
+    favorite_action: slash
+    description: The Siamese breed descends from the Legendary Diamond-Gold Emperors of the East. Confident and intelligent, it was the great Siamese cats who led their contentious and uncertain brethren during the fall of mankind, and orchestrated their race's survival and current prosperity. When tested, the Siamese turns devious and calculating, traditionally relying on their wealth, cunning, and exotic armories to win the battle. Beneath their ruthlessness, however, is a playful temper, abiding respect for learning, and a passionate orator.
+    
+shorthair:
+    name: Shorthair
+    species: cat
+    health: 25
+    endurance: 50
+    fortitude: 7
+    intelligence: 2
+    affection: 2
+    power: 2
+    favorite_action: bite
+    description: The shorthairs carry a reputation as mongrel brutes, ill-breed and second-class. To them, however, such an obsession with pedigree is a mark of weakness, and indeed they find most breeds shamefully effete and incapable, inferior specimens measured by dent of strength. Most shorthairs have indeed come from the streets, at some point in their lineage, and the violence of the urban landscape is in their blood. Thick and mighty, shorthairs are invariably natural fighters.
+    
+persian:
+    name: Persian
+    species: cat
+    health: 20
+    endurance: 70
+    fortitude: 4
+    intelligence: 4
+    affection: 8
+    power: 1
+    favorite_action: flank
+    description: None have so close and storied a history with mankind as the persian. For all their years of torment, the persian has learned the ways of man to mastery, and therefore posses a tremendous command over the affections of humans. Resented for this by other breeds, the persians also proved some of the most valuable agents during the fall for their access to households and the knowledge of human civilization which their breed has been observing and studying for centuries.
+    
+russian_blue:
+    name: Russian Blue
+    species: cat
+    health: 25
+    endurance: 100
+    fortitude: 5
+    intelligence: 3
+    affection: 5
+    power: 2
+    favorite_action: dodge
+    description: Russian blues strive to serve a sacred feline code treasured by their breed. To these cats, there are angelic ideals that codify the perfection of their kind, and it is the duty of every russian blue to follow and exemplify these ideals. These cats have developed a fanatical, unshakable, automatic commitment to strength, play, friendliness, study, acrobatics, hunting, and all other areas of perfection. The litter is greater than the kitten, they say, but other breeds whisper that while they may try with all their might, the russian blue will always be as soulless as a fallen angel.
+
+maine_coon:        
+    name: Maine Coon
+    species: cat
+    health: 35
+    endurance: 90
+    fortitude: 3
+    intelligence: 3
+    affection: 3
+    power: 1
+    favorite_action: scratch
+    description: Few would guess that beneath the frame of gigantic maine coon is a loyal and friendly heart. Everything about these great, coated cats is equally suggestive, from their rumored origins as the offspring of an aristocrat and arctic forest cat or that they even sailed from a faraway island, to the almost mystical wisdom they're known to spontaneously share. When the siamese rallied the breeds for battle, the maine coons disappeared for nine months, leading many pets to say that their breed has renewed contact with the old gods.
+    
+burmese:
+    name: Burmese
+    species: cat
+    health: 30
+    endurance: 80
+    fortitude: 5
+    intelligence: 3
+    affection: 3
+    power: 1
+    favorite_action: scratch
+    description: The burmese has always lived in the shadow of the siamese and have hard fought to distinguish themselves from their brethren. Tough and fearless, the burmese of today are a proud breed with a defensive mentality, always trying to find a winning angle. Funny and friendly, it's easy to underestimate the breed, and these rouges like it that way, preferring others to see their paws, and not the claws beneath.

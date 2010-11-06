@@ -1,0 +1,25 @@
+<% form_for @shop.inventories.build, 
+			:url => facebook_nested_url(facebook_shop_inventories_path), 
+			:html => {:id => 'inventory-form'} do |f| %>
+  <table>
+	<tbody>
+	  <% unless @belongings.blank? %>	
+	    <tr><td colspan="2"><p class="em">Add items from your <%= facebook_link_to 'belongings', facebook_belongings_path %> to sell them from your shop.</p></td></tr>
+        <tr>
+	      <td width="70"><%= f.label :belonging_id, 'Belonging' %></td>
+          <td><%= f.collection_select(:belonging_id, @belongings, :id, :name, {:include_blank => true}) %></td>
+		</tr>
+        <tr>
+	      <td><%= f.label :cost, 'Cost' %></td>
+          <td><%= f.text_field :cost  %></td>
+		</tr>
+        <tr><td colspan="2"><p><%= f.submit 'Add to Inventory' %></p></td></tr>
+      <% else %>
+        <tr><td><p class="em">
+		  You don't have any items in your pet's <%= facebook_link_to 'belongings', facebook_belongings_path %> right now to
+		add to your inventory. 
+		</p></td></tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

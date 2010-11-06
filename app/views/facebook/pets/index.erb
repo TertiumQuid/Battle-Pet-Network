@@ -1,0 +1,45 @@
+<% content_for :page_title do %><h2>Pets of the World</h2><% end %>
+	
+<div class="box">
+  <h3>Search for other pets to meet and battle</h3>
+
+  <% form_tag( facebook_nested_url(facebook_pets_path), :method => "get") do %>
+    <div class="filters">
+	  <%= text_field_tag(:search) %>
+	  <%= submit_tag("Search", :name => nil) %>
+    </div>
+  <% end %>	
+
+  <table class='tabular' width="100%">
+	<tbody>
+	  <tr>
+		<td>&nbsp;</td>
+		<td><%= facebook_link_to 'Pet', facebook_pets_path, :order => 'name', :search => params[:search] %></td>
+		<td><%= facebook_link_to 'Breed', facebook_pets_path, :order => 'breed_id', :search => params[:search] %></td>
+		<td><%= facebook_link_to 'Level', facebook_pets_path, :order => 'level_rank_count', :search => params[:search] %></td>
+		<td><%= facebook_link_to 'Wins', facebook_pets_path, :order => 'wins_count', :search => params[:search] %></td>
+		<td><%= facebook_link_to 'Loses', facebook_pets_path, :order => 'loses_count', :search => params[:search] %></td>
+		<td><%= facebook_link_to 'Draws', facebook_pets_path, :order => 'draws_count', :search => params[:search] %></td>
+		<td>Pack?</td>
+		<td>Shop?</td>
+		<td>Last Seen</td>
+	  </tr>	
+	  <% @pets.each_with_index do |pet,idx| %>
+		<% odd_row = (idx % 2 == 0 ? "" : "odd") %>
+		<tr class='<%=odd_row%>'>
+		<td><%= avatar_image(pet, 'tiny') %></td>
+		<td><%= facebook_link_to pet.name, facebook_pet_path(pet) %></td>
+		<td><%= pet.breed.name %></td>
+		<td><%= pet.level_rank_count %></td>
+		<td><%= pet.wins_count %></td>
+		<td><%= pet.loses_count %></td>
+		<td><%= pet.draws_count %></td>
+		<td><%= pet.pack_id.blank? ? 'NO' : 'YES' %></td>
+		<td><%= pet.shop_id.blank? ? 'NO' : 'YES' %></td>
+		<td><%= "#{time_ago_in_words(pet.last_seen)} ago" if pet.last_seen %></td>
+		</tr>
+	  <% end %>
+	</tbody>
+  </table>
+  <%= will_paginate @pets %>
+</div>	

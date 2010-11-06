@@ -1,0 +1,59 @@
+<% content_for :page_title do %><h2>Manage Your Pet's Shop</h2><% end %>
+
+<div class="sidebox slim right">
+  <div class="box slim">
+    <h4>Stock Up Your Inventory</h4>
+    <%= render_inventory_picker %>
+  </div>
+</div>
+
+<div class="box">
+  <h4 class="right">Specialty: <%= @shop.specialty%></h4>
+  <h3><%= @shop.name %></h3>
+  <p class="em">Open for business for <%= "#{time_ago_in_words(@shop.created_at)}" %></p>
+  <% form_for @shop, :url => facebook_nested_url(facebook_shop_path(@shop)), :html => {:id => 'shop-form'} do |f| %>
+    <p>
+      <p>
+		<%= f.label :description %><br />
+		<%= f.text_area(:description, :size => "50x5")%>
+	  </p>	
+      <p><%= f.submit 'Update' %></p>
+    </p>
+  <% end %>
+</div>
+
+<div class="box">
+  <h4>Inventory</h4>
+  <p class="em">Owning a shop allows you to sell items to other pets. Once your pet owns an item, you can add it
+	to the shop's inventory and set a price of your choosing.</p>
+
+  <% if @inventory.blank? %>
+    <p class="em">Your shop's inventory is empty. Your customers are fleeing to rival vendors!</p>
+  <% end %>
+
+  <% @inventory.each do |i| %>
+  <table class="item dotbox">
+	<tr>
+	  <th colspan="2"><%= i.item.name %></th>
+	  <td align="right"><%= facebook_link_to "Remove from Inventory", facebook_shop_inventory_path(i), :method => :delete %></td>
+	</tr>
+	<tr>
+	  <td rowspan="5"><%= avatar_image(i.item, 'medium') %></td>
+	  <td width="100">Type: <strong><%= i.item.item_type %></strong></td>
+	  <td rowspan="4"><%= i.item.description %></td>
+	</tr>
+	<tr><td>Rarity: <strong><%= i.item.rarity %></strong></td></tr>
+	<tr><td>Power: <strong><%= i.item.power %></strong></td></tr>
+	<tr><td>Required Level: <strong><%= i.item.required_rank %></strong></td></tr>
+	<tr>
+	  <td>Suggested Price: <strong><%= i.item.cost %></strong></td>
+	  <td>
+		<% form_for i, :url => facebook_nested_url(facebook_shop_inventories_path(i)) do |f| %>		
+		  <%= f.label :cost, 'Your Shop Price:' %> <%= f.text_field :cost, {:value => i.cost, :style => "width:50px;"} %> <%= f.submit 'Update' %>
+		<% end %>
+	  </td>
+	</tr>
+  </table>
+  <% end %>
+  <%= will_paginate @inventory %>
+</div>

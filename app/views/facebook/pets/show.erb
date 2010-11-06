@@ -1,0 +1,143 @@
+<% content_for :page_title do %><h2>Pet Profile</h2><% end %>
+
+<div class="sidebox slim right">
+  <%= render_bio_box(@pet) %>
+</div>
+
+<div class="box">
+  <h4 class="right"><%="Level #{@pet.level_rank_count} #{@pet.breed_name}"%></h4>
+  <h3><%= @pet.name %></h3>
+
+  <table class='pet' width='100%'>
+	<tbody>
+	<tr>
+	  <td rowspan="6">
+		<%= avatar_image(@pet,'large') %>
+	  </td>
+	  <td>Health:</td><td><%=@pet.health%></td>
+	  <td rowspan="6">
+		<table class="right" width="100%">
+		  <tr>
+			<td class="tright">Total Battles:</td>
+			<td colspan="2">
+			  <span class="left"><%= @pet.battles_count %></span>
+			</td>
+		  </tr>
+		  <tr>
+			<td class="tright">Wins:</td>
+		    <td width="15"><%= @pet.wins_count %></td>
+			<td><%= percentage_bar [@pet.wins_count,@pet.battles_count], :width => 75, :fill => true %></td>
+		  </tr>
+		  <tr>
+			<td class="tright">Loses:</td>
+		    <td><%= @pet.loses_count %></td>
+			<td><%= percentage_bar [@pet.loses_count,@pet.battles_count], :width => 75, :fill => true %></td>
+		  </tr>
+		  <tr>
+			<td class="tright">Draws:</td>
+		    <td><%= @pet.draws_count %></td>
+			<td><%= percentage_bar [@pet.draws_count,@pet.battles_count], :width => 75, :fill => true %></td>
+		  </tr>
+		  <tr><td class="tright">Favorite Actions:</td><td colspan="2"><%= @pet.favorite_actions %></td></tr>
+		</table>
+	  </td>	
+	</tr>
+	<tr><td>Endurance:</td><td><%= @pet.endurance %></td></tr>
+	<tr><td>Fortitude:</td><td><%= @pet.fortitude %></td></tr>
+	<tr><td>Power:</td><td><%= @pet.power %></td></tr>
+	<tr><td>Intelligence:</td><td><%= @pet.intelligence %></td></tr>
+	<tr><td>Affection:</td><td><%= @pet.affection %></td></tr>
+    </tbody>
+  </table>
+
+  <div class="occupation">Occupied With <strong><%= @pet.occupation.name %></strong></div>
+  <% show_for_pet(@pet) do %>
+
+  <div>
+    <p class="signs">
+	  <% Sign.signs_with(current_user_pet, @pet).each do |sign|%>
+	    <div class="sign">
+	      <% form_for Sign.new, :url => facebook_nested_url(facebook_pet_signs_path(@pet)) do |f| %>	
+	        <%= f.hidden_field :sign_type, {:value => sign} %>
+		    <span class="sign-button"><%= f.submit sign.upcase %></span>
+		  <% end %>
+	    </div>
+	  <% end %>
+    </p>
+    <%= facebook_link_to "Challenge to Battle", new_facebook_pet_challenge_path(@pet), :class => "button orange" %>
+    <%= facebook_link_to 'Message', new_facebook_message_path(:pet_id => @pet.id), :class => "button orange" %>
+  </div>
+  <% end %>
+</div>
+
+<% unless @pet.belongings.battle_ready.blank? %>
+<div class="box gear">
+  <h4>Battle Gear</h4>
+  <p class="em"><%= @pet.name %> is equipped for battle.</p>
+  <% cell_table(@pet.belongings.battle_ready,4) do |b,idx| %>
+    <td><% item_badge(b.item) %></td>
+  <% end %>
+</div>
+<% end %>
+
+<% unless @pet.pack_id.blank? %>
+  <div class="box pack">
+    <h4>Pack: <%= facebook_link_to @pet.pack.name, facebook_pack_path(@pet.pack) %></h4>
+	<h5><%= @pet.pack.position_for(@pet)%></h5>
+    <table width="100%">
+	  <tr>
+		<td>Founded:</td>
+		<td>
+		  <div>by <%= facebook_link_to @pet.pack.leader.name, facebook_pet_path(@pet.pack.leader) %></div>
+		  <span><%= "#{time_ago_in_words(@pet.pack.created_at)} ago" %></span>
+		</td>
+		<td rowspan="3">
+		  <% cell_table(@pet.pack.pack_members, 4) do |m,idx| %>
+		    <td>
+		      <%= avatar_image(m.pet) %>
+		      <strong class="right"><%= facebook_link_to m.pet.name, facebook_pet_path(m.pet) %></strong>
+		      <span class="em right"><%= "level #{m.pet.level_rank_count}" %></span>
+		    </td>
+		  <% end %>
+		</td>
+	  </tr>
+	  <tr>
+		<td>Standard:</td>
+		<td><%=@pet.pack.standard.name %></td>
+	  </tr>
+	  <tr>
+		<td>Member Bonus:</td>
+		<td><%=@pet.pack.membership_bonus %></td>
+	  </tr>
+	</table>
+  </div>
+<% end %>
+
+<% unless @pet.tames.blank? %>
+  <div class="box humans">
+    <h4>Kennel</h4>
+    <table class="kennels">
+	<tbody>
+	<% @pet.tames.each do |tame| %>
+	<tr>
+	  <table class='domesticated-human'>
+		<tbody>
+		<tr><th colspan="3"><%= tame.human.name %></th></tr>
+		<tr>
+		  <td><%= avatar_image(tame.human, 'small') %></td>
+		  <td>
+			<div>Type: <strong><%= tame.human.human_type %></strong></div>
+			<div>Power: <strong><%= tame.human.power %></strong></div>
+			<div>Required Level: <strong><%= tame.human.required_rank %></strong></div>
+			<div>Rarity: <strong><%= tame.human.difficulty %></strong></div>
+		  </td>
+		  <td class="em" colspan="2"><%= tame.human.description %></td>
+		</tr>
+		</tbody>
+	  </table>
+	</tr>
+	<% end %>
+	</tbody>
+    </table>
+  </div>
+<% end %>

@@ -1,0 +1,67 @@
+<% content_for :page_title do %><h2><%= "#{current_user_pet.name}'s" %> Biography</h2><% end %>
+
+<div class="box full">
+  <p class="em">Every pet is different. To create your pet's biography, you'll need to choose some facts about their personality
+	  and life. Once you save your biography it can't be changed so make sure it fits your pet!</p>
+
+  <p class="em">After you've saved your pet's biography they'll receive <%= AppConfig.awards.biography_creation %> Kibble 
+	  and a stats advance determined by your collective biography.</p>
+
+  <% form_for @biography, :url => facebook_nested_url(facebook_biography_path(current_user_pet)) do |f| %>	
+    <table class="biography">
+	  <tbody>
+		<tr>
+	      <td><%= f.label :temperament %></td>
+	      <td><%= f.collection_select(:temperament, Biography::TEMPERAMENTS, :to_s, :to_s, {:include_blank => true}) %></td>
+	      <td><%= f.label :lifestyle %></td>
+	      <td><%= f.collection_select(:lifestyle, Biography::LIFESTYLES, :to_s, :to_s, {:include_blank => true}) %></td>
+	      <td><%= f.label :circadian %></td>
+	      <td><%= f.collection_select(:circadian, Biography::CIRCADIAN, :to_s, :to_s, {:include_blank => true}) %></td>	
+		</tr>
+		<tr>
+	      <td><%= f.label :pedigree %></td>
+	      <td><%= f.collection_select(:pedigree, Biography::PEDIGREES, :to_s, :to_s, {:include_blank => true}) %></td>
+	      <td><%= f.label :gender %></td>
+	      <td><%= f.collection_select(:gender, Biography::GENDERS, :to_s, :to_s, {:include_blank => true}) %></td>		
+	      <td><%= f.label :voice, 'Purr' %></td>
+	      <td><%= f.collection_select(:voice, Biography::VOICES, :to_s, :to_s, {:include_blank => true}) %></td>					
+		</tr>
+		<tr>
+	      <td><%= f.label :zodiac %></td>
+	      <td><%= f.collection_select(:zodiac, Biography::ZODIAC, :to_s, :to_s, {:include_blank => true}) %></td>
+		  <td><%= f.label :favorite_pastime %></td>
+	      <td><%= f.collection_select(:favorite_pastime, Biography::PASTIMES, :to_s, :to_s, {:include_blank => true}) %></td>
+		  <td><%= f.label :siblings, 'Litter Size' %> (<em>1-8</em>)</td>
+		  <td><%= f.text_field :siblings, {:value => @biography.siblings} %></td>
+		</tr>
+		<tr>
+	      <td><%= f.label :favorite_food %></td>
+	      <td><%= f.collection_select(:favorite_food, Biography::FOODS, :to_s, :to_s, {:include_blank => true}) %></td>
+	      <td><%= f.label :favorite_color %></td>
+	      <td><%= f.collection_select(:favorite_color, Biography::COLORS, :to_s, :to_s, {:include_blank => true}) %></td>
+	      <td><%= f.label :favorite_season %></td>
+	      <td><%= f.collection_select(:favorite_season, Biography::SEASONS, :to_s, :to_s, {:include_blank => true}) %></td>
+		</tr>
+		<tr>
+	      <td rowspan="3"><%= f.label :description %></td>
+	      <td rowspan="3" colspan="3"><%= text_area(:biography, :description, :size => "20x5")%></td>
+	      <td><%= f.label :favorite_composer %></td>
+	      <td><%= f.collection_select(:favorite_composer, Biography::COMPOSERS, :to_s, :to_s, {:include_blank => true}) %></td>		  
+		</tr>
+		<tr>
+	      <td><%= f.label :favorite_philosopher %></td>
+	      <td><%= f.collection_select(:favorite_philosopher, Biography::PHILOSOPHERS, :to_s, :to_s, {:include_blank => true}) %></td>
+		<tr>
+		  <td><%= f.label :birthday %></td>
+		  <td><%= f.date_select :birthday %></td>
+		</tr>
+	    <tr>
+		  <td colspan="6">
+		    <%= f.submit 'Save Biography' %> 
+		    <%= facebook_link_to "I'll Write it Later", home_facebook_pets_path %>
+		  </td>
+		</tr>
+	  </tbody>
+	</table>
+  <% end %>
+</div>

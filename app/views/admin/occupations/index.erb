@@ -1,0 +1,18 @@
+<article class="articlecontent">
+  <h2>Occupations</h2>
+  <p></p>
+  <table>
+	<tbody>
+	  <tr>
+	    <th>Name</th>
+	    <th>Cost</th>
+	  </tr>
+	  <% @occupations.each do |o| %>
+	  <tr>
+	    <td><%= link_to o.name, edit_admin_occupation_path(o) %><td>
+	    <td><%= o.cost %></td>
+	  </tr>
+	  <% end %>
+	<tbody>
+  </table>
+</article>

@@ -1,0 +1,39 @@
+<% content_for :page_title do %><h2>Occupation</h2><% end %>
+
+<div class="box full">
+  <h3><%= current_user_pet.name %> is currently <%= current_user_pet.occupation.name %></h3>
+  <p class="em">From battling to commerce, your pet is always occupying themselves somehow. Depending on their current
+	occupation, certain activities are made possible or impossible. Your pet must be <strong>prowling</strong> to challenge
+	others to battle, for example, or <strong>shopkeeping</strong> in order to sell items in the market.</p> 
+  <p class="em">In addition to setting your pet's general activity, you can also take direct action for most occupations at 
+	the cost of some endurance.</p>
+  <% cell_table(@occupations) do |o,idx| %>
+    <td class="occupation">
+	  <table>
+		<tr>
+		<td>
+		  <%= avatar_image(o,'medium') %>
+		  <% if o.cost > 0 && o.pet_can?(current_user_pet) %>
+			<p>
+			  <%= facebook_link_to "Perform (#{o.cost}K)", attempt_facebook_occupation_path(0), :class => 'button orange' %>)
+			</p>
+		  <% elsif o.cost > 0 %>
+			<p class="em">Too Tired</p>
+		  <% end %>
+		
+		  <% if o.pet_doing?(current_user_pet) %>
+            <p class="em">Current Occupation</p>
+          <% else %>
+            <p><span id="<%=o.slug%>-btn" class="occupation-button"><%= facebook_link_to "Switch", facebook_occupation_path(o) %></span></p>
+          <% end %>
+        </td>
+	    <td>
+		  <h4><%= o.name %></h4>
+		  <br />
+		  <p class="em"><%= o.description %></p>
+		</td>  
+		</tr>	
+	  </table>
+    </td>	
+  <% end %>	
+</div>

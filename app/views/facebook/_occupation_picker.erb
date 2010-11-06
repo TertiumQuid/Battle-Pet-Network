@@ -1,0 +1,27 @@
+<table>
+<tr><th colspan="3"><%= facebook_link_to 'Occupations', facebook_occupations_path %></th></tr>
+<tr>
+  <td colspan="2"><em>How is your pet currently occupying themselves?</em></td>
+  <td><label><%= "#{pet.name} is #{pet.occupation.name.downcase}" %></label></td>
+</tr>
+
+<% if pet.occupation.cost > 0 && pet.occupation.pet_can?(pet) %>
+  <% form_for current_user_pet, 
+	:url => facebook_nested_url(attempt_facebook_occupation_path(pet.occupation)), 
+	:html => { :method => :post} do |f| %>
+    <tr>
+      <td colspan="2">Do now for <%=pet.occupation.cost%> endurance</td>
+      <td><%= submit_tag 'perform'%></td>
+    </tr>
+  <% end %>
+<% end %>
+
+<tr><td colspan="3"><hr /></td></tr>
+<tr>
+<% form_for :pet, pet, :url => "/#{facebook_app_path}/pets/home/pet", :html => { :method => :put} do |f| %>
+  <td colspan="2">
+    <%= f.collection_select(:occupation_id, Occupation.ordered, :id, :name, {:include_blank => true}) %>
+  </td>
+  <td><%= f.submit 'Update' %> </td>
+<% end %>
+</table>

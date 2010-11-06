@@ -1,0 +1,519 @@
+<% content_for :page_title do %><h2>The <%=AppConfig.name%> Guidebook</h2><% end %>
+
+<div class="box full guide">
+  <p>The Battle Pet Network is a virtual pet game where you befriend, raise, adventure, and fight with evolved housecats in a post-apocalyptic world after the fall of man.</p>
+  <p>At the forefront of your pet's survival is battle! You'll match wits with other players using the elegant Undercut combat system. Find rival pets and challenge them, secretly choose your pet's actions, and then see who wins as the fight resolves by comparing pet strategies.</p>
+
+  <h4>Gameplay</h4>
+  <p>The world is rich with adventure for your pet, of battle and otherwise. Some of the things you'll do together include:</p>
+  <ul>
+    <li>Challenging and battling other pets, outwitting your foes with decisive strategies</li>
+    <li>Hunting mutants, hybrids, wild humans, and defending the commonwealth of pets from the sentient menace</li>
+    <li>Equipping your pet with battle gear and collectables to enhance their skills</li>
+    <li>Taming savage humans with your pet's irresistible affection, then putting them to work in the kennels</li>
+    <li>Scavenging the ruins for items, foraging the lands for food and treats</li>
+    <li>Joining or founding a pack with other pets, to fight and glory together</li>
+    <li>Opening a shop in the market and trading in treasure and goods with other pets</li>
+    <li>Playing with friends, helping each other heal, and just chatting, as is the nature of social animals</li>
+  </ul>
+</div>
+
+<div class="box full guide">
+  <h3 id="toc">Table of Contents</h3>
+  <ol>
+    <li>PETS: Ecology; Befriending a Pet; Pet Stats; Breeds; Biography; Endurance, Recovery, and Food; Retiring a Pet</li>
+    <li>COMBAT: Actions; Favorite Actions; Strategies; The Undercut Combat System; Recovery; Tips</li>
+    <li>CHALLENGES: Challenging Pets; Challenging Packs; Open Challenges</li>
+    <li>EXPERIENCE</li>
+    <li>OCCUPATIONS: Prowling; Shopkeeping; Scavenging; Foraging; Human Taming</li>
+    <li>SENTIENTS: Ecology; Hunting; Population</li>
+    <li>KIBBLE</li>
+    <li>ITEMS: Belongings; Item Types; Unique Items</li>
+    <li>THE MARKET: Buying Items; Restocking</li>
+    <li>PREMIUM SHOP</li>
+    <li>PET SHOPS: Opening a Shop; Running a Shop; Selling Items</li>
+    <li>HUMANS: Ecology; Human Taming; Enslaving Humans; Types of Humans; Co-Existence</li>
+    <li>PACKS: Ecology; Standards; Founder; Leader; Member Recovery; Treasury and Spoils; Loaning Spoils; Dues; Invitations / Requests</li>
+    <li>SIGNS</li>
+    <li>MESSAGES</li>
+    <li>LEADERBOARDS: Ranking; Strongest Fighters; Relentless Fighters; Famous Shops; Manlords; Forerunners; Hordes; Ambassadors</li>
+  </ol>
+</div>
+
+<div class="box full guide">
+  <h3 id="pets">Pets</h3>
+  <br />
+  <h4>Ecology</h4>
+  <p>Evolution has found its new star in the millions of pets loosed onto the blasted landscape of man. Housepets did not perish in the fallout, but instead escaped, survived, and were reforged by nature for the new world with more intelligence, cunning, and strength. Scant generations later, Battle Pets have the keys to the kingdom and are struggling, every one of them, to carve their place.</p>
+  <p><%= facebook_link_to 'Befriending a pet', new_facebook_pet_path %> and helping them survive and prosper is your primary charge. A pet's life is complex, and there are many ways to obtain prestige and happiness for your pet.</p>
+
+  <h4>Befriending a Pet</h4>
+  <p>If you have not <% facebook_link_to 'befriended a pet', new_facebook_pet_path %> already, you will be continually prompted to do so. Many areas of the game can be seen by visitors, but you'll need a pet to truly start playing.</p>
+  <p>When <%= facebook_link_to 'befriending a pet', new_facebook_pet_path %> you'll only need to choose your pet's name, and select your pet's 'breed'. Different breeds have different characteristics, strengths, and weakness, so choose a breed that suits you best.</p>
+
+  <h4>Pet Statistics</h4>
+  <p>Every pet has a statistics <%= facebook_link_to_if_pet 'profile', profile_facebook_pet_path %> which charts their strengths and weaknesses, and gives shape to the habits and preferences of the pet. The statistics include:</p>
+  <ol>
+    <li>Health: your pet's health is a measure of their wounds. When your pet reaches 0 health in battle, they loose.</li>
+    <li>Endurance: your's pet's endurance is a measure of how much energy that have to perform tasks or fight. Many activities in the game require endurance, and when your pet reaches 0 endurance in battle, they loose.</li>
+    <li>Fortitude: your pet's fortitude determines how fast they recover their endurance, as well as their resistance to disease.</li>
+    <li>Power: your pet's power determines the amount of extra damage added to their attacks in battle.</li>
+    <li>Intelligence: your pet's intelligence measures their awareness and cunning, setting the limit on things such as the number of actions per strategy, effecting the experience potential of your pet, and often factoring into the odds of success for tasks like scavenging.</li>
+    <li>Affection: your pet's affection measures your pet's ability to attract, tame, and rule wild humans.</li>
+  </ol>
+
+  <h4>Breeds</h4>
+  <p>A pet's nature runs in their blood, and much of who they are is determined by their breed. This includes their starting statistics profile, their appearance, their level advance scheme, their favorite combat action, and access to special items and actions unique to the breed. Inheriting so much, pets will instead tend to distinguish themselves through their item collections and their behavior.</p>
+  <p>Selectable starting breeds include:</p>
+  <ul>
+    <li>Burmese</li>
+    <li>Maine Coon</li>
+    <li>Persian</li>
+    <li>Russian Blue</li>
+    <li>Shorthair</li>
+    <li>Siamese</li>
+  </ul>
+
+  <h4>Biography</h4>
+  <p>Every pet came from somewhere, and yours will have a chance to tell the story of their past, personality, and preferences. By creating your pet's biography you not only give them a breath of life, but will receive a number of minor awards in the form of statistics bonuses, items, and kibble which are appropriate for your chosen biography.</p>
+  <p>You can only create your pet's biography once, and once it's written, it's written in stone and may not be changed later.</p>
+
+  <h4>Endurance, Recovery, and Food</h4>
+  <p>A pet can only do so much before they grow exhausted and must rest. Much of the activities you'll pursue with your pet require endurance, so you'll need to choose how your pet should best spend their time. If your pet doesn't have enough endurance, they won't be able to perform certain activities, and if they should reach zero endurance during combat, then they will lose the battle.</p>
+  <p>Pets recover endurance at a natural rate. Every hour, a pet regains an amount of health and endurance equal to their fortitude. Items and tamed humans can help your pet recover faster, and if your pet's a member of a pack then they'll recover even faster with the help of their fellow pack members. You can also sign with other pets, playing and purring and so forth to give each other minor recovery boosts.</p>
+  <p>The quickest way to recover a lot of health and endurance, however, is by feeding your pet food items. You can buy food at the market or pet shops, or find or win food in a wide variety of ways. The more powerful the food item, the more endurance your pet will recover. Pets that battle often will need to maintain a steady diet of food to ensure that they endurance is frequently replenished.</p>
+
+  <h4>Retiring a Pet</h4>
+  <p>Pets aren't meant to live forever, and someday you may send your pet away to their fate and befriend a new one. Because of the natural jealously of pets, you may only have one pet at a time, so it will be necessary to retire your pet should you wish to make a new pet friend. You can retire you pet at any time from their profile.</p>
+</div>
+
+<div class="box full guide">
+  <h3 id="combat">Combat</h3>
+  <p>Battle between pets is the centerpiece of the game. Called 'Undercut', the combat system is based around a simple number-guessing game from which many possible strategies emerge. Before combat each pet chooses their actions in secret, trying to predict their opponent's moves in advance and outsmart them with a better tactical response.</p>
+  <p>Pets 'attack' each other by issuing challenges, which the 'defender' can decide to accept or decline at their leisure. Before battle, both pets pick a sequence of actions to form their 'strategy' for that battle, and once strategies are chosen the combat unfolds automatically by comparing the pet's respective actions. Pets can lose the battle through too many wounds, or by sheer exhaustion.</p>
+  <p>After the battle the winning pet receives an 'experience' award for their victory, with additional experience bonuses possible through a variety of means. The more your pet fights, the more experience they will accumulate, and the more powerful they will become in battle.</p>
+
+  <h4>Actions</h4>
+  <p>Actions are types of maneuvers your pet can perform in battle, such as slashing with their claws, biting, or dodging to safety. There are two types of actions: offensive and defense. Each action also has a power, ranging from one to eight, where offensive actions are always even-numbered (2, 4, 6, 8) and defensive are always odd-numbered (1, 3, 5, 7).</p>
+  <p>Every pet starts the game with an identical set of the eight main actions, but while difficult it is still possible to learn rare and special actions if your pet is dedicated enough to the art of battle.</p>
+  <p>The basic actions are:</p>
+  <p>
+	Offensive:
+	<ul>
+      <li>2. scratch</li>
+	  <li>4. slash</li>
+	  <li>6. claw</li>
+	  <li>8. bite</li>
+	</ul>
+    Defensive:
+    <ul>
+	  <li>1. swat</li>
+	  <li>3. flank</li>
+	  <li>5. dodge</li>
+	  <li>6. leap</li>
+    </ul>
+  </p>
+  <h4>Favorite Actions</h4>
+  <p>Each pet breed has a favorite action which pets of the breed prefer to fight with, and which characterizes the breed. This is your pet's favorite breed action. Your pet may also choose a personal favorite action, which they wish to characterize their personal fighting style. You can set your pet's favorite action from their profile.</p>
+  <p>Whenever your pet uses strategies including one or more of their favorite actions they will receive a minor experience bonus, regardless of who wins the battle, in recognition of their 'fighting in style'. The bonus is equal to the number of favorite actions appearing in their strategy, so if you use the same favorite action for 3 of the strategy's maneuvers, your pet will receive a bonus 3 experience.</p>
+
+  <h4>Strategies</h4>
+  <p>Before issuing or responding to a challenge, your pet must build a strategy to use in the battle. To build a strategy, you'll simply select a list of actions that your pet wishes to use and order them in the desired sequence. Your opponent will do the same, and then to resolve the battle each fighter's actions will be compared in order (rolling around to the first action if necessary) until one of the fighters has defeated the other.</p>
+  <p>Your pet's strategies can include a number of actions equal to their intelligence. The more actions you include, the more you can diversify your tactics and the more experience you can gain from using your favorite actions. As a consequence, more intelligent pets tend to earn experience quicker if they take full advantage of their intelligence.</p>
+  <p>Once you've built a strategy, it will be saved for your pet and you can select that strategy again for reuse in any future battles. Over time you can experiment with which strategies prove the most victorious for your pet. It's possible to review and delete strategies at any time from your pet's combat profile.</p>
+
+  <h4>The Undercut Combat System</h4>
+  <p>Combat in Undercut revolves around a single idea: try to pick the highest number you can that is still lower than the number your opponent has picked.</p>
+  <p>Because every combat action your pet can perform is assigned a power, in general you'll want to pick the highest powered actions you think that you can get away with. An 'Undercut' occurs when your pet performs an action whose power is exactly one less than their opponent's action - this is the best outcome you can hope for, and not only is your pet's damage doubled for undercuts, but they also receive an experience bonus.</p>
+  <p>When two fighters battle, the actions in their strategies are compared for a number of rounds until the battle ends. If the last action of a fighter's strategy is reached, then the strategy will simply start again from its first action.</p>
+  <p>The outcome each round depends on the type and power of the respective actions, and there are six possible outcomes:</p>
+  <ol>
+	<li>Both defend: nothing happens.</li>
+	<li>Both attack: each fighter deals their action's power in damage to the other.</li>
+	<li>One fighter attacks with higher power, the other defends with lower power: the attacker deals the action's power in damage to the defender, minus the defender's action's power.</li>
+	<li>One fighter attacks with lower power, the other defenders with higher power: the attacker deals their action's power in damage to the defender.</li>
+	<li>Attacker undercuts defender: the attacker deals double their action's power in damage to the defender.</li>
+	<li>Defender undercuts attacker: the defender deals double the attacker's own action's power in damage to the attacker.</li>
+  </ol>
+  <p>There are two ways to loose a battle in undercut:</p>
+  <p>First: When an action deals damage to a fighter, that fighter's health decreases, and when a fighter's health reaches zero they fall unconscious and lose the battle.</p>
+  <p>Second: Whenever a fighter performs an action, that fighter's endurance decreases by an amount equal to the action's power, and when a fighter's endurance reaches zero, they collapse in exhaustion and lose the battle. Note, offensive actions cost twice their power in endurance, while defensive actions only cost their power.</p>
+  <p>A battle continues until one of the fighters reaches zero health or endurance.</p>
+
+  <h4>Recovery</h4>
+  <p>After a battle ends, pets will lick their wounds, catch their breath, and emerge from combat more or less intact. Depending on the outcome, fighting pets will recover either half (if at less than half health) or all of their health:</p>
+  <ul>
+    <li>The winning pet is restored to full health</li>
+    <li>The loosing pet is restored to half health or their ending health, whichever is greater.</li>
+    <li>If the battle is a draw, both pets are restored to half or current health, whichever is greater.</li>
+  </ul>
+
+  <h4>Tips</h4>
+  <p>
+	Q: How many actions to use in a strategy?<br />
+    A: As many as you can, since there's a greater potential for experience awards.
+  </p>
+  <p>
+	Q: When to use offensive vs. defensive actions?<br />
+    A: You'll obviously need to use defensive moves if you think you know your enemy's action and are trying to undercut them. Otherwise, defensive actions are useful in conserving endurance over the course of the battle, while offensive actions are necessary to deal damage.<p>
+  <p>
+	Q: When to use high vs low power actions?<br />
+    A: Higher powered actions use more endurance and are easier to undercut, but deal/defend more damage. Lower power actions conserve your endurance, and are safer, but are weaker.</p>
+  <p>
+	Q: How often to battle?<br />
+    A: As often as your pet's endurance can afford it. Entering a battle with weakened endurance is riskier, but often necessary in order to fight more frequently. The more you battle, the more you will also get to test your strategies, finding general strategies that are successful, and strategies successful against specific opponents.</p>
+  <p>
+   Q: Who to battle?<br />
+   A: Fight with higher level opponents to get more experience, and lower level opponents for easier wins. Fight with strangers to test your strategies against a variety of opposing strategies, and fight with friends in order to experiment with and perfect the success of your strategies.</p>
+</div>
+
+<div class="box full guide">
+  <h3 id="challenges">Challenges</h3>
+
+  <p>In order to battle, a challenge must be exchanged between two pets. Announcing your pet's greatness to rivals and boasting of their fighting prowess is a long and respectable tradition in the animal kingdom, and in this way you will compete in the everlasting battle royal deciding the greatest among the pets.</p>
+
+  <h4 id="challenging-pets">Challenging Pets</h4>
+  <p>In order to challenge or be challenged, your pet's occupation must first be set to 'prowling'. It's possible to challenge any pet from their profile, and when your pet has been challenged, you will be notified on a number of screens, including your pet's main profile, their combat profile, and their challenges screen.</p>
+  <p>When you challenge a pet, you'll be taken to the challenge screen where you can see a side-by-side comparison of the two fighters. To complete the challenge, you must either choose a saved strategy to use or else build a new strategy for the battle. Once you've issued a challenge, you need but wait until your opponent accepts or declines. If you change your mind before your opponent has responded, you may also cancel the challenge. </p>
+  <p>When your pet receives a challenge, you'll have the option to accept or decline it. At this point, you may wish to size up your opponent by viewing their profile, and then make your decision. If you accept, you'll be taken to the challenge screen, where you must either choose a saved strategy to use or else build a new strategy for the battle.</p>
+  <p>Once both pets have chosen their strategies, the battle is resolved, and the fighters can review outcome.</p>
+
+  <h4 id="challenging-packs">Challenging Packs</h4>
+  <p>If your pet is especially courageous or simply wants to raise the odds that their challenge will be accepted, they can challenge a pack of pets to battle. All pack members will see the challenge, and any of them may accept or decline it on behalf of their pack. If your pack is challenged, you will see the challenges on your pack profile and pet's own challenge screen.</p>
+  <p>Once a pack member has accepted the challenge, battle proceeds as usual between the two pets.</p>
+
+  <h4 id="open-challenges">Open Challenges</h4>
+  <p>If a pet has no reservations about the enemy and owns no fear, they can issue an open challenge which any other pet may then accept. Open challenges are visible from a number of areas, and can be accepted on a first-come, first-fight basis. When you accept another pet's open challenge, you'll proceed to the challenge screen, select a strategy, and resolve the battle as normal.</p>
+  <p>Your pet can issue an open challenge from their combat profile. The disadvantage of an open challenge, obviously, is that you'll have no idea who you might be battling.</p>
+</div>
+
+<div class="box full guide">
+  <h3 id="experience">Experience</h3>
+  <p>Combat is the primary means of gaining experience for your pet. The amount of experience your pet will receive pet battle depends on several factors.</p>
+  <p>First, a pet will always receive a minimum of 1 experience for battling.</p>
+  <p>Second, the winning pet will receive experience equal to the power of their battle strategy.</p>
+  <p>Third, a pet will always receive an experience bonus for using their favorite actions in their strategies.</p>
+  <p>Fourth, a pet will always receive an experience bonus whenever they undercut their opponent.</p>
+  <p>Fifth, wise humans and sensor items provide an experience bonus if active during the battle.</p>
+  <p>As your pet acquires experience they'll progress through their breed's levels, becoming increasing stronger after obtaining each level. With each rank they reach, subsequent levels become harder to obtain, and require increasingly more experience.</p>
+</div>
+
+<div class="box full guide">
+  <h3 id="experience">Occupations</h3>
+  <p>Whenever your pet isn't actively performing actions, they will occupy themselves with a particular goal, which they pursue even when you're offline. This is your pet's current 'occupation', and it's a way for you to ensure your pet is always getting something done.</p>
+  <p>Most occupations are passive and your pet will be thus engaged so long as their occupation is set. Other occupations, however, can repeatedly performed by spending endurance. It's possible to change your occupation at any time either directly from your pet's profile, or from the general occupations screen.</p>
+  <p>There are five occupations available to pets: prowling, shopkeeping, scavenging, foraging, and human taming.</p>
+
+  <h4>Prowling</h4>
+  <p>By far the most common and necessary occupation, a pet must be prowling in order to (1) issue and answer challenges, or (2) to go hunting. If a pet somehow battles while not prowling (for example if an outstanding challenge of theirs is answered) then they get no experience for that combat.</p>
+  <p>Prowling is a passive activity, and effectively sets your pet ready for battle.</p>
+
+  <h4>Shopkeeping</h4>
+  <p>Like prowling, shopkeeping is necessary if - instead of combat - your pet wishes to sell items from their shop. Pets may still visit if your pet is not shopkeeping, but they will not be able to purchase items.</p>
+  <p>Shopkeeping is a passive activity, and effectively sets your shop's inventory to available. If your pet does not have a shop, then shopkeeping has no effect.</p>
+
+  <h4>Scavenging</h4>
+  <p>A world full of lost items awaits methodical treasure hunters who can scavenge them from the lands. While scavenging, your pet has a chance every hour to find a random item. The higher intelligence your pet has, the better they are at discovering lost items to use.</p>
+  <p>Scavenging can also be actively performed by your pet anytime at the cost of some endurance, since scavenging is tiring work.  As when scavenging passively, your pet's intelligence determines their odds of success.</p>
+
+  <h4>Foraging</h4>
+  <p>While scavenging uncovers useful lost items, foraging seeks food and treats, items to sustain and nourish your pet. The nature of 'edible' is debatable, and beneath the ashes there's a bounty of food collected, and food will be required to fuel a busy pet. While foraging, your pet has a chance every hour to find a random food item. The higher intelligence your pet has, the better they are at discovering edible items. As a rule, foraging twice as easy as scavenging.</p>
+  <p>Foraging can also be actively performed by your pet anytime at the cost of some endurance, since foraging is tiring work.  As when foraging passively, your pet's intelligence determines their odds of success.</p>
+
+  <h4>Human Taming</h4>
+  <p>The remains of humanity can be found throughout the wilds, humans who retain much of their skill but little of their minds. Your pet can seek poor these creatures out and attempt to pacify and tame them, using their talents to help you. While human taming, your pet has a chance every hour to tame a random human.</p>
+  <p>Human taming is a two-step process, first in finding a human, and second in actually taming that human to your pet's will. Your pet's affection will determine how likely they are to succeed during both stages of the affair.</p>
+  <p>Your pet's affection also determines the maximum number of kenneled humans your pet can keep at any one time. Attempting to tame humans with a full kennel will simply produce no results.</p>
+  <p>Human taming can also be actively performed by your pet at the cost of some endurance, since human taming is long, demanding work. As when human taming passively, your pet's affection determines their odds of success.</p>
+</div>
+
+<div class="box full guide">
+  <h3 id="sentients">Sentients</h3>
+  <br />
+  <h4>Ecology</h4>
+  <p>After the fall of humans, new and dangerous creatures emerged from the wilderness and mysterious fallout zones to find food and menace the lands. These beasts became known as <%= facebook_link_to 'sentients', facebook_sentients_path %> - possessing only a simple, devious mind - and must be hunted down and destroyed lest they overrun the homesteads of goodly pets.</p>
+
+  <h4>Hunting</h4>
+  <p>Hunting <%= facebook_link_to 'sentients', facebook_sentients_path %> works just like normal combat with another pet, except that the battle is resolved immediately, and victory is rewarded with kibble instead of experience. The only requirement for hunting sentients is that your pet have the required level to face a given sentient in battle.</p>
+  <p>During battle, sentients will attack and defend at random from a select set of actions preferred by their kind. Despite their mindless nature, <%= facebook_link_to 'sentients', facebook_sentients_path %> can be deadly foes and should not be hunted lightly.</p>
+  <p>Should your pet defeat a sentient in battle, they'll receive a reward of kibble in recognition of their service to their fellow pets in exterminating the menace.</p>
+
+  <h4>Population</h4>
+  <p>Sentient populations are limited and their numbers dwindle as they are hunted down. When a particular sentiment's population reaches zero, it can no longer be hunted. Periodically, however, sentients will repopulate as the beasts shamelessly breed or migrate from faraway lands.</p>
+</div>
+
+<div class="box full guide">
+  <h3 id="kibble">Kibble</h3>
+  <p>Once fed to pets by humans, 'kibble' are dry flavorless pellets now used for currency when trading and buying items.</p>
+  <p>There are many ways to acquire kibble, but the most direct is simply to buy kibble packs, which can be purchased with a PayPal account or major credit card from the <%= facebook_link_to 'Premium Shop', premium_facebook_items_path %>.</p>
+  <p>Other ways to gain kibble include hunting awards, human slavery, ranking on the leaderboards, and your pet's daily login bonus.</p>
+</div>
+
+<div class="box full guide">
+  <h3 id="items">Items</h3>
+  <br />
+  <h4>Belongings</h4>
+  <p>Your pet's <%= facebook_link_to_if_pet 'belongings', facebook_belongings_path %> are some of the most important resources available. Many types of items are out there to be found, and although some are merely decorative or desirable, the vast majority can be used or equipped to give your pet an edge in the game somehow.</p>
+  <p>There are a number of common ways to get belongings for your pet. The easiest is simply to purchase them from the market stores or individual pet shops. Beyond this, your pet can scavenge random items, borrow them from their pack or a friend, discover them while hunting, win them for ranking on the leaderboards, and many other means besides.</p>
+  <p>You can access your pet's <%= facebook_link_to_if_pet 'belongings', facebook_belongings_path %> from their main <%= facebook_link_to_if_pet 'profile', profile_facebook_pet_path %>.</p>
+
+  <h4>Item Types</h4>
+  <p>Different types of items produce different effects, and can be used in various ways. The types of items include:</p>
+  <ul>
+	<li>Food<br />
+Pets must eat to survive. Food items can only be used once, and restore an amount of your a pet's endurance and all of their health when consumed. Pets will naturally weaken without food, and even if your pet is unharmed they will remain strong and happy when regularly fed.</li>
+    <li>Treats<br />
+Rather than providing nourishment, treats give your pet a boost of energy. Treats can only be used once, and not only restore your pet to full health but temporarily increase their health above the maximum limit. Once your pet's bonus health is lost, however, it will not be restored, as the treat's effects have worn off.</li>
+    <li>Charms<br />
+Wild humans remain mysteriously attracted to decorative trinkets and costumes. While your pet wears one or more charms, they receive a minor bonus to attract, tame, and rule their domesticated and enslaved humans. Dressing your pet in an increasingly outlandish fashion tends to make them especially amiable to mankind.</li>
+    <li>Toys<br />
+Pets that train and play become more agile, deadlier warriors. Toys can only be used once, after which they are too battered to be of interest. After your pet plays with a toy, they immediately gain a given amount of experience from the act of very serious frisking.</li>
+    <li>Sensors<br />
+Various sensors can be equipped to your pet, but only one may be used at any given time. While active, the sensor increases your pet's awareness of their surroundings, providing various experience bonuses, such as after winning a battle with another pet.</li>
+    <li>Weapons<br />
+Weapons make your pet considerably more dangerous in battle, increasing the total amount of damage they deliver when landing an attack on the enemy. Only one weapon may be in active use at any time, making powerful weapons extremely valuable.</li>
+    <li>Collars<br />
+A collared pet fights with a defensive bonus against the enemy's attacks. While wearing a collar, your pet gains additional protection when they defend in battle, stopping of the damage delivered by the enemy. Only one collar may be worn at any time.</li>
+    <li>Mantles<br />
+Coats, cloaks, or furs, a mantle is worn by a pet to toughen their body, protecting them from wounds and increasing their maximum total health. Only one mantle may be worn at any time.</li>
+    <li>Standards<br />
+Standards are great beacons of assembly, and are a requirement for a pet wishing to found and lead a pack. During a pack's formation, your pet must permanently yield the standard to the pack, but a pack's standard can be upgraded in the future with more powerful standards. The more powerful the standard, the more members may belong to the pack.</li>
+    <li>Ornaments<br />
+Ornaments are for pets to collect and show off, providing some style and beauty to your pet's world, but in rare cases they may produce other unusual or secret effects.</li>
+  </ul>
+
+  <h4>Unique Items</h4>
+  <p>Some items are considered unique. Your pet may only posses one of these items at a time. Even for items that are consumed, such as food, your pet may only use that item once.</p>
+</div>
+
+<div class="box full guide">
+  <h3 id="market">The Market</h3>
+  <p>Among the commonwealth of pets, a merchants guild has risen to host a shanty-town <%= facebook_link_to 'market', facebook_items_path %> where all manner of items can be purchased at fair and standard prices. Pets can visit the market at any time, where you'll find a number of stores specializing in specific types of items.</p>
+  <p>The <%= facebook_link_to 'Market', facebook_items_path %> follows the laws of supply and demand, and there are only a limited number of items available. You will need to compete with other pets hunting for bargins and watch the shops if you have your eye on a particularly rare of desirable item, ensuring you're around to buy the item when the market inventories are restocked.</p>
+  <p>Even as pets pick the stalls clean, new scavengers return from the wastes with new wares to sell. Every twelve hours, the markets are restocked with fresh inventory.</p>
+
+  <h4>Buying Market Items</h4>
+  <p>If you find an item in the <%= facebook_link_to 'market', facebook_items_path %> that you'd like to own for your pet, you can purchase only if:</p>
+  <ol>
+    <li>Your pet has enough kibble.</li>
+    <li>The item is not out of stock.</li>
+    <li>Your pet is high enough level to use the item.</li>
+  </ol>
+
+  <h4>Restocking</h4>
+  <p>Once you buy an item, the store's inventory will decrease. If the inventory is already depleted, you'll have to wait until the next restock and try to buy the item before it sells out again. The <%= facebook_link_to 'market', facebook_items_path %> restocks once per week when the trader 
+	caravans pass through.</p>
+</div>
+
+<div class="box full guide">
+  <h3 id="premium">Premium Shop</h3>
+  <p>The <%= facebook_link_to 'Premium Shop', premium_facebook_items_path %> is where you buy directly buy packs of kibble, and premium items that cannot be otherwise discovered. In order to purchase items from the <%= facebook_link_to 'Premium Shop', premium_facebook_items_path %>, you'll either need a PayPal account, or a major credit card.</p>
+  <p>Note: repeat customers of the <%= facebook_link_to 'Shop', premium_facebook_items_path %> will often find themselves the recipients of surprise thank-you rewards. :)</p>
+</div>
+
+<div class="box full guide">
+  <h3 id="shops">Pet Shops</h3>
+  <p>For valuable items the markets are quickly picked clean, and that's where pet shopkeepers come in. When your pet opens a shop, you stock it with inventory from your belongings, and then can sell to other pets for any price you like. If you have desirable items or a good sense of timing, you can earn quite a bit of Kibble.</p>
+
+  <h4>Opening a Shop</h4>
+  <p>The only requirement to <%= facebook_link_to_if_pet 'open a shop', new_facebook_shop_path %> is 2000 kibble in capital. Once your shop has opened, you can begin immediately stocking it with inventory and selling your wares to your fellow pets.</p>
+  <p>When you <%= facebook_link_to_if_pet 'open a shop', new_facebook_shop_path %>, you'll need to choose the type of items in which your shop specializes. Whenever you sell an item within your specialty, you'll receive a small kibble bonus from the market guild subsidizing your shop. This should encourage you to stock items within your specialty, and make it easier for customers to find the pet shops best suiting their needs.</p>
+
+  <h4>Running a Shop</h4>
+  <p>While other pets can always visit your shop and view your wares, your pet's occupation will need to be set to 'shopkeeping' in order for them to actually make sales. If your pet isn't shopkeeping, then presumably they're off on some other diversion and not present to complete the transaction.</p>
+  <p>Of course you'll also need to stock <%= facebook_link_to_if 'your shop', edit_facebook_shop_path, has_shop? %> with items from your pet's belongings. Buying low (or finding, winning, or trading) and selling high should be your aim, concentrating on those items in demand at the market, and which are hardest to find in stock there.</p>
+  <p>You can access <%= facebook_link_to_if 'your shop', edit_facebook_shop_path, has_shop? %> management screen from your pet's profile, and from there you can manage your inventory. You can stock your inventory with any items from your pet's belongings which they are not currently using, or which have not already been used. When you add an item to your shop, you choose the price, and may change the price at any time to better lure your the purse of your customers.</p>
+
+  <h4>Selling Items</h4>
+  <p>As soon as you make a sale, the kibble will be immediately given to your pet, and your shop's inventory will decrease. You can see a history of transactions from your shop's profile.</p>
+</div>
+
+<div class="box full guide">
+  <h3 id="humans">Humans</h3>
+  <br />
+  <h4>Ecology</h4>
+  <p>Humans may have lost their world, but they have not left it. After the fall, humankind devolved even further from its already considerably barbaric state. Totally mindless, humans now used by pets for a variety of menial tasks to improve a pet's overall welfare and strength. First, however, they must be found and tamed - humans, being mistrusting and difficult creatures, require domestication before they can be kenneled and put to good use.</p>
+  <p>Your pet's ability to attract, tame, and rule their humans depends on their affection, and the willfulness of the individual human in question.</p>
+
+  <h4>Human Taming</h4>
+  <p>Taming a human is a two-step process that begins with your pet searching the wilds, and if they're lucky, discovering tracks or spoor that lead them to a random human. Once your pet has found a human, they must then win its trust and affection. The higher your pet's affection, the more humans will tend to adore and want to serve them, however, the more rare and willful the human, the harder it will be to break their obstinate spirit.</p>
+  <p>If your pet successfully tames a human, they are considered domesticated and added to your pet's kennels. Humans are unique, and your pet may only posses one of each type. The number of humans your pet can keep in their kennel is also limited, and may not exceed your pet's affection score lest they become unruly in numbers and revolt.</p>
+  <p>Your pet has an hourly chance to find and attempt to tame a human if they've set their occupation to human taming, and of course they may always actively attempt human taming at any time at the cost of some endurance.</p>
+
+  <h4>Enslaving Humans</h4>
+  <p>If your pet has grown weary of their human company or wishes to make room in their kennels, it's possible to sell your pet into slavery. When you enslave a human, your pet sends them into the human slave trade where they're sent off to work in the pits for meager amounts of kibble then paid out to your pet, their bonded master.</p>
+  <p>There is no limit to the number of humans a pet can force into slavery. Each enslaved human will earn a wage of kibble equal to their power. Once a week, your pet will receive the collective earnings of their human slaves.</p>
+
+  <h4>Types of Humans</h4>
+  <p>Different types of humans provide your pet with different bonuses and skills.</p> 
+  <ol>
+    <li>Fatted<br />
+Possessing a remarkable ability to remain fed even in times of famine, fatted humans are sure to help a pet stay similarly fat and happy beyond normal. Fatted humans will raise your pet's maximum health an amount equal to their power.</li>
+    <li>Collector<br />
+Neurotics obsessed with scouring the shambles of civilization, collector humans will help your pet scavenge. Bringing these humans out scavenging will improve your pet's chance to find items, and raise the odds that items your discover will be valuable.</li>
+    <li>Friendly<br />
+These humans are valued for their attractiveness and gregarious manner which endears them to their fellow humans. Friendly humans will improve your pet's ability to find, tame, and rule other humans peacefully.</li>
+    <li>Wise<br />
+Observant and filling with cunning, these humans will ensure your pet learns the most from their experiences in the world. Wise humans give your pet a bonus to the experience they earn, both in battle and any other experience-worthy activity.</li>
+  </ol>
+
+  <h4>Co-Existence</h4>
+  <p>Although they can be domesticated, humans will never completely abandon their feral and violent ways. Once kenneled, they'll usually happily co-exist with other humans, but in some random cases, humans will grow quarrelsome and fight to the death amongst themselves. The more humans your pet has kenneled, the more likely they are to attack each other at some point - it's a cruel fact of nature.</p>
+</div>
+
+<div class="box full guide">
+  <h3 id="packs">Packs</h3>
+  <br />
+  
+  <h4>Ecology</h4>
+  <p>By their nature pets are social creatures, and tend to be happier, stronger, and more successful when they band together in a pack. At the center of the pack is the leader, an 'alpha' pet who ensures the pack's continued success and governs the benefits of its members. The larger a pack and the more active its members, the more powerful it will become. Due to fierce loyalty, a pet may only be a member of one pack at a time.</p>
+
+  <h4>Standards</h4>
+  <p>To demonstrate their fellowship and provide a symbol around which to rally, all packs must have a 'standard', a flag or emblem or sorts that serves to mark the greatness of the pack. The more powerful the standard, the more members can join the pack, so as a pack grows in size it will look to replace its standard with ever more powerful items. Standards, like other items, can be obtained in a variety of ways.</p>
+
+  <h4>Pack Founder</h4>
+  <p>It is most common that a pack's founder will also be the pack's leader, although they can potentially be deposed by vote or subterfuge if the members turn against them.</p>
+
+  <h4>Pack Leader</h4>
+  <p>The pack leader has a number of special privileges over their pack, such as the ability to invite new members or ban existing ones. The leader is also responsible for ensuring their is enough kibble in the pack's treasury, and that all members are doing their part to enlarge the pack's spoil and contribute to its success.</p>
+  <p>Pack leaders are chosen by vote, with each member electing their preferred leader by simple majority. If there is no clear majority, then the pack will become leaderless and all members will loose their benefits until a leader can be chosen. When voting, the current leader's vote, and the founder's vote (if different than the leader) are worth two votes each.</p>
+
+  <h4>Member Recovery</h4>
+  <p>The benefits of joining a pack are many. In addition to the camaraderie of your fellow pets, pack members receive an hourly endurance recovery bonus depending on the power of the pack. The stronger a pack, the faster its members will recover, and the more active and they can be in the pursuit of survival and greatness.</p>
+
+  <h4>Treasury and Spoils</h4>
+  <p>Every pack contains a 'treasury' of kibble which it uses to pay the dues of its members, or to portion out to them as gifts and rewards. Any pack member can contribute personal kibble to the pack's treasury by going to the pack profile screen.</p>
+  <p>Packs also stockpile spoils, items yielded by the members or awarded through greatness, and which can be loaned out to members by the pack leader. Any pack member can contribute their personal items to a pack's spoils by going to the pack profile screen.</p>
+
+  <h4>Loaning Spoils</h4>
+  <p>The leader may choose to loan items from the pack's spoils to any of its members. While loaned out, the item will appear in that pet's belongings and may be used normally. The leader may then retrieve the item from the pet at any time they choose. The loaning and retrieval of spoils can be performed from the pack's profile.</p>
+
+  <h4>Pack Dues</h4>
+  <p>Supporting a family of pets is not without cost, and every week 10 kibble per pack member must be paid from the pack's treasury. If there is not enough kibble in the treasury to support the pack, then the pack will become 'insolvent', during which time the members receive no pack benefits. The pack members have another week to supply their treasury will sufficient kibble, at which point the next time dues are paid the pack will become active again.</p>
+
+  <h4>Invitations and Requests</h4>
+  <p>Any pet can request to join a pack from the pack's profile, and the request will be sent as a message to the pack's leader. The leader will then approve or reject the request at their whim. </p>
+  <p>The pack leader can also send a message to another pet inviting them to join the pack, assuming that pet is not already a member of another pack. That pet can then choose to accept or reject the invitation.</p>
+  <p>If a pack has reached its maximum members, then no invites can be approved, and the pack will need to obtain a more powerful standard or else the leader will need to expel existing members.</p>
+</div>
+
+<div class="box full guide">
+  <h3 id="signs">Signs</h3>
+  <p>Your pet can 'sign' with other pets, expressing themselves through the lingua franca of the animal kingdom by (1) Grooming, (2) Hissing, (3) Purring, and (4) Play.</p>
+  <p>It's possible to sign with a pet while viewing their profile, although any two pets can only exchange one sign per day. Depending on the sign, different minor effects occur which tire the first pet and restore the second. In this fashion, pets can conduct minor strategies either with friends or against enemies.</p>
+  <h4>Sign Types</h4>
+  <p>1. Grooming: costs -3 endurance, restores +1 health</p>
+  <p>2. Hissing: costs -5 endurance, depletes -5 endurance</p>
+  <p>3. Purring: costs -1 endurance, restores +1 endurance</p>
+  <p>4. Play: costs -3 endurance, gives 3 endurance</p>
+</div>
+
+<div class="box full guide">
+  <h3 id="messages">Messages</h3>
+  <p>Pets can send private messages to each other to introduce themselves, chat, plan strategies, taunt a foe before battle, and so forth. Messages will show up in your pet's inbox, which can accessed from their profile. You can also message other pets directly while viewing their profiles. Sent messages are stored in your outbox, which is also accessible from your profile as well.</p>
+  <p>You can also send a messages to a pack you may wish to join, or receive a message from a pack inviting you to join, or  else send messages to your fellow pack members.</p>
+  <p>You may also occasionally receive system messages about important world events or game status updates.</p>
+</div>
+
+<div class="box full guide">
+  <h3 id="leaderboards">Leaderboards</h3>
+  <br />
+  <p>Pets are competitive and will naturally seek to establish their place within a group in as dominant a position as possible. In the Battle Pet world, there're many activities which contribute to a pet's success and the leaderboards track which pets are leading different fields of excellence.</p>
+
+  <h4>Ranking</h4>
+  <p>The leaderboards are recalculated once a week, and cover the last two weeks of pet activity. This means that even if your pet was highly ranked, they can suddenly drop off the leaderboards if they don't work to hold their position. This also means, however, that it's harder for another pet to steal your position with a sudden burst of activity.</p>
+  <p>Most of the rankings involve combat performance, but there are a few other measures of a pet's dominance.</p>
+
+  <h4>Leaderboard: Strongest Fighters</h4>
+  <p>The strongest fighters are pets who have the most wins over the most fights. Winning means little if you've only proven yourself against a handful of opponents, and so a pet's victories become more meaningful over more battles. Ranking leaders are not grouped by level or opponent difficulty, and so the rank represents the total factors contributing to a pet's recent battle record.</p>
+  <p>
+  Awards:
+  <ol>
+    <li>First: 1000 Kibble</li>
+    <li>Second: 700 Kibble</li>
+    <li>Third: 500 Kibble</li>
+    <li>Fourth: 250 Kibble</li>
+    <li>Fifth - Tenth: 200 Kibble</li>
+    <li>Eleventh - Twentieth: 100 Kibble</li>
+  </ol>
+  </p>
+
+  <h4>Leaderboard: Relentless Fighters</h4>
+  <br />
+  <p>Relentless fighters are those pets who have fought the most often, whose bloodlust and and ceaseless prowling has earned a name. Victory means little here, it is only those who welcome any and all battle who will be leaders.</p>
+  <p>
+  Awards:
+  <ol>
+    <li>First: 900 Kibble</li>
+    <li>Second: 500 Kibble</li>
+    <li>Third: 300 Kibble</li>
+    <li>Fourth: 200 Kibble</li>
+    <li>Fifth - Tenth: 100 Kibble</li>
+  </ol>
+  </p>
+
+  <h4>Leaderboard: Franchises</h4>
+  <p>Franchises are pet shops which have sold the most items. Whether pushing volume goods or luxury rarities, ranking has nothing to do with profit, and everything to do with popularity and playing an important role in the market economy.</p>
+  <p>
+  Awards:
+  <ol>
+    <li>First: 2000 Kibble</li>
+    <li>Second: 1000 Kibble</li>
+    <li>Third: 500 Kibble</li>
+    <li>Fourth: 250 Kibble</li>
+    <li>Fifth: 100 Kibble</li>
+  </ol>
+  </p>
+
+  <h4>Leaderboard: Manlords</h4>
+  <p>Manlords are those pets who have most completely conquered the savage species of man, tamed their ranks, and kenneled their most powerful specimens. In no uncertain terms, ranking leaders have the most total power in their kennel.</p>
+  <p>
+  Awards:
+  <ol>
+    <li>First: 1000 Kibble</li>
+    <li>Second: 800 Kibble</li>
+    <li>Third: 500 Kibble</li>
+    <li>Fourth: 250 Kibble</li>
+    <li>Fifth-Tenth: 100 Kibble</li>
+  </ol>
+  </p>
+  <h4>Leaderboard: Forerunners</h4>
+  <p>Forerunners are the most experienced pets, rushing toward advancement and power with maximum ambition. These pets are those with the most total experience, without qualification. Leaders will often remain at the top of their ranks for as long as they don't give up.</p>
+  <p>
+  Awards:
+  <ol>
+    <li>First: 500 Kibble</li>
+    <li>Second: 300 Kibble</li>
+    <li>Third: 200 Kibble</li>
+    <li>Fourth: 100 Kibble</li>
+    <li>Fifth-Tenth: 50 Kibble</li>
+  </ol>
+  </p>
+
+  <h4>Leaderboard: Hordes</h4>
+  <p>Hordes are the packs with the greatest accumulated power. This means the most pack members, most powerful spoils, biggest treasury, and greatest average battle record amongst its members. Only active pack members are counted when ranking the pack, however. Awards are given to the pack leader, who may then distribute it at will.</p>
+  <p>
+  Awards:
+  <ol>
+    <li>First: 3000 Kibble</li>
+    <li>Second: 2000 Kibble</li>
+    <li>Third: 1000 Kibble</li>
+    <li>Fourth: 500 Kibble</li>
+    <li>Fifth: 300 Kibble</li>
+  </ol>
+  </p>
+
+  <h4>Leaderboard: Ambassadors</h4>
+  <p>The ambassadors of the world are those pets with the most number of signs, messages, forum posts, and other social activity over the last ranking period. These pets are widely known and, for better or worse, pass through the many lives of their brethren.</p>
+  <p>
+  Awards:
+  <ol>
+    <li>First: 700 Kibble</li>
+    <li>Second: 500 Kibble</li>
+    <li>Third: 300 Kibble</li>
+    <li>Fourth: 200 Kibble</li>
+    <li>Fifth - Tenth: 100 Kibble</li>
+    <li>Eleventh - Fifteenth: 50 Kibble</li>
+  </ol>
+  </p>
+</div>

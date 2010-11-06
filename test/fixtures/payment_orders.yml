@@ -1,0 +1,9 @@
+user_two_pending_po:
+  user: two
+  item: kibble_pack   
+  ip_address: 127.0.0.1
+  ack: pending
+  email: po@example.com
+  first_name: user
+  last_name: two
+  total: 1.00

@@ -1,0 +1,15 @@
+first:
+  sender: siamese
+  recipient: persian
+  subject: hello message
+  body: message test here.
+  status: new
+  created_at: <%= (Time.now - 2.days).strftime("%Y-%m-%d %H:%M:00") %>
+  
+second:
+  sender: burmese
+  recipient: siamese
+  subject: hello message
+  body: message test here.
+  status: new
+  created_at: <%= (Time.now - 1.day).strftime("%Y-%m-%d %H:%M:00") %>

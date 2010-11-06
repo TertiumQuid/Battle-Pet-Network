@@ -1,0 +1,30 @@
+<% content_for :page_title do %><h2>Your Pet's Belongings</h2><% end %>
+
+<div class="sidebox slim right">
+  <%= render_kibble_box %>
+
+  <div class="box slim">
+  </div>
+</div>
+
+<div class="box">
+<% unless @items.blank? %>
+  <p class="em">You own the following items, acquired at peril by your deserving pet. You can always buy more items at the 
+	<%= facebook_link_to "item market", facebook_items_path %> or 
+	the <%= facebook_link_to "pet shops", facebook_shops_path %>.</p>
+	
+  <% cell_table(@items, 4, :class => "belongings") do |i,idx| %>
+    <td>
+	  <% item_badge(i.item) do %>	
+		<%= link_to_belonging(i) %>
+	  <% end %>
+	</td>
+  <% end %>
+  <p class="center"><%= will_paginate @items %></p>
+<% else %>
+  <p class="em">You don't have any belongings to your name at the moment. You can buy items at the 
+	<%= facebook_link_to "item market", facebook_items_path %> or the <%= facebook_link_to "pet shops", facebook_shops_path %>, 
+	get lucky <%= facebook_link_to "scavenging", facebook_occupations_path(Occupation.scavenging.first) %> treasure in the ruins,
+	or else <%= facebook_link_to "claim valuable rewards", facebook_leaderboards_path %> by reaching the top of the leaderbaords.</p>
+<% end %>
+</div>

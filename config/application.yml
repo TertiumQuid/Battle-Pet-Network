@@ -1,0 +1,42 @@
+name: Battle Cat
+logging: 1
+tweets: 1
+awards:
+  daily_login: 5    
+  biography: 50
+facebook:
+  app_id: 000000000
+packs:
+  founding_fee: 1000  
+  member_bonus_modifier: 2
+  member_dues: 10
+shops:
+  opening_fee: 2000
+humans:
+  slavery_earnings_multiplier: 1
+  release_multiplier: 250
+  kills_neighbor_modifier: 1
+experience:
+  handicap_divisor: 10
+  double_ko_divisor: 3
+  undercut_bonus: 3
+  minimum_award: 1
+  favorite_action_bonus: 1
+merchant:
+  paypal:
+    notification_url: 
+occupations:
+  scavenge_chance_divisor: 2 
+  forage_chance_divisor: 1
+  find_human_chance_divisor: 5 
+  tame_human_chance_divisor: 1
+leaderboards:
+  ambassadors:
+    forum_posts: 10
+    messages: 5
+    signs: 1
+  hordes:
+    members: 10
+    standard_power: 4
+    treasury: 0.001
+    spoils: 1

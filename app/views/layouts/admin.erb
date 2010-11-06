@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Battle Pet Network :: Administration</title>
+  <link type="text/css" rel="stylesheet" media="screen" href="/stylesheets/admin.css">
+  <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+  <div id="wrapper">
+    <header>
+	  <h1><a>Battle Pet Network :: Admin</a></h1>
+	</header>
+	
+	<nav><!-- top nav -->
+	  <div class="menu">
+	    <ul>
+		  <li><%= link_to 'Dashboard', admin_root_path %></li>
+		  <li><%= link_to 'Data', admin_data_path %></li>
+		  <li><a href="#">Users</a></li>
+		  <li><a href="#">Commerce</a></li>
+		</ul>
+	  </div>
+	</nav>	
+	
+	<section id="main">
+	  <div id="content">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</body>

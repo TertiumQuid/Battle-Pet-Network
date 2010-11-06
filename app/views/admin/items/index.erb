@@ -1,0 +1,30 @@
+<article class="articlecontent">
+  <h2>Items</h2>
+  <p></p>
+  <table>
+	<tbody>
+	  <tr>
+	    <th>Name</th>
+	    <th>Item Type</th>
+	    <th>Power</th>
+	    <th>Required Rank</th>
+	    <th>Rarity</th>
+	    <th>Cost</th>
+	    <th>Stock</th>
+	    <th>Premium</th>
+	  </tr>
+	  <% @items.each do |i| %>
+	  <tr>
+	    <td><%= link_to i.name, edit_admin_item_path(i) %><td>
+	    <td><%= i.item_type %></td>
+	    <td><%= i.power %></td>
+	    <td><%= i.required_rank %></td>
+	    <td><%= i.rarity %></td>
+	    <td><%= i.cost %></td>
+	    <td><%= "#{i.stock}/#{i.stock_cap}" %></td>
+	    <td><%= i.premium ? "Yes" : "No" %></td>
+	  </tr>
+	  <% end %>
+	<tbody>
+  </table>
+</article>

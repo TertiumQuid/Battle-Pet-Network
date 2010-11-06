@@ -1,0 +1,407 @@
+siamese_1:
+    breed: siamese
+    experience: 0
+    rank: 1
+    
+siamese_2:
+    breed: siamese
+    experience: 50
+    rank: 2
+    advancement_amount: 5
+    advancement_type: endurance    
+    
+siamese_3:
+    breed: siamese
+    experience: 100
+    rank: 3
+    advancement_amount: 1
+    advancement_type: health    
+
+siamese_4:
+    breed: siamese
+    experience: 200
+    rank: 4
+    advancement_amount: 1
+    advancement_type: intelligence    
+
+siamese_5:
+    breed: siamese
+    experience: 400
+    rank: 5
+    advancement_amount: 10
+    advancement_type: endurance  
+
+siamese_6:
+    breed: siamese
+    experience: 800
+    rank: 6
+    advancement_amount: 1
+    advancement_type: health
+
+siamese_7:
+    breed: siamese
+    experience: 1200
+    rank: 7
+    advancement_amount: 1
+    advancement_type: intelligence
+
+siamese_8:
+    breed: siamese
+    experience: 1800
+    rank: 8
+    advancement_amount: 1
+    advancement_type: fortitude
+
+siamese_9:
+    breed: siamese
+    experience: 2700
+    rank: 9
+    advancement_amount: 2
+    advancement_type: health
+
+siamese_10:
+    breed: siamese
+    experience: 4050
+    rank: 10
+    advancement_amount: 15
+    advancement_type: endurance
+    
+persian_1:
+    breed: persian
+    experience: 0
+    rank: 1
+
+persian_2:
+    breed: persian
+    experience: 50
+    rank: 2
+    advancement_amount: 1
+    advancement_type: health    
+
+persian_3:
+    breed: persian
+    experience: 100
+    rank: 3
+    advancement_amount: 10
+    advancement_type: endurance    
+
+persian_4:
+    breed: persian
+    experience: 200
+    rank: 4
+    advancement_amount: 1
+    advancement_type: intelligence  
+
+persian_5:
+    breed: persian
+    experience: 400
+    rank: 5
+    advancement_amount: 2
+    advancement_type: health
+
+persian_6:
+    breed: persian
+    experience: 800
+    rank: 6
+    advancement_amount: 2
+    advancement_type: affection
+
+persian_7:
+    breed: persian
+    experience: 1200
+    rank: 7
+    advancement_amount: 1
+    advancement_type: fortitude
+
+persian_8:
+    breed: persian
+    experience: 1800
+    rank: 8
+    advancement_amount: 10
+    advancement_type: endurance
+
+persian_9:
+    breed: persian
+    experience: 2700
+    rank: 9
+    advancement_amount: 1
+    advancement_type: fortitude
+
+persian_10:
+    breed: persian
+    experience: 4050
+    rank: 10
+    advancement_amount: 20
+    advancement_type: endurance
+    
+burmese_1:
+    breed: burmese
+    experience: 0
+    rank: 1
+    
+burmese_2:
+    breed: burmese
+    experience: 50
+    rank: 2
+    advancement_amount: 2
+    advancement_type: fortitude
+    
+burmese_3:
+    breed: burmese
+    experience: 100
+    rank: 3
+    advancement_amount: 1
+    advancement_type: health
+    
+burmese_4:
+    breed: burmese
+    experience: 200
+    rank: 4
+    advancement_amount: 1
+    advancement_type: health
+    
+burmese_5:
+    breed: burmese
+    experience: 400
+    rank: 5
+    advancement_amount: 1
+    advancement_type: affection
+    
+burmese_6:
+    breed: burmese
+    experience: 800
+    rank: 6
+    advancement_amount: 2
+    advancement_type: health
+    
+burmese_7:
+    breed: burmese
+    experience: 1200
+    rank: 7
+    advancement_amount: 10
+    advancement_type: endurance
+    
+burmese_8:
+    breed: burmese
+    experience: 1800
+    rank: 8
+    advancement_amount: 2
+    advancement_type: affection
+    
+burmese_9:
+    breed: burmese
+    experience: 2700
+    rank: 9
+    advancement_amount: 2
+    advancement_type: intelligence
+    
+burmese_10:
+    breed: burmese
+    experience: 4050
+    rank: 10
+    advancement_amount: 15
+    advancement_type: endurance
+
+russian_blue_1:
+    breed: russian_blue
+    experience: 0
+    rank: 1  
+    
+russian_blue_2:
+    breed: russian_blue
+    experience: 50
+    rank: 2
+    advancement_amount: 10
+    advancement_type: endurance
+    
+russian_blue_3:
+    breed: russian_blue
+    experience: 100
+    rank: 3
+    advancement_amount: 1
+    advancement_type: affection
+    
+russian_blue_4:
+    breed: russian_blue
+    experience: 200
+    rank: 4
+    advancement_amount: 1
+    advancement_type: health
+    
+russian_blue_5:
+    breed: russian_blue
+    experience: 400
+    rank: 5
+    advancement_amount: 2
+    advancement_type: affection
+    
+russian_blue_6:
+    breed: russian_blue
+    experience: 800
+    rank: 6
+    advancement_amount: 10
+    advancement_type: endurance
+    
+russian_blue_7:
+    breed: russian_blue
+    experience: 1200
+    rank: 7
+    advancement_amount: 2
+    advancement_type: health
+    
+russian_blue_8:
+    breed: russian_blue
+    experience: 1800
+    rank: 8
+    advancement_amount: 2
+    advancement_type: affection
+    
+russian_blue_9:
+    breed: russian_blue
+    experience: 2700
+    rank: 9
+    advancement_amount: 2
+    advancement_type: fortitude
+    
+russian_blue_10:
+    breed: russian_blue
+    experience: 4050
+    rank: 10
+    advancement_amount: 15
+    advancement_type: endurance
+    
+maine_coon_1:    
+    breed: maine_coon
+    experience: 0
+    rank: 1
+    
+maine_coon_2:    
+    breed: maine_coon
+    experience: 50
+    rank: 2
+    advancement_amount: 2
+    advancement_type: affection   
+    
+maine_coon_3:
+    breed: maine_coon
+    experience: 100
+    rank: 3
+    advancement_amount: 1
+    advancement_type: health    
+
+maine_coon_4:
+    breed: maine_coon
+    experience: 200
+    rank: 4
+    advancement_amount: 5
+    advancement_type: endurance    
+
+maine_coon_5:
+    breed: maine_coon
+    experience: 400
+    rank: 5
+    advancement_amount: 10
+    advancement_type: endurance  
+
+maine_coon_6:
+    breed: maine_coon
+    experience: 800
+    rank: 6
+    advancement_amount: 1
+    advancement_type: health
+
+maine_coon_7:
+    breed: maine_coon
+    experience: 1200
+    rank: 7
+    advancement_amount: 1
+    advancement_type: fortitude
+
+maine_coon_8:
+    breed: maine_coon
+    experience: 1800
+    rank: 8
+    advancement_amount: 10
+    advancement_type: endurance
+
+maine_coon_9:
+    breed: maine_coon
+    experience: 2700
+    rank: 9
+    advancement_amount: 2
+    advancement_type: health
+
+maine_coon_10:
+    breed: maine_coon
+    experience: 4050
+    rank: 10
+    advancement_amount: 15
+    advancement_type: endurance
+    
+shorthair_1:
+    breed: shorthair
+    experience: 0
+    rank: 1
+
+shorthair_2:
+    breed: shorthair
+    experience: 50
+    rank: 2
+    advancement_amount: 1
+    advancement_type: intelligence
+    
+shorthair_3:
+    breed: shorthair
+    experience: 100
+    rank: 3
+    advancement_amount: 1
+    advancement_type: health    
+
+shorthair_4:
+    breed: shorthair
+    experience: 200
+    rank: 4
+    advancement_amount: 10
+    advancement_type: endurance    
+
+shorthair_5:
+    breed: shorthair
+    experience: 400
+    rank: 5
+    advancement_amount: 2
+    advancement_type: affection  
+
+shorthair_6:
+    breed: shorthair
+    experience: 800
+    rank: 6
+    advancement_amount: 2
+    advancement_type: health
+
+shorthair_7:
+    breed: shorthair
+    experience: 1200
+    rank: 7
+    advancement_amount: 10
+    advancement_type: endurance
+
+shorthair_8:
+    breed: shorthair
+    experience: 1800
+    rank: 8
+    advancement_amount: 1
+    advancement_type: intelligence
+
+shorthair_9:
+    breed: shorthair
+    experience: 2700
+    rank: 9
+    advancement_amount: 2
+    advancement_type: fortitude
+
+shorthair_10:
+    breed: shorthair
+    experience: 4050
+    rank: 10
+    advancement_amount: 15
+    advancement_type: endurance

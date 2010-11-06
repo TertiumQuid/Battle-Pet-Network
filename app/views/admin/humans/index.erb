@@ -1,0 +1,24 @@
+<article class="articlecontent">
+  <h2>Humans</h2>
+  <p></p>
+  <table>
+	<tbody>
+	  <tr>
+	    <th>Name</th>
+	    <th>Type</th>
+	    <th>Difficulty</th>
+	    <th>Power</th>
+	    <th>Rank</th>
+	  </tr>
+	  <% @humans.each do |h| %>
+	  <tr>
+	    <td><%= link_to h.name, edit_admin_human_path(h) %><td>
+	    <td><%= h.human_type %></td>
+	    <td><%= h.difficulty %></td>
+	    <td><%= h.power %></td>
+	    <td><%= h.required_rank %></td>
+	  </tr>
+	  <% end %>
+	<tbody>
+  </table>
+</article>

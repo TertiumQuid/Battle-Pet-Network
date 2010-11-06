@@ -1,0 +1,69 @@
+leper_rat_strategy_scratch: 
+  action: scratch
+  strategy: leper_rat_strategy
+  rank: 5
+  
+leper_rat_strategy_slash: 
+  action: slash
+  strategy: leper_rat_strategy
+  rank: 3
+  
+leper_rat_strategy_bite: 
+  action: bite
+  strategy: leper_rat_strategy
+  rank: 2
+  
+omega_rat_strategy_bite: 
+  action: bite
+  strategy: omega_rat_strategy
+  rank: 4
+
+omega_rat_strategy_claw: 
+  action: claw
+  strategy: omega_rat_strategy
+  rank: 3
+
+omega_rat_strategy_flank: 
+  action: flank
+  strategy: omega_rat_strategy
+  rank: 2  
+
+omega_rat_strategy_scratch: 
+  action: scratch
+  strategy: omega_rat_strategy
+  rank: 2
+
+omega_rat_strategy_leap: 
+  action: leap
+  strategy: omega_rat_strategy
+  rank: 1
+  
+gila_monstrosity_strategy_bite: 
+  action: bite
+  strategy: gila_monstrosity_strategy
+  rank: 6  
+
+gila_monstrosity_strategy_claw: 
+  action: claw
+  strategy: gila_monstrosity_strategy
+  rank: 3
+
+gila_monstrosity_strategy_slash: 
+  action: slash
+  strategy: gila_monstrosity_strategy
+  rank: 2
+
+siamese_strategy_claw:
+  action: claw
+  strategy: siamese_strategy  
+  rank: 1
+  
+burmese_strategy_claw:
+  action: claw
+  strategy: burmese_strategy  
+  rank: 1
+
+persian_strategy_claw:
+  action: claw
+  strategy: persian_strategy
+  rank: 1

@@ -1,0 +1,15 @@
+first:
+  pet: burmese
+  name: First Shop
+  status: active
+  specialty: Weapon
+  inventories_count: 4
+  created_at: 2009-8-4
+  
+second:
+  pet: russian_blue
+  name: Second Shop
+  status: active
+  specialty: Food
+  inventories_count: 0
+  created_at: 2009-10-4  

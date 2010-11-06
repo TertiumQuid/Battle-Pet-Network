@@ -1,0 +1,44 @@
+<% content_for :page_title do %><h2>Pet Shop</h2><% end %>
+	
+<div class="sidebox slim right">
+  <div class="box slim">	
+    <h4>Shopkeeper: <%= facebook_link_to @shop.pet.name, facebook_pet_path(@shop.pet) %></h4>
+    <table class="shopkeeper">
+	  <tbody>
+		<tr>
+		  <td rowspan="2"><%= avatar_image(@shop.pet) %></td>
+		  <td>Opened for Trade: <br /><span class="em"><%= "#{time_ago_in_words(@shop.created_at)} ago" %></span></td>
+		</tr>
+		<tr>
+		  <td>Last Restock: <br /><span class="em"><%= @shop.last_restock %></span></td>
+		</tr>
+		<tr><td colspan="2" class="em"><%= @shop.description %></td></tr>
+	  </tbody>
+	</table>
+  </div>
+
+  <%= render_kibble_box %>
+</div>
+
+<div class="box">
+  <h4 class="right">Specialty: <%= @shop.specialty%></h4>
+  <h3><%= @shop.name %></h3>
+
+  <% cell_table(@inventory) do |i,idx| %>
+    <td>
+	  <% item_badge(i.item, :description => true) do |i| %>	
+		<% if has_pet? %>
+		  <% if current_user_pet.kibble >= i.cost %>
+	        <%= facebook_link_to "Buy for #{i.cost}K",
+							   purchase_facebook_shop_inventory_path(@shop,i.id), 
+							   :method => :post, 
+							   :class => 'button green small' %>
+		  <% elsif current_user_pet.kibble < i.cost %>
+		    <label>Cost: <%= i.cost %>K <span class="em empty">Too Expensive</span></label>
+		  <% end %>
+		<% end %>
+	  <% end %>	
+	</td>
+  <% end %>
+  <p class="center"><%= will_paginate @inventory %></p>
+</div>

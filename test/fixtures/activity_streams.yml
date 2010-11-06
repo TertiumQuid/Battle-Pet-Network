@@ -1,0 +1,52 @@
+leaderboards:
+  new: false
+  category: world
+  namespace: leaderboards
+  activity_data: |
+      --- 
+      :description: Pet leaderboard rankings updated.
+  created_at: <%= (Time.now - 1.day).strftime("%Y-%m-%d %H:%M:00") %>
+  
+restock:
+  new: false
+  category: world
+  namespace: restock
+  activity_data: |
+      --- 
+      :description: Market stores restocked inventory.
+  created_at: <%= (Time.now - 1.day).strftime("%Y-%m-%d %H:%M:00") %>
+  
+repopulation:
+  new: false
+  category: world
+  namespace: repopulation
+  activity_data: |
+      --- 
+      :description: Sentient numbers repopulated.
+  created_at: <%= (Time.now - 1.day).strftime("%Y-%m-%d %H:%M:00") %>
+  
+siamese_joined:
+  new: false
+  actor_type: Pet
+  actor_id: <%= Fixtures.identify :siamese %>
+  category: analytics
+  namespace: pet
+  activity_data: |
+      --- 
+      :description: domino entered the world.
+  created_at: <%= (Time.now - 1.day).strftime("%Y-%m-%d %H:%M:00") %>
+  
+first_sale:
+  new: false
+  actor_type: Pet
+  actor_id: <%= Fixtures.identify :siamese %>
+  object_type: Item
+  object_id: <%= Fixtures.identify :cat_grass %>
+  indirect_object_type: Shop
+  indirect_object_id: <%= Fixtures.identify :first %>
+  category: shopping
+  namespace: purchase
+  activity_data: |
+      --- 
+      :description: domino got a Cat Grass from tailchaser's shop."
+  created_at: <%= (Time.now - 1.day).strftime("%Y-%m-%d %H:%M:00") %>

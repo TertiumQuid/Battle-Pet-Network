@@ -1,0 +1,20 @@
+<% content_for :page_title do %><h2>Human Profile</h2><% end %>
+
+<div class="sidebox slim right">
+</div>
+
+<div class="box">
+  <h3><%= @human.name %></h3>
+  <table class="human">
+	<tr>
+	  <td rowspan="6"><%= avatar_image(@human,'medium') %></td>
+	  <td>Ability: <strong><%= @human.human_type %></strong></td>
+	  <td rowspan="6" class="em"><%= @human.description %></td>
+	</tr>
+	<tr><td>Rarity: <strong><%= @human.difficulty %></strong></td></tr>
+	<tr><td>Power: <strong><%= @human.power %></strong></td></tr>
+	<tr><td>Required Level: <strong><%= @human.required_rank %></strong></td></tr>
+	<tr><td>Domesticated: <span class="em"><%= @human.tames.size %></span></td></tr>
+	<tr><td>Enslaved: <span class="em">0</span></td></tr>
+  </table>
+</div>

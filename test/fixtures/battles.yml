@@ -1,0 +1,36 @@
+persian_burmese_resolved_battle:
+  challenge: persian_burmese_resolved
+  winner: persian
+  created_at: <%= (Time.now - 1.day).strftime("%Y-%m-%d %H:%M:00") %>
+      
+siamese_burmese_resolved_battle:
+  challenge: siamese_burmese_resolved
+  winner: siamese
+  logs: |
+      --- 
+      :defender_awards: 
+        :experience:
+          - +10 experience for battling
+
+      :rounds: 
+      - r1
+      - r2
+      - r3
+      :status:
+        :entered:
+        - siamese entered with x and y
+        - burmese entered with x and y
+        :ended:
+        - siamese ended with x and y
+        - burmese ended with x and y
+      :outcome: siamese defeated burmese
+      :attacker_awards: 
+        :experience: 
+        - +20 kibble for battling
+  created_at: <%= (Time.now - 1.day).strftime("%Y-%m-%d %H:%M:00") %>
+  
+siamese_burmese_old_battle:
+  challenge: siamese_burmese_old
+  winner: siamese
+  logs: --  
+  created_at: <%= (Time.now - 3.days).strftime("%Y-%m-%d %H:%M:00") %>

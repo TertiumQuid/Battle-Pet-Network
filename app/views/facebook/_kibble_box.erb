@@ -1,0 +1,7 @@
+<div id='kibble-box' class="box slim">
+  <h4>Kibble</h4>
+  <p class="em">Once fed to pets by humans, Kibble are dry flavorless pellets now used for currency when 
+	trading and buying items. In order to purchase anything from the market stores you must have enough Kibble.</p>
+  <%= "<p><h5 class='em'>You have #{current_user_pet.kibble} kibble</h5</p>" if has_pet? %>
+  <p>Need some more Kibble? <%= facebook_link_to "buy kibble", premium_facebook_items_path, :class => 'button green' %></p>
+</div>

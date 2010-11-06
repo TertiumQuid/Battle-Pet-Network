@@ -1,0 +1,137 @@
+bell_collar: 
+  name: Bell Collar
+  description: A dainy bejeweled necklace with an oversized silver bell, this atrocious charm could only be the product of a warmed human mind, and thus proves quite useful in calling them to a pet's side.
+  item_type: Charm
+  power: 35
+  required_rank: 1
+  cost: 200
+  rarity: 50
+  stock: 5
+  stock_cap: 5
+  restock_rate: 5
+
+cat_grass:
+  name: Cat Grass
+  description: Coarse, oaty cereal grass rich with antioxidants and vitamins. Can be found anywhere in the creaveses of the urban landscape.
+  item_type: Food
+  power: 10
+  required_rank: 1
+  cost: 5
+  rarity: 3
+  stock: 75
+  stock_cap: 75
+  restock_rate: 10
+
+cheezburger:
+  name: Cheezburger
+  description: Ya, u can haz cheezburger.
+  item_type: Treat
+  power: 2
+  required_rank: 2
+  cost: 35
+  rarity: 85
+  stock: 50
+  stock_cap: 50
+  restock_rate: 10
+
+fiberboard_pillar: 
+  name: Fiberboard Pillar
+  description: A drab and desolate pillar of fiberboard.
+  item_type: Standard
+  power: 2
+  required_rank: 3
+  cost: 800
+  rarity: 300
+  stock: 10
+  stock_cap: 10
+  restock_rate: 3
+    
+sisal_mast:    
+  name: Sisal Mast
+  description: An imposing tower of sisal fibre engirthed with coarse rope and 
+  item_type: Standard
+  power: 3
+  required_rank: 3
+  cost: 3000
+  rarity: 600
+  stock: 4
+  stock_cap: 4
+  restock_rate: 1
+  
+hunting_claws:
+  name: Hunting Claws
+  item_type: Weapon
+  power: 1
+  required_rank: 3
+  cost: 12000
+  rarity: 1000 
+  stock: 5
+  stock_cap: 5
+  restock_rate: 1 
+    
+catamount_claws:
+  species: cat
+  name: Catamount Claws
+  description: The murder weapon of choice of all serious predators.
+  item_type: Weapon
+  power: 4
+  required_rank: 7
+  cost: 20000
+  rarity: 25
+  stock: 3
+  stock_cap: 3
+  restock_rate: 1
+  
+silver_whiskers:
+  species: cat
+  name: Silver Whiskers
+  item_type: Sensor
+  power: 2
+  required_rank: 3
+  cost: 3000
+  rarity: 800
+  stock: 2
+  stock_cap: 2
+  restock_rate: 1
+  
+calico_cloak:
+  name: Calico Cloak
+  item_type: Mantle
+  power: 1
+  required_rank: 2
+  cost: 4000
+  rarity: 800
+  stock: 2
+  stock_cap: 2
+  restock_rate: 1
+  
+cordura_collar:    
+  name: Cordura Collar
+  item_type: Collar
+  power: 2
+  required_rank: 3
+  cost: 6000
+  rarity: 900
+  stock: 2
+  stock_cap: 2
+  restock_rate: 1
+  
+spiked_yarn_ball:
+  name: Spiked Yarn Ball
+  item_type: Toy
+  power: 50
+  required_rank: 1
+  cost: 40
+  rarity: 35
+  stock: 75
+  stock_cap: 75
+  restock_rate: 5
+    
+kibble_pack:
+  name: Kibble Pack
+  item_type: Kibble
+  premium: true
+  power: 1000
+  required_rank: 0
+  cost: 1
+  rarity: 0

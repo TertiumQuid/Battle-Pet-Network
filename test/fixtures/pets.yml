@@ -1,0 +1,115 @@
+siamese:
+    breed: siamese
+    user: two
+    name: domino
+    slug: domino
+    current_health: 15
+    current_endurance: 75
+    health: 15
+    endurance: 75
+    fortitude: 4
+    intelligence: 8
+    affection: 2
+    power: 1
+    level_rank_count: 2
+    experience: 55
+    occupation: prowling
+    wins_count: 6
+    loses_count: 1
+    draws_count: 2
+    pack: alpha
+    level: siamese_2
+    actions: scratch,slash,claw,bite,swat,flank,dodge,leap
+    favorite_action: leap
+    
+persian:
+    breed: persian
+    user: three
+    name: pearl
+    slug: pearl
+    current_health: 20
+    current_endurance: 70
+    health: 20
+    endurance: 70
+    fortitude: 4
+    intelligence: 4
+    affection: 8
+    power: 1
+    level_rank_count: 1
+    experience: 0
+    wins_count: 1
+    loses_count: 1
+    draws_count: 1
+    kibble: 500
+    occupation: prowling
+    level: persian_1
+    actions: scratch,slash,claw,bite,swat,flank,dodge,leap
+    
+burmese:
+    breed: burmese
+    user: four
+    name: tailchaser
+    slug: taily
+    current_health: 30
+    current_endurance: 80
+    health: 30
+    endurance: 80
+    fortitude: 5
+    intelligence: 3
+    affection: 3
+    power: 1
+    level_rank_count: 1
+    experience: 0
+    wins_count: 2
+    loses_count: 3
+    draws_count: 1
+    occupation: shopkeeping  
+    pack: alpha  
+    level: burmese_1
+    actions: scratch,slash,claw,bite,swat,flank,dodge,leap
+    shop: first
+  
+russian_blue:
+    breed: russian_blue
+    user: five
+    name: blue thunder
+    current_health: 25
+    current_endurance: 100
+    health: 25
+    endurance: 100
+    fortitude: 5
+    intelligence: 3
+    affection: 5
+    power: 2
+    level_rank_count: 2
+    experience: 0
+    wins_count: 4
+    loses_count: 2
+    draws_count: 0
+    occupation: prowling 
+    pack: beta
+    level: russian_blue_2
+    actions: scratch,slash,claw,bite,swat,flank,dodge,leap
+    
+shorthair:
+    breed: shorthair
+    user: five
+    status: retired
+    name: old master
+    current_health: 25
+    current_endurance: 50
+    health: 25
+    endurance: 50
+    fortitude: 7
+    intelligence: 2
+    affection: 2
+    power: 2
+    level_rank_count: 1
+    experience: 39
+    wins_count: 1
+    loses_count: 1
+    draws_count: 1
+    occupation: prowling 
+    level: shorthair_1
+    actions: scratch,slash,claw,bite,swat,flank,dodge,leap
+    slug: short

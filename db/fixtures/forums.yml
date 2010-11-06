@@ -1,0 +1,35 @@
+staff:
+  name: Staff
+  forum_type: staff
+  description: Developers, artists, and staff, post game development discussions here, including art and design review, gameplay and balance, monetization, ToS policies, inspiration, market analysis, et cetera.
+  rank: 1
+  last_post: staff_branding
+  forum_topics_count: 1
+  forum_posts_count: 1
+  
+introductions:
+  name: Introductions
+  forum_type: user
+  description: Welcome to the Battle Pet Network. Come in and introduce yourself.
+  rank: 2
+  last_post: introductions_staff
+  forum_topics_count: 1
+  forum_posts_count: 1
+
+discussion:
+  name: Battle Pet Disscussion
+  forum_type: user
+  description: Go here for discussion on how to play, strategy advise, the universe, or any other aspects of the game. 
+  rank: 3
+  last_post: discussion_rules
+  forum_topics_count: 1
+  forum_posts_count: 1
+ 
+development:
+  name: Battle Pet Development   
+  forum_type: user  
+  description: Announcements for game updates, bug fixes, upcoming changes, suggestions, and feature requests.
+  rank: 4
+  last_post: development_beta_update
+  forum_topics_count: 1
+  forum_posts_count: 1

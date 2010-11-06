@@ -1,0 +1,16 @@
+<table class='breed-details'>
+  <tbody>
+  <tr><td rowspan="9" width="120">
+	<%= facebook_image_tag (breed.blank? ? "" : "pets/cats/medium/#{breed.slug}.png"), :id => "breed-details-image" %>
+  </td></tr>
+  <%= breed_details_row 'Name', breed, :name %>
+  <%= breed_details_row 'Health', breed, :health %>
+  <%= breed_details_row 'Endurance', breed, :endurance %>
+  <%= breed_details_row 'Fortitude', breed, :fortitude %>
+  <%= breed_details_row 'Power', breed, :power %>
+  <%= breed_details_row 'Intelligence', breed, :intelligence %>
+  <%= breed_details_row 'Affection', breed, :affection %>
+  <%= breed_details_row 'Favorite Action', breed, :favorite_action_name %>
+  <tr><td colspan="3"><p id="breed-details-description"><%=breed.description if breed %></p></td></tr>
+  </tbody>
+</table>

@@ -1,0 +1,188 @@
+<% content_for :page_title do %><h2>Your Combat Profile</h2><% end %>
+	
+<div class="sidebox slim right">
+  <%= render_favorite_action_box(@pet) %>
+
+  <div class="box slim">	
+    <h4>Strategies</h4>
+    <p class="em">
+	  <% if @strategies.blank? %>
+	  You haven't saved any strategies yet. Whenever you plan a strategy, you'll have the option to save it for future battles 
+	  and use it as your pet's 'combat reflexes' when fighting open combat.
+	  <% else %>
+	  You've saved the following strategies for quick access in battle and as combat reflexes. 
+	  <% end %>
+	</p>
+	<% unless @strategies.blank? %>
+	  <table class="strategies" width="100%">
+		<tr><th>Title</th><th>Power</th><th>Delete</th></tr>
+		<% @strategies.each do |strategy| %>
+		  <tr>
+			<td><%= strategy.name %></td>
+			<td><%= strategy.average_power %></td>
+			<td><%= facebook_link_to "[delete]", facebook_strategy_path(strategy), :method => :delete %></td>
+		  </tr>
+		  <tr>
+			<td colspan="3">
+			  <% strategy.maneuvers.each do |m| %>
+			    <%= avatar_image(m.action,'tiny') %>
+			  <% end %>
+			</td>
+		  </tr>
+		<% end %>
+	  </table>	
+	<% end %>
+  </div>
+</div>
+
+<div class="box">
+  <table id="combat-profile" width="100%">
+	<tr>
+	  <td>
+	    <h3><%= @pet.name %></h3>
+		<table>
+		  <tr>
+		    <td rowspan="4"><%= avatar_image(@pet,'medium') %></td>
+		    <td>
+			  <label>Endurance: <%= @pet.current_endurance %> / <%= @pet.endurance %></label>
+			  <%= percentage_bar [@pet.current_endurance, (@pet.total_endurance-@pet.current_endurance) ], :fill=>true, :width=>105 %>
+			</td>
+		  </tr>
+		  <tr>
+			<td>
+			  <label>Health: <%= @pet.current_health %> / <%= @pet.health %></label>
+			  <%= percentage_bar [@pet.current_health, (@pet.total_health-@pet.current_health) ], :fill=>true, :width=>105 %>
+			</td>
+		  </tr>
+		  <tr><td><label>Power: <%= @pet.power %></label></td></tr>
+		  <tr><td><label>Fortitude: <%= @pet.fortitude %></label></td></tr>
+		  <tr>
+			<td><h5><%= "Level #{@pet.level_rank_count} #{@pet.breed.name}" %></h5></td>
+		    <td><label>Intelligence: <%= @pet.intelligence %></label></td>
+		  </tr>
+		</table>
+	  </td>
+	  <td>
+		<table>
+		  <tr><td><label class="strong">Total Battles:</label></td><td><%= @pet.battles_count %></td></tr>
+		  <tr>
+			<td><label>Wins:</label></td>
+			<td><%= @pet.wins_count %><%= graph_bar [@pet.wins_count,@pet.battles_count]%></td>
+		  </tr>
+		  <tr>
+			<td><label>Loses:</label></td>
+			<td><%= @pet.loses_count %><%= graph_bar [@pet.loses_count,@pet.battles_count]%></td>
+		  </tr>
+		  <tr>
+			<td><label>Draws:</label></td>
+			<td><%= @pet.draws_count %><%= graph_bar [@pet.draws_count,@pet.battles_count]%></td>
+		  </tr>
+		</table>
+	  </td>	
+	  <td class="tright">
+		<h5>Leaderboard Ranking</h5>
+		<p class="tright">
+		  Current: UNRANKED<br />
+		  <span class="em">No ranking bonus</span>
+		</p>
+		<p class="tright">1 Week Ago: --</p>
+		<p class="tright">2 Weeks Ago: --</p>
+	  </td>
+	</tr>
+  </table>
+</div>
+
+<% unless @pet.belongings.battle_ready.blank? %>
+<div class="box gear">
+  <h4>Battle Gear</h4>
+  <p class="em">You can equip items from your <%= facebook_link_to 'belongings', facebook_belongings_path %> to aid you in battle</p>
+  <% cell_table(@pet.belongings.battle_ready,4) do |b,idx| %>
+    <td>
+	  <% item_badge(b.item) %>
+    </td>
+  <% end %>
+</div>
+<% end %>
+
+<div class="box">
+  <h3><%= facebook_link_to 'Challenges', facebook_challenges_path %></h3>	
+  <p class="em">You can directly challenge <%= facebook_link_to 'other pets', facebook_pets_path %> who you think would make a 
+	good match in battle or who you'd just like to beat! <span class="strong">Open Challenges</span> can be issued at any time, 
+	and accepted by any pet who happens by and wants an immediate battle.<br /><br />
+	Challenges can only be issued while your pet is <%= facebook_link_to 'prowling', facebook_occupations_path %>.
+  </p>
+	
+  <% unless @challenges.blank? %>	
+	  <h4>Heads up! You Have Open Challenges Against You:</h4>
+	  <% cell_table(@challenges, 4, :width => "100%") do |c,idx| %>
+	  <td>
+	    <table class="challenge">
+		  <tbody>
+			<tr>
+			  <td rowspan="4"><%= avatar_image(c.attacker,'small') %></td>
+			  <th><%= facebook_link_to c.attacker.name, facebook_pet_path(c.attacker)%></th>
+			</tr>
+			<tr>
+			  <td><label>Level <%= c.attacker.level_rank_count %><%= c.attacker.breed.name %></label></td>
+			  <td><label>Record: <% c.attacker.battle_record %></label></td>
+			  <td>
+				<span class="right button"><%= facebook_link_to "Decline", refuse_facebook_challenge_path(c) %></span>
+				<span class="left button"><%= facebook_link_to "Accept", edit_facebook_challenge_path(c) %></span>
+			  </td>
+			</tr>
+		  </tbody>	
+		</table>
+	  </td>	
+	  <% end %>
+  <% end %>
+	
+  <% unless @resolved.blank? %>	
+    <h4>Recent Battles</h4>
+    <table class="records challenges" width="100%">
+	  <tbody>
+	  <% @resolved.each do |c,idx| %>
+		<tr>
+		  <td>
+			<%= avatar_image(c.attacker,'tiny') %>
+			<%= avatar_image(c.defender,'tiny') %>
+		  </td>
+		  <td><%= c.description %></td>
+		  <td width="25"><%= facebook_link_to 'view', facebook_challenge_path(c) %></td>
+		</tr>
+	  <% end %>
+	  </tbody>	
+	</table>
+	<% end %>
+	
+  <span class="button"><%= facebook_link_to "Issue Open Challenge", open_facebook_challenges_path %></span>	
+</div>
+
+<div class="box">
+  <table width="100%">	
+	<tr>
+	  <td>
+	    <h4>Advancement</h4>
+	    <h5>Level <%=@pet.level_rank_count %></h5>
+	  </td>
+	  <td align="right" width-"130">
+		<label>Current Experience:</label> <label class="strong"><%= @pet.experience %></label>
+		<br />
+		<label>Level <%= @pet.level.next_level.rank %> Experience:</label> <label class="strong"><%= @pet.level.next_level.experience %></label>
+	  </td>
+	  <td align="right">
+		<%= percentage_bar [@pet.experience, (@pet.level.next_level.experience - @pet.experience) ], :fill => true %>
+	  </td>
+	</tr>
+  </table>
+  <table id="advancements" width="100%">
+	<tr><th>Level</th><th>Experience</th><th>Advancement</th><th>Obtained</th></tr>
+	<% @pet.breed.levels.each_with_index do |l,idx| %>
+	  <tr class="<%= @pet.level_rank_count >= idx ? 'complete' : 'incomplete'%>">
+		<td><%= l.rank %></td>
+		<td><%= l.experience %></td>
+		<td><%= "+#{l.advancement_amount} #{l.advancement_type}"%></td>
+		<td><%= @pet.level_rank_count >= idx + 1 ? 'YES' : 'NO'%></td>
+	  </tr>
+	<% end %>
+  </table>
+</div>

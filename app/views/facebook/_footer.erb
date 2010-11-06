@@ -1,0 +1,28 @@
+<div class="footer">
+  <div class="online-pets">
+	<h6>Online Pets</h6>
+	<ul>
+	<% Pet.active.online.all.each do |pet| %>
+	  <li><%= facebook_link_to pet.name, facebook_pet_path(pet) %></li>
+	<% end %>
+	</ul>
+  </div>
+  <div class="announcements">
+    <a href="http://www.twitter.com/battlepet/"><%= facebook_image_tag "twitter-long-badge.png" %></a>
+	<%= application_tweets_html %>
+  </div>
+  <div class="footer-links right">
+	<ul>
+	  <li><%=facebook_link_to "about", facebook_about_path %></li>
+	  <li><%=facebook_link_to "invite friends", facebook_invite_path %></li>
+	  <li><%=facebook_link_to "contact", facebook_contact_path %></li>
+	  <li><%=facebook_link_to "staff", facebook_staff_path %></li>
+	  <li><%=facebook_link_to "tos", facebook_tos_path %></li>
+	  <li><%=facebook_link_to "privacy", ''%></li>
+	</ul>
+	<p>
+	  <%= link_to '@battlepet', 'http://www.twitter.com/battlepet', :class => "right" %>
+	  <%= link_to 'www.battlepet.net', 'http://www.battlepet.net' %>
+	</p>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+2010-07-11 09:29:25[INFO] 
+2010-07-11 09:29:25[INFO] N+1 Query in /admin/breeds
+  Breed => [:species]
+  Add to your finder: :include => [:species]
+2010-07-11 09:29:25[INFO] N+1 Query method call stack
+  /Users/travidunn/development/battle-pet-network/app/views/admin/breeds/index.erb:18:in `_run_erb_app47views47admin47breeds47index46erb'
+  /Users/travidunn/development/battle-pet-network/app/views/admin/breeds/index.erb:15:in `each'
+  /Users/travidunn/development/battle-pet-network/app/views/admin/breeds/index.erb:15:in `_run_erb_app47views47admin47breeds47index46erb'
+2010-07-11 09:29:46[INFO] 
+2010-07-11 09:29:46[INFO] N+1 Query in /admin/breeds
+  Breed => [:species]
+  Add to your finder: :include => [:species]
+2010-07-11 09:29:46[INFO] N+1 Query method call stack
+  /Users/travidunn/development/battle-pet-network/app/views/admin/breeds/index.erb:18:in `_run_erb_app47views47admin47breeds47index46erb'
+  /Users/travidunn/development/battle-pet-network/app/views/admin/breeds/index.erb:15:in `each'
+  /Users/travidunn/development/battle-pet-network/app/views/admin/breeds/index.erb:15:in `_run_erb_app47views47admin47breeds47index46erb'
+2010-07-11 09:30:01[INFO] 
+2010-07-11 09:30:01[INFO] N+1 Query in /admin/breeds
+  Breed => [:species]
+  Add to your finder: :include => [:species]
+2010-07-11 09:30:01[INFO] N+1 Query method call stack
+  /Users/travidunn/development/battle-pet-network/app/views/admin/breeds/index.erb:19:in `_run_erb_app47views47admin47breeds47index46erb'
+  /Users/travidunn/development/battle-pet-network/app/views/admin/breeds/index.erb:16:in `each'
+  /Users/travidunn/development/battle-pet-network/app/views/admin/breeds/index.erb:16:in `_run_erb_app47views47admin47breeds47index46erb'
+2010-07-11 09:30:25[INFO] 
+2010-07-11 09:30:25[INFO] N+1 Query in /admin/breeds
+  Breed => [:species]
+  Add to your finder: :include => [:species]
+2010-07-11 09:30:25[INFO] N+1 Query method call stack
+  /Users/travidunn/development/battle-pet-network/app/views/admin/breeds/index.erb:19:in `_run_erb_app47views47admin47breeds47index46erb'
+  /Users/travidunn/development/battle-pet-network/app/views/admin/breeds/index.erb:16:in `each'
+  /Users/travidunn/development/battle-pet-network/app/views/admin/breeds/index.erb:16:in `_run_erb_app47views47admin47breeds47index46erb'
+2010-07-11 09:34:26[INFO] 
+2010-07-11 09:34:26[INFO] N+1 Query in /admin/breeds
+  Breed => [:species]
+  Add to your finder: :include => [:species]
+2010-07-11 09:34:26[INFO] N+1 Query method call stack
+  /Users/travidunn/development/battle-pet-network/app/views/admin/breeds/index.erb:19:in `_run_erb_app47views47admin47breeds47index46erb'
+  /Users/travidunn/development/battle-pet-network/app/views/admin/breeds/index.erb:16:in `each'
+  /Users/travidunn/development/battle-pet-network/app/views/admin/breeds/index.erb:16:in `_run_erb_app47views47admin47breeds47index46erb'
+2010-07-11 09:35:06[INFO] 
+2010-07-11 09:35:06[INFO] N+1 Query in /admin/levels
+  Level => [:breed]
+  Add to your finder: :include => [:breed]
+2010-07-11 09:35:06[INFO] N+1 Query method call stack
+  /Users/travidunn/development/battle-pet-network/app/views/admin/levels/index.erb:14:in `_run_erb_app47views47admin47levels47index46erb'
+  /Users/travidunn/development/battle-pet-network/app/views/admin/levels/index.erb:12:in `each'
+  /Users/travidunn/development/battle-pet-network/app/views/admin/levels/index.erb:12:in `_run_erb_app47views47admin47levels47index46erb'
+2010-07-11 09:35:30[INFO] 
+2010-07-11 09:35:30[INFO] N+1 Query in /admin/levels
+  Level => [:breed]
+  Add to your finder: :include => [:breed]
+2010-07-11 09:35:30[INFO] N+1 Query method call stack
+  /Users/travidunn/development/battle-pet-network/app/views/admin/levels/index.erb:14:in `_run_erb_app47views47admin47levels47index46erb'
+  /Users/travidunn/development/battle-pet-network/app/views/admin/levels/index.erb:12:in `each'
+  /Users/travidunn/development/battle-pet-network/app/views/admin/levels/index.erb:12:in `_run_erb_app47views47admin47levels47index46erb'
+2010-07-11 17:02:18[INFO] 
+2010-07-11 17:02:18[INFO] N+1 Query in /admin/levels
+  Level => [:breed]
+  Add to your finder: :include => [:breed]
+2010-07-11 17:02:18[INFO] N+1 Query method call stack
+  /Users/travidunn/development/battle-pet-network/app/views/admin/levels/index.erb:14:in `_run_erb_app47views47admin47levels47index46erb'
+  /Users/travidunn/development/battle-pet-network/app/views/admin/levels/index.erb:12:in `each'
+  /Users/travidunn/development/battle-pet-network/app/views/admin/levels/index.erb:12:in `_run_erb_app47views47admin47levels47index46erb'

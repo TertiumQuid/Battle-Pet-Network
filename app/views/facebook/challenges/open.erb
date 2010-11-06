@@ -1,0 +1,45 @@
+<% content_for :page_title do %><h2>Challenge to Battle</h2><% end %>
+	
+<div class="box full">
+  <h3>Open Challenge</h3>
+  <p class="em">Who can match your prowess in combat? Plot your strategy and howl your challenge to the winds to 
+	immediately battle any who would accept your summons. Issuing an open challenge is a good way to keep your pet 
+	battling if cowards are refusing to accept your direct challenges.</p>
+
+  <table width="100%">	
+	<tr>
+	  <td>
+	    <table class='pet' width="300">
+		<tbody>
+		  <tr>
+			<td rowspan="6" width="110"><%= avatar_image(current_user_pet,'large') %></td>
+			<td width="90">Health:</td>
+			<td><%= current_user_pet.current_health %></td>
+		  </tr>
+		  <tr><td>Endurance:</td><td><%= current_user_pet.endurance %></td></tr>
+		  <tr><td>Fortitude:</td><td><%= current_user_pet.fortitude %></td></tr>
+		  <tr><td>Power:</td><td><%= current_user_pet.power %></td></tr>
+		  <tr><td>Intelligence:</td><td><%= current_user_pet.intelligence %></td></tr>
+		  <tr><td>Affection:</td><td><%= current_user_pet.affection %></td></tr>
+	    </tbody>
+	    </table>
+	
+	    <% cell_table(current_user_pet.belongings.battle_ready) do |b,idx| %>
+	      <td class='battle-gear'>
+		    <%= avatar_image(b.item,'small') %><br />
+		    <label><%= b.item.name %></label> <label class="em">(<%= b.item.power %>)</label>
+	       </td> 
+	    <% end %>
+	  </td>
+	  <td>
+	    <h4>Your Pet's Battle Strategy</h4>
+	    <% form_for @challenge, :url => facebook_nested_url(facebook_challenges_path), :html => { :method => :post} do |f| %>	
+	      <div class="challenge">
+		    <%= render_strategy_picker(f) %>
+		  </div>
+		  <p><%= submit_tag "Issue Challenge"%></p>
+	    <% end %>
+	  </td>
+    </tr>
+  </table>
+</div>

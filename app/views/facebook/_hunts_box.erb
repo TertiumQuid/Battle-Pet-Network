@@ -1,0 +1,20 @@
+<div class="box slim">	
+  <h4>Recent Hunts</h4>
+  <p class="em">Hunting is the easiest way the earn kibble while testing your battle strategies 
+	and keeping the lands safe from sentient threats.</p>
+  <% if hunts.size > 0 %>
+	<ul class="hunts">
+	<% @hunts.each do |h| %>
+	  <% hunt = h.is_a?(Hunt) ? h : h.hunt%>
+	  <li class="hunt">
+		<%= hunt.hunter.name %> hunted a 
+		<%= hunt.sentient.name %> and <label><%= facebook_link_to hunt.hunter.outcome, facebook_hunt_path(hunt) %></label>.
+		<br />
+		<span class="em"><%= "#{time_ago_in_words(hunt.updated_at)} ago" %></span>
+	  </li>
+	<% end %>
+	</ul>
+  <% else %>
+    <p class="em empty">No recently recorded hunts.</p>
+  <% end %>
+</div>

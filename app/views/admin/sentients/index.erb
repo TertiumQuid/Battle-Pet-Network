@@ -1,0 +1,29 @@
+<article class="articlecontent">
+  <h2>Sentients</h2>
+  <p></p>
+  <table>
+	<tbody>
+	  <tr>
+	    <th>Name</th>
+	    <th>Health</th>
+	    <th>Endurance</th>
+	    <th>Power</th>
+	    <th>Pop</th>
+	    <th>Kibble</th>
+	    <th>Rank</th>
+	  </tr>
+	  <% @sentients.each do |s| %>
+	  <tr>
+	    <td><%= link_to s.name, edit_admin_sentient_path(s) %><td>
+	    <td><%= s.health %></td>
+	    <td><%= s.endurance %></td>
+	    <td><%= s.power %></td>
+	    <td><%= "#{s.population}/#{s.population_cap}" %></td>
+	    <td><%= s.kibble %></td>
+	    <td><%= s.repopulation_rate %></td>
+	    <td><%= s.required_rank %></td>
+	  </tr>
+	  <% end %>
+	<tbody>
+  </table>
+</article>

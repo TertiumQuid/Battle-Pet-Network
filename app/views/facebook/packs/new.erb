@@ -1,0 +1,53 @@
+<% content_for :page_title do %><h2>Found a Pack</h2><% end %>
+	
+<div class="sidebox slim right">	
+  <div class="box slim">	
+    <h4>Pack Benefits</h4>
+    <ul>
+	  <li>Faster Endurance Recovery</li>
+	  <li>Pack Challenges</li>
+	  <li>Kibble Investment in Treasury</li>
+	  <li>Item Loans From Spoils</li>
+	  <li>Mass Combat</li>
+	  <li>Pack Leaderboards</li>
+	</ul>
+  </div>
+</div>
+
+<div class="box">
+  <p class="em">Pets are social animals, and forming a pack with other pets benefits everyone. As the pack's founder, you'll
+	be the leader and will need to invite other pets to join. Your pack's strength will grow the more active are its members, 
+	so choose your packmates carefully - every pet ought to pull their weight and use their belongings and power for the 
+	common good.</p>
+  <p class="em">Feeding and safeguarding a pack of pets isn't cheap, and on a weekly basis your pack must have enough Kibble
+	in the treasury to "feed" each of the pack's members. If a pack cannot supply its members with enough Kibble, it will 
+	become "insolvent" and members will loose all benefits until the pack's treasury is replenished.</p>
+
+  <% form_for @pack, :url => facebook_nested_url(facebook_packs_path), :html => { :method => :post} do |f| %>
+  <table class='form'>
+    <tbody>
+    <tr>
+	  <td><%= f.label :name, 'Name' %></td>
+	  <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+	  <td><%= f.label :standard_id, 'Founding Post' %></td>
+	  <td>
+		<%= render_item_picker(@standards.map(&:item), f, :standard_id) %>	
+	  </td>
+    </tr>
+    <tr>
+	  <td><%= f.label :kibble, 'Treasury' %></td>
+	  <td><%= f.text_field :kibble %></td>
+    </tr>
+    <tr>
+	  <td>&nbsp;</td>>
+	  <td>
+	    <%= f.submit 'Found Pack' %>
+	    <%= facebook_link_to 'Nevermind', stored_location %>
+	  </td>
+	</tr>
+    </tbody>
+  </table>
+  <% end %>
+</div>

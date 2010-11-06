@@ -1,0 +1,27 @@
+<% content_for :page_title do %>
+  <h2>
+	<%= facebook_link_to 'Forums', facebook_forums_path %> : 
+	<%= facebook_link_to @forum.name, facebook_forum_path(@forum) %> : 
+	<%= facebook_link_to @topic.title, facebook_forum_forum_topic_path(@forum,@topic) %>
+  </h2>
+<% end %>
+
+<div class="box full">
+  <h3>Edit Post</h3>
+
+  <% form_for @post, :url => facebook_nested_url(facebook_forum_forum_topic_forum_post_path(@forum,@topic)), :method => :put do |f| %>
+  <table width="100%" cellpadding="3">
+	<tbody>
+	  <tr>	
+	    <td><%= f.label :body, 'Body' %></td>
+	    <td><%= f.text_area(:body, :size => "45x10")%></td>
+	    <td rowspan="2"><%= render_markdown_instructions %></td>
+	  </tr>
+	  <tr>	
+		<td>&nbsp;</td>
+	    <td><%= f.submit 'Save' %></td>
+	  </tr>
+	</tbody>
+  </table>
+  <% end %>	
+</div>

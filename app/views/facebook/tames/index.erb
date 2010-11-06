@@ -1,0 +1,57 @@
+<% content_for :page_title do %><h2>Human Kennels</h2><% end %>
+	
+<div class="sidebox slim right">
+  <div class="box slim">
+    <h4>Human Slaves</h4>
+    <p class="em">Enslaved humans have had their spirit broken and no longer serve as companions and confer no bonuses. 
+	Instead they spend their hours devoting to searching for Kibble to bring to their master.</p>
+	<p>Your pet has <strong><%= pluralize(@slave_count, 'slave') %></strong> working for them.</p>
+	<p>
+	  <% if @slave_count > 0 %>
+	    Your pet's slaves are earning ±<strong id='slave-earnings'><%= current_user_pet.slave_earnings %></strong> Kibble/day.
+	  <% end %>
+	</p>
+  </div>
+
+  <div class="box slim">
+    <h4>Human Activity</h4>
+  </div>
+</div>
+
+<div class="box">
+  <h3>Domesticated Human Companions</h3>
+  <p class="em">Humans are useful, if stupid. Domesticated humans can confer a variety of bonuses and skills, but they're 
+	violent and irrational creatures who must be continually appeased and coddled or they'll turn to infighting and kill 
+	each other. The higher your pet's Affection, the more humans they can keep and the happier the humans will be.</p>
+  
+  <table class="kennels">
+	<tbody>
+	<% @tames.each do |tame| %>
+	<tr>
+	  <table class='domesticated-human'>
+		<tbody>
+		<tr><th colspan="3"><%= tame.human.name %></th></tr>
+		<tr>
+		  <td><%= avatar_image(tame.human, 'medium') %></td>
+		  <td>
+			<div>Type: <strong><%= tame.human.human_type %></strong></div>
+			<div>Power: <strong><%= tame.human.power %></strong></div>
+			<div>Required Level: <strong><%= tame.human.required_rank %></strong></div>
+			<div>Rarity: <strong><%= tame.human.difficulty %></strong></div>
+		  </td>
+		  <td class="em" colspan="2"><%= tame.human.description %></td>
+		</tr>
+		<tr>
+		  <td>
+		    <strong><%= facebook_link_to "Enslave", enslave_facebook_kennel_path(tame.id) %></strong>
+			<br />
+		    <strong><%= facebook_link_to "Release", release_facebook_kennel_path(tame.id) %></strong>
+		  </td>
+		</tr>
+		</tbody>
+	  </table>
+	</tr>
+	<% end %>
+	</tbody>
+  </table>
+</div>

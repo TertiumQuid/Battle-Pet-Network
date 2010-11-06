@@ -1,0 +1,27 @@
+franchises:
+  leaderboard: franchises
+  created_at: <%= (Time.now - 1.day).strftime("%Y-%m-%d %H:%M:00") %>
+
+relentless:
+  leaderboard: relentless
+  created_at: <%= (Time.now - 1.day).strftime("%Y-%m-%d %H:%M:00") %>
+
+manlords:
+  leaderboard: manlords
+  created_at: <%= (Time.now - 1.day).strftime("%Y-%m-%d %H:%M:00") %>
+
+forerunners:
+  leaderboard: forerunners
+  created_at: <%= (Time.now - 1.day).strftime("%Y-%m-%d %H:%M:00") %>
+
+hordes:
+  leaderboard: hordes
+  created_at: <%= (Time.now - 1.day).strftime("%Y-%m-%d %H:%M:00") %>
+
+ambassadors:
+  leaderboard: indefatigable  
+  created_at: <%= (Time.now - 1.day).strftime("%Y-%m-%d %H:%M:00") %>
+  
+strongest:
+  leaderboard: strongest
+  created_at: <%= (Time.now - 1.day).strftime("%Y-%m-%d %H:%M:00") %>

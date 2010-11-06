@@ -1,0 +1,39 @@
+sarah:
+    name: Sarah
+    human_type: Friendly
+    difficulty: 3
+    power: 2
+    cost: 4000
+    required_rank: 2
+    
+ichabod:
+    name: Ichabod
+    human_type: Wise
+    difficulty: 5
+    power: 3
+    cost: 8000
+    required_rank: 3
+    
+oscar:
+    name: Oscar
+    human_type: Fatted
+    difficulty: 4
+    power: 2
+    cost: 6000
+    required_rank: 3
+    
+lestor:
+    name: Lestor
+    human_type: Collector
+    difficulty: 3
+    power: 1
+    cost: 9000
+    required_rank: 3
+
+bruno:
+    name: Bruno
+    human_type: Burly
+    difficulty: 2
+    power: 1
+    cost: 4000
+    required_rank: 2

@@ -1,0 +1,11 @@
+<% content_for :page_title do %><h2>Invite Your Facebook Friends to Play</h2><% end %>
+
+<% content_for("invite_message") do %> 
+  After the collapse of civilization, pets battle each other to rule a world forsaken by humans. You can join your
+  friends and live, but only if you befriend a pet.
+  <%= fb_req_choice("Play #{AppConfig.name}", invitation_link )%> 
+<% end %>
+
+<% fb_request_form(AppConfig.name,"invite_message", "invite") do %>
+  <%= fb_multi_friend_selector( "TODO", :exclude_ids => @exclude_ids)%>
+<% end %>

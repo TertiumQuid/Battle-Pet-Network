@@ -1,0 +1,44 @@
+<% content_for :page_title do %><h2>Compose Message</h2><% end %>
+
+<div class="sidebox slim right">
+  <div class="box slim">
+    <%= render_markdown_instructions %>
+  </div>
+</div>
+
+<div class="box">
+  <% form_for @message, :url => facebook_nested_url(facebook_messages_path) do |f| %>	
+  <%= f.hidden_field :reply_to_id %>
+  <table class="message" width="100%">
+	<tbody>
+	  <tr>
+	    <td><%= f.label :recipient_name, 'To' %></td>
+	    <td>
+		  <% if @recipient %>
+            <%= f.hidden_field :recipient_id, {:value => @recipient.id} %>		
+		    <label><%= @recipient.name %></label>
+		  <% else %>
+			<%= f.text_field :recipient_name %> <span class="em">(enter another pet's name)</span>
+		  <% end %>
+		</td>
+	  </tr>
+	  <tr>
+	    <td><%= f.label :subject, 'Subject' %></td>
+	    <td><%= f.text_field :subject %></td>
+	  </tr>
+	  <tr>	
+        <td><%= f.label :body %></td>
+        <td><%= text_area(:message, :body, :size => "50x8")%></td>
+	  </tr>
+	  <tr>	
+	    <td colspan="2">
+		  <p>
+	        <%= f.submit 'Send Message' %> 
+	        <%= facebook_link_to "Nevermind", inbox_facebook_messages_path %>
+	      </p>
+	    </td>
+	  </tr>
+	</tbody>
+  </table>
+  <% end %>
+</div>

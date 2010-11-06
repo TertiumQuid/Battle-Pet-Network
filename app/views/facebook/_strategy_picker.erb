@@ -1,0 +1,216 @@
+<p class="strategy-selector">
+  <%= (parent_form || form).collection_select( "#{strategy_name}_id", 
+										   current_user_pet.strategies.active, 
+										   :id, 
+										   :name, 
+										   {:include_blank => true},
+										   {:onchange => "toggle_selector(this)" }) unless current_user_pet.strategies.active.blank? %>
+</p>
+<table id="strategy-builder">
+<tbody>
+  <tr>
+	<td colspan="4">
+		<em>Choose up to <%= current_user_pet.max_actions %> of the following actions to build your strategy. Lower 
+		powered actions are safer and less tiring, while high powered actions are risky and tiring.</em>
+	</td>
+  </tr>
+  <% last_type = current_user_pet.actions.first.action_type; cell_count = 0; %>
+  <% current_user_pet.actions.each_with_index do |action,idx| %>
+	<%="<tr>" if cell_count == 0 %>
+		
+	<% if last_type != action.action_type %>
+	  <% if cell_count <= 3 && cell_count > 0%>
+	    <% (4 - cell_count).times do %>
+	      <td>&nbsp;</td>
+	    <% end %>
+	    <tr>
+	  <% end %>
+	  <% cell_count = 0 %>
+	  <% last_type = action.action_type %>
+	<% end %>
+	
+	<td>
+	  <div class="maneuver-button">	
+		<a href="#" onclick="push_action(<%=idx%>); return false;">
+		  <%= avatar_image(action,'small') %><br />
+		  <span class="maneuver-name"><%= action.name %></span>
+		  <span class="maneuver-power"><%= action.power %></span><br />
+		  <span class="maneuver-type"><%= action.action_type %></span>
+		</a>
+	  </div>
+	</td>	
+		
+	<% cell_count = cell_count + 1 %>
+	<% if cell_count > 3 %>
+	  <%="</tr>" %>
+	  <% cell_count = 0 %>
+	<% end %>
+  <% end %>
+  <tr>
+	<td colspan="4">
+		<ul id="maneuver_list" class="maneuvers">
+	    <% form.fields_for :maneuvers do |mf| %>
+	    <% end %>
+	    </ul>
+	</td>
+  </tr>
+  <tr>
+	<td>Analysis:</td>
+	<td colspan="3">
+	  <div>Endurance cost: <span id="strategy_endurance_cost">0</span></div>
+	  <div>Potential experience: <span id="strategy_experience">0</span></div>
+	  <div>Favorite action (-) bonus: <span id="strategy_action_bonus">-</span></div>
+	</td>
+  </tr>
+  <tr>
+	<td colspan="4">
+      Save strategy for other battles: 
+	  <%= check_box_tag( "#{strategy_name}_attributes[status]", 'active', true) %>
+	</td>
+  </tr>
+</tbody>
+</table>
+
+
+<script>
+<!--
+var maneuvers = {};
+var actions = [];
+
+<% current_user_pet.actions.each do |a| %>
+actions.push(<%=a.to_json%>);
+<% end %>
+
+function toggle_selector(sel) {
+  if (sel.getSelectedIndex() > 0) {
+    document.getElementById('strategy-builder').setClassName('hidden');
+    document.getElementById('maneuver_list').setTextValue('');
+  } else {
+    document.getElementById('strategy-builder').setClassName('');
+  }
+}
+
+function push_action(idx) {
+  var list = document.getElementById('maneuver_list');
+  var li = document.createElement('li');
+  var cnt = list.getChildNodes().length;
+
+  // limit pet's max actions for the strategy
+  if (cnt >= <%=current_user_pet.max_actions%>) return;
+
+  var action = actions[idx];	
+  action = action.action;
+
+  var timestamp = parseInt(new Date().getTime());
+  var action_dom_id = "maneuver_obj_" + timestamp + "_" + action.id;
+
+  // store action for strategy analysis routines
+  maneuvers[action_dom_id] = action;
+
+  // create rails model params element
+  <% if defined?(@hunt) %>
+    var input_html = "<input type='hidden' value='"+action.id+"' name='hunt[hunters_attributes][0][strategy_attributes][maneuvers_attributes]["+cnt+"][action_id]' />";
+  <% else %>
+    var input_html = "<input type='hidden' value='"+action.id+"' name='challenge[<%=strategy_name%>_attributes][maneuvers_attributes]["+cnt+"][action_id]' />";
+  <% end %>
+
+  li.setInnerXHTML(input_html); 
+
+  // create display elements 
+  var i_type = document.createElement('span');
+  var i_power = document.createElement('span');
+  var i_name = document.createElement('span');
+  var i_remove = document.createElement('a');
+  var maneuver_type = action.action_type == "offensive" ? "ATTACK" : "DEFEND";
+
+  i_type.setTextValue(maneuver_type).setClassName('maneuver-item-type ' + maneuver_type);
+  i_power.setTextValue('POW: '+action.power).setClassName('maneuver-item-power');
+  i_name.setTextValue(action.name).setClassName('maneuver-item-name');
+  i_remove.setHref('#').setTextValue('[remove]').setClassName('maneuver-item-remove');
+
+  i_remove.addEventListener('click', function(e){ 
+	pop_action(action_dom_id);
+	return false; 
+  }, false); 
+
+  li.appendChild(i_type);
+  li.appendChild(i_power);
+  li.appendChild(i_name);
+  li.appendChild(i_remove);
+
+  li.setId(action_dom_id);
+  list.appendChild(li);
+
+  update_strategy_analysis();
+}
+
+function pop_action(action_dom_id) {
+  // remove the dom element
+  var list = document.getElementById('maneuver_list');
+  var li = document.getElementById(action_dom_id);
+  list.removeChild(li);
+
+  // remove the stored object
+  maneuvers[action_dom_id] = null; 
+
+  // remove the hash key
+  delete maneuvers[action_dom_id]; 
+
+  update_strategy_analysis();
+}
+
+function update_strategy_analysis() {
+  calculate_endurance();
+  calculate_experience();
+  calculate_fav_action_bonus();
+}
+
+function calculate_endurance() {
+  var label = document.getElementById('strategy_endurance_cost');
+  var end_cost = 0;
+  for (var key in maneuvers) {
+	var action = maneuvers[key];
+	if (action != null) {
+	  var cost = (action.action_type == "offensive" ? parseInt(action.power) * 2 : parseInt(action.power));
+      end_cost = end_cost + cost;
+    }
+  }		
+  label.setTextValue(end_cost);
+}
+
+function calculate_experience() {
+  var label = document.getElementById('strategy_experience');
+  var power = 0;
+  var cnt = 0;
+	
+  for (var key in maneuvers) {
+	var action = maneuvers[key];
+	if (action != null) {
+	  cnt = cnt + 1;	
+	  power = power + action.power;
+    }
+  }
+  var exp = Math.ceil(power / cnt);
+  if (!exp) exp = 0;
+  label.setTextValue(exp);
+}
+
+function calculate_fav_action_bonus() {
+  var label = document.getElementById('strategy_action_bonus');
+  var bonus = 0;
+
+  var breed_favorite = <%= current_user_pet.breed.favorite_action_id %>;
+  var pet_favorite = <%= current_user_pet.favorite_action_id.blank? ? 0 : current_user_pet.favorite_action_id %>;
+	
+  for (var key in maneuvers) {
+	var action = maneuvers[key];
+	if (action != null) {
+	  if (action.id == breed_favorite || action.id == pet_favorite) {
+		bonus = bonus + 1;
+	  }
+    }
+  }
+  label.setTextValue(bonus > 0 ? '+' + bonus : '-');
+}
+//-->
+</script>

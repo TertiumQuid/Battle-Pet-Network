@@ -1,0 +1,107 @@
+<% content_for :page_title do %>
+  <h2>
+	<%= @pack.is_leader?(current_user_pet) ? "Lead Your Pack" : "Pack Participation" %>
+  </h2>
+<% end %>
+	
+<div class="sidebox slim right">
+  <div class="box slim">	
+    <h4>Pack Spoils</h4>
+    <table id="spoils">
+	<% @pack.spoils.each do |s| %>
+	  <tr>
+		<td rowspan="4"><div class='item-#{s.item.slug.downcase.gsub(/\s/,'-')}-mid'></div></td>
+		<th colspan="2"><%= s.item.name %></th>
+	  </tr>	
+	  <tr>
+		<td><%= s.item.item_type %></td>
+		<td>Required Level: <%= s.item.required_rank %></td>
+	  </tr>
+	  <tr>
+		<td>Power: <%= s.item.power %></td>
+		<td>Bonus: <strong><%= s.item.bonus %></strong></td>
+	  </tr>	
+	  <% if @pack.is_leader?(current_user_pet) %>
+	  <tr>
+		<td colspan="2">
+		  <% form_for s, :url => facebook_nested_url(facebook_pack_spoil_path(s)), 
+						 :html => { :method => :put, :class => 'loan-spoils'} do |f| %>
+		  <% end %>	
+		</td>
+	  </tr>
+	  <% end %>
+	<% end %>
+	</table>
+  <div>
+	
+  <div class="box slim">	
+    <h4>Invite Pack Members</h4>
+    <p class="em">
+	  The more members, the more powerful your pack. You can invite any other pet to join as long as they 
+	  don't belong to a pack already.
+	</p>
+    <% form_tag facebook_nested_url(invite_facebook_pack_path), 
+				:method => :post, :class => 'invite-form' do |f| %>
+	  <table>
+		<tr>
+		  <td><label>Enter pet name or tag:</label></td>
+		  <td><%= text_field_tag(:invitee) %></td>
+		</tr>
+	  </table>
+	<% end %>
+  </div>
+</div>
+
+<div class="box">
+  <table>	
+  <tr>
+	<td rowspan="2">	
+	  <h3><%= @pack.name %></h3>
+	  <p class="em">Founded <%= time_ago_in_words(@pack.created_at) %> ago</p>
+	
+	  <table>
+		<tr>
+		  <td rowspan="4"><div class="<%="item-#{@pack.standard.slug}-small" %> left"></div></td>
+		  <td><label>Standard:</label></td>
+		  <td><%= @pack.standard.name %></td>
+		</tr>
+		<tr>
+		  <td><label>Treasury:</label></td>
+		  <td><%= @pack.kibble %> Kibble</td>
+		</tr>
+		<tr>
+		  <td><label>Member Bonus:</label></td>
+		  <td><%= @pack.membership_bonus %></td> %></td>
+		</tr>
+		<tr>
+		  <td><label>Member Battle Record:</label></td>
+		  <td><%= @pack.battle_record %></td>
+		</tr>
+	  </table>
+	  <% form_for @pack, :url => facebook_nested_url(facebook_pack_path(@pack)), :html => { :method => :put} do |f| %>
+        <%= f.hidden_field :status, {:value => 'disbanded'} %>
+	    <%= f.submit 'Disband Pack!' %>
+	  <% end %>
+	</td>
+	<td>
+	  <label>Add to Spoils:</label>	
+      <% form_for Spoil.new, :url => facebook_nested_url(facebook_pack_spoils_path), 
+				     :html => { :method => :post, :id => 'donate-items'} do |f| %>
+        <%= f.collection_select(:item_id, @items, :id, :name, {:include_blank => true}) %>
+        <br />
+        <%= f.submit 'Contribute' %>
+      <% end %>
+	</td>
+  </tr>
+  <tr>
+	<td>
+	  <label>Add to Treasury:</label>	
+      <% form_for @pack, :url => facebook_nested_url(edit_facebook_pack_path(@pack)), 
+				     :html => { :method => :put, :id => 'donate-kibble'} do |f| %>
+        <%= f.collection_select(:kibble_contribution, Pack::KIBBLE_CONTRIBUTIONS, :to_s, :to_s, {:include_blank => true}) %>
+        <br />
+        <%= f.submit 'Contribute' %>
+      <% end %>
+	</td>		
+  </tr>
+</div>

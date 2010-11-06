@@ -1,0 +1,67 @@
+<% content_for :page_title do %><h2>Open a Shop</h2><% end %>
+	
+<% form_for @shop, :url => facebook_nested_url(new_facebook_shop_path) do |f| %>
+<div class="sidebox slim right">	
+  <div class="box slim">
+    <h4>Starting Inventory</h4>
+    <p class="em>">Your pet's shopkeeping ability allows for <%= pluralize(@shop.max_inventory, 'item') %> 
+	in your inventory at once.</p>
+	<% if current_user_pet.belongings.blank? %>
+	  <p>You currently don't have any belongings that you can sell. You can still open your shop, though, and 
+		then stock your inventory later.</p>
+	<% else %>
+    <table id="inventory-picker">
+	  <tbody>
+	    <% current_user_pet.belongings.sellable.each do |belonging| %>
+	      <tr class='inventory-item'>
+		    <td rowspan="2"><%= check_box_tag( "shop[inventory_ids][][item_id]", belonging.item_id) %></td>
+		    <td class="em">Base Price: <%= belonging.item.cost %></td>
+		    <td rowspan="2"><%= avatar_image(belonging.item,'small') %></td>
+          </tr>
+          <tr class='inventory-item'>
+	        <td colspan="2" class="em">Rarity: <%= belonging.item.rarity %></td>
+	      </tr> 
+        <% end %>
+	  </tbody>
+	</table>
+	<% end %>
+  </div>
+</div>
+
+<div class="box">
+  <p class="em">Useful items are in high demand and difficult to obtain in these lean times. The markets are 
+	usually picked clean, and that's where shopkeepers come in. When you open a shop, you stock it with inventory 
+	from your belongings, and then can sell to other pets for any price you like. If you have desirable items or 
+	a good sense of timing, you can earn quite a bit of Kibble</p>
+
+  <table class='form'>
+    <tbody>
+    <tr>
+	  <td><%= f.label :name, 'Shop Name' %></td>
+	  <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+	  <td><%= f.label :specialty %></td>
+	  <td>
+	    <%= f.collection_select(:specialty, Shop::SPECIALTIES, :to_s, :to_s, {:include_blank => true}) %>
+	  </td>
+    </tr>
+    <tr>
+	  <td><label>Founding Cost</label></td>
+	  <td><%= AppConfig.shops.opening_fee %>k</td>
+    </tr>
+    <tr>
+	  <td>&nbsp;</td>
+	  <td>
+		<% if current_user_pet.kibble >= AppConfig.shops.opening_fee %>
+	      <%= f.submit 'Open Store' %>
+	      <%= facebook_link_to 'Nevermind', stored_location %>
+	    <% else %>
+	      <p class="em">Not enough <%= facebook_link_to "kibble", premium_facebook_items_path %> to open a shop right now.</p>
+	    <% end %>
+	  </td>
+	</tr>
+    </tbody>
+  </table>	
+</div>	
+<% end %>

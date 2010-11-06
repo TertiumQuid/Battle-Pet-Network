@@ -1,0 +1,24 @@
+prowling:
+  name: Prowling
+  description: While prowling you can challenge and battle other pets.
+  cost: 0
+    
+scavenging:
+  name: Scavenging    
+  description: While scavenging you have a chance every hour to discover an item.
+  cost: 10
+  
+foraging:
+  name: Foraging
+  description: While foraging you have a chance every hour to discover food or treats.
+  cost: 10
+    
+taming:
+  name: Human Taming
+  description: While taming humans you have a chance every hour to discover a wild human and bring them under your pet's control.
+  cost: 30
+  
+shopkeeping:
+  name: Shopkeeping
+  description: While shopkeeping, your pet's item shop is open for business and other pets can purchase goods from you in the market. 
+  cost: 50

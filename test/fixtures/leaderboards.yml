@@ -1,0 +1,41 @@
+ambassadors:
+  rankable_type: Pet
+  name: Ambassadors
+  description: The ambassadors of the world are those pets with the most number of signs, messages, forum posts, and other social activity over the last ranking period. These pets are widely known and, for better or worse, pass through the many lives of their brethren.
+  ranked_count: 20
+  
+hordes:
+  rankable_type: Pack
+  name: Hordes
+  description: Hordes are the packs with the greatest accumulated power. This means the most pack members, most powerful spoils, biggest treasury, and greatest average battle record amongst its members. Only active pack members are counted when ranking the pack, however. Awards are given to the pack leader, who may then distribute it at will.
+  ranked_count: 10
+
+forerunners:
+  rankable_type: Pet
+  name: Forerunners
+  description: Forerunners are the most experienced pets, rushing toward advancement and power with maximum ambition. These pets are those with the most total experience, without qualification. Leaders will often remain at the top of their ranks for as long as they don't give up.
+  ranked_count: 15
+
+manlords:
+  rankable_type: Pet
+  name: Manlords
+  description: Relentless fighters are those pets who have fought the most often, whose bloodlust and and ceaseless prowling has earned a name. Victory means little here, it is only those who welcome any and all battle who will be leaders.
+  ranked_count: 15
+
+relentless:
+  rankable_type: Pet
+  name: Relentless Fighters
+  description: Relentless fighters are those pets who have fought the most often, whose bloodlust and and ceaseless prowling has earned a name. Victory means little here, it is only those who welcome any and all battle who will be leaders.
+  ranked_count: 15
+  
+franchises:
+  rankable_type: Shop
+  name: Franchises
+  description: Franchises are pet shops which have sold the most items. Whether pushing volume goods or luxury rarities, ranking has nothing to do with profit, and everything to do with popularity and playing an important role in the market economy.
+  ranked_count: 10
+  
+strongest:
+  rankable_type: Pet
+  name: Strongest Fighters
+  description: The strongest fighters are pets who have the most wins over the most fights. Winning means little if you've only proven yourself against a handful of opponents, and so a pet's victories become more meaningful over more battles. Ranking leaders are not grouped by level or opponent difficulty, and so the rank represents the total factors contributing to a pet's recent battle record.
+  ranked_count: 25

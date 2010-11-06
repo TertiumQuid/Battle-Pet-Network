@@ -1,0 +1,214 @@
+<% content_for :page_title do %><h2><%= @pet.name %>'s Profile</h2><% end %>
+
+<div class="sidebox slim right">
+  <%= render_bio_box(@pet,true) %>
+
+  <div class="box slim signs">
+    <h4>Signs</h4>
+    <p class="em">When other pets visit, you can interact in a variety of ways.</p>
+	<% if @signs.size > 0 %>
+	  <p>Indeed, some pets have visited:</p>
+	  <ul id="signs">
+		<% @signs.each do |sign| %>
+		  <li class="sign">
+			<% facebook_link_to sign.sender.name, facebook_pet_path(sign.sender) %> <%= "#{sign.verb} you" %>
+			<%= "#{time_ago_in_words(sign.created_at)} ago" %>
+		  </li>
+		<% end %>
+	  </ul>
+	<% else %>
+	  <p>No pets have visited you in the last three days.
+	<% end %>
+  </div>
+
+  <div class="box slim messages">
+    <h4>Messages</h4>
+    <p>
+	  <strong><%= facebook_link_to 'Go to Inbox', inbox_facebook_messages_path %></strong>  |  
+	  <%= facebook_link_to 'Go to Outbox', outbox_facebook_messages_path %>
+	</p>
+	<% if @messages.size > 0 %>
+      <table class="messages">
+	  <tbody>
+		<% @messages.each do |message| %>
+		  <tr>
+			<td><%= message_icon(message) %></td>
+			<td><%= facebook_link_to message.sender.name, facebook_pet_path(message.sender) %></td>
+			<td><%= facebook_link_to message.subject, facebook_message_url(message) %></td>
+  			<td><%= "#{time_ago_in_words(message.created_at)} ago" %></td>
+		  </tr>
+		<% end %>
+	  </tbody>
+      </table>
+	<% else %>
+	  <p class="empty">You have no messages in your inbox</p>
+	<% end %>
+  </div>
+
+  <div class="box slim retire">
+    <h4>Retire Pet</h4>
+    <p class="em">If you wish to end your current companionship with your pet you can retire them. This <span class="strong">cannot be undone!</span></p>
+	<p><%= facebook_link_to "Retire #{@pet.name}", retire_facebook_pet_path, :method => :delete, :confirm => "Are you sure you want to retire your pet?" %></p>
+  </div>
+</div>
+
+<div class="box">
+  <h4 class="right">
+	<%="Level #{@pet.level_rank_count} #{@pet.breed_name}"%>
+  </h4>
+  <h3><%= @pet.name %></h3>
+
+  <table class='pet' width="100%">
+	<tbody>
+	<tr>
+	  <td rowspan="6" width="105">
+		<%= avatar_image(@pet,'large') %>
+	  </td>
+	  <td>Health:</td><td><%=@pet.health%></td>
+	  <td><%= percentage_bar [@pet.current_health, (@pet.total_health-@pet.current_health) ], :fill=>true, :width=>150 %></td>
+	</tr>
+	<tr>
+	  <td>Endurance:</td><td><%= @pet.endurance %></td>
+	  <td><%= percentage_bar [@pet.current_endurance, (@pet.total_endurance-@pet.current_endurance) ], :fill=>true, :width=>150 %></td>
+	</tr>
+	<tr>
+	  <td>Fortitude:</td><td><%= @pet.fortitude %></td>
+	  <td rowspan="4">
+		<table width="100%">
+		  <tr><td class="tright">Total Battles:</td><td><%= @pet.battles_count %></td></tr>
+		  <tr><td class="tright">Wins:</td><td><%= @pet.wins_count %></td></tr>
+		  <tr><td class="tright">Loses:</td><td><%= @pet.loses_count %></td></tr>
+		  <tr><td class="tright">Draws:</td><td><%= @pet.draws_count %></td></tr>
+		  <tr><td class="tright">Favorite Actions:</td><td><%= @pet.favorite_actions %></td></tr>
+		</table>
+	  </td>
+	</tr>
+	<tr><td>Power:</td><td><%= @pet.power %></td></tr>
+	<tr><td>Intelligence:</td><td><%= @pet.intelligence %></td></tr>
+	<tr><td>Affection:</td><td><%= @pet.affection %></td></tr>
+	<tr>
+	  <td colspan="2"><label><%= @pet.kibble %> kibble</label></td>
+	  <td colspan="2" class="tright"><%= facebook_link_to "View Combat Profile", combat_facebook_pet_path %></td>
+	</tr>
+    </tbody>
+  </table>	
+</div>
+
+<% unless @challenges.blank? %>
+<div class="box">
+  <h3>You've Been Challenged to Battle! Now You Must Respond.</h3>
+
+  <% cell_table(@challenges) do |c,idx| %>
+  <td>
+    <table class="challenge">
+	  <tbody>
+		<tr>
+		  <td rowspan="4"><%= avatar_image(c.attacker,'small') %></td>
+		  <th><%= facebook_link_to c.attacker.name, facebook_pet_path(c.attacker)%></th>
+		</tr>
+		<tr>
+		  <td><label>Level <%= c.attacker.level_rank_count %> <%= c.attacker.breed.name %></label></td>
+		</tr>
+		<tr>
+		  <td><label>Record: <%= c.attacker.battle_record %></label></td>
+		</tr>
+		<tr>
+		  <td>
+			<span class="right button"><%= facebook_link_to "Decline", refuse_facebook_challenge_path(c) %></span>
+			<span class="left button"><%= facebook_link_to "Accept", edit_facebook_challenge_path(c) %></span>
+		  </td>
+		</tr>
+	  </tbody>	
+	</table>
+  </td>	
+  <% end %>
+</div>
+<% end %>
+
+<div class="box">
+  <div class="right">	
+	<h3><%= "#{@pet.name} is #{@pet.occupation.name.downcase}" %></h3>
+  </div>	
+  <h3><%= facebook_link_to 'Occupations', facebook_occupations_path %></h3>
+  <table width="100%">
+	<tr>
+	  <td colspan="2"><p class="em">How is your pet currently occupying themselves?</p></td>
+	<% if @pet.occupation.cost > 0 && @pet.occupation.pet_can?(@pet) %>
+	  <% form_for @pet, 
+		  :url => facebook_nested_url(attempt_facebook_occupation_path(@pet.occupation)), 
+		  :html => { :method => :put} do |f| %>
+        <td class="tright"><br /><%= submit_tag "Do Now for #{@pet.occupation.cost} endurance" %></td>
+	  <% end %>
+	<% end %>
+	</tr>
+	<tr><td colspan="3"><hr /></td></tr>
+	<tr>
+	<% form_for :pet, @pet, :url => "/#{facebook_app_path}/pets/home/pet", :html => { :method => :put} do |f| %>
+	  <td class="tright" colspan="2">
+	    <%= f.collection_select(:occupation_id, Occupation.ordered, :id, :name, {:include_blank => true}) %>
+	  </td>
+	  <td width="155"><%= f.submit 'Update Occupation' %></td>
+	<% end %>
+	</tr>
+  </table>
+</div>
+
+<div class="box">
+  <h3><%= facebook_link_to 'Belongings', facebook_belongings_path %></h3>
+  <% unless @items.blank? %>	
+    <% cell_table(@items, 4, :class => "belongings") do |i,idx| %>
+	    <td>
+		  <% item_badge(i.item) %>	
+		</td>
+    <% end %>
+  <% else %>
+    <p class="em">Your pet doesn't own any items right now, but you can always go shopping at 
+	<%= facebook_link_to 'the market', facebook_items_path %> or try to <%= facebook_link_to 'scavenge', facebook_occupations_path %> what luck may uncover from the ruined lands.</p>
+  <% end %>
+</div>
+
+<% if has_shop? %>
+<div class="box shop">
+  <h4 class="right">Specialty: <%= @shop.specialty%></h4>
+  <h3>Item Shop: <%= facebook_link_to @shop.name, edit_facebook_shop_path %></h3>
+  <% if @shop.inventories_count < 1 %>
+  <p class="em">Your shop's inventory is empty. Your customers are fleeing to rival vendors!</p>
+  <% else %>
+    <% cell_table(@shop.inventories, 5) do |i,idx| %>
+      <td><span class="small"><%= "#{i.item.name} (#{i.cost})"%></span></td>
+    <% end %>
+  <% end %>
+</div>	
+<% end %>
+
+<div class="box">
+  <h3><%= @humans.blank? ? 'Wild Humans' : facebook_link_to('Human Kennels', facebook_kennel_index_path) %></h3>
+  <% unless @humans.blank? %>
+	  <table class="kennels">
+		<tbody>
+		<% @tames.each do |tame| %>
+		<tr>
+		  <table class='domesticated-human'>
+			<tbody>
+			<tr><th colspan="3"><%= tame.human.name %></th></tr>
+			<tr>
+			  <td><%= avatar_image(tame.human, 'medium') %></td>
+			  <td>
+				<div>Type: <strong><%= tame.human.human_type %></strong></div>
+				<div>Power: <strong><%= tame.human.power %></strong></div>
+				<div>Required Level: <strong><%= tame.human.required_rank %></strong></div>
+				<div>Rarity: <strong><%= tame.human.difficulty %></strong></div>
+			  </td>
+			</tr>
+			</tbody>
+		  </table>
+		</tr>
+		<% end %>    
+  <% else %>
+    <p class="em">Wild humans roam the lands, but though mindless they still feel love and can be tamed by a pet's affection. 
+	Domesticated humans are kept in free range kennels and serve their master with their given special ability. Once your pet grows 
+	weary of the company, they can simply place the human into slavery, working tirelessly to gather kibble from the lands.
+	</p>
+	<p class="em">You can try to find and tame humans by setting your pet's occupation to <strong>Human Taming</strong>.</p>
+  <% end %>
+</div>
